@@ -1,0 +1,677 @@
+{smcl}
+{* 26Jul2004}{...}
+{hline}
+help for {hi:ivreg2}
+{hline}
+
+{title:Extended instrumental variables/2SLS, GMM and AC/HAC, LIML and k-class regression}
+
+{p 8 14}{cmd:ivreg2} {it:depvar} [{it:varlist1}]
+{cmd:(}{it:varlist2}{cmd:=}{it:varlist_iv}{cmd:)} [{it:weight}]
+[{cmd:if} {it:exp}] [{cmd:in} {it:range}]
+{bind:[{cmd:,} {cmd:gmm}}
+{cmd:bw(}{it:#}{cmd:)}
+{cmd:kernel(}{it:string)}{cmd:)}
+{cmd:liml}
+{cmd:fuller(}{it:#}{cmd:)}
+{cmd:kclass(}{it:#}{cmd:)}
+{cmd:coviv}
+{cmdab:r:obust}
+{cmdab:cl:uster}{cmd:(}{it:varname}{cmd:)}
+{cmd:orthog(}{it:varlist_ex}{cmd:)}
+{cmdab:sm:all}
+{cmdab:l:evel}{cmd:(}{it:#}{cmd:)} 
+{cmdab:h:ascons} 
+{cmdab:noc:onstant}
+{cmd:first} {cmd:ffirst} {cmdab:nohe:ader} {cmdab:nofo:oter}
+{cmdab:psc:ore:(}{it:newvar}{cmd:)}
+{cmdab:ef:orm}{cmd:(}{it:string}{cmd:)} 
+{cmdab:dep:name}{cmd:(}{it:varname}{cmd:)}
+{bind:{cmdab:ms:e1} {cmd:plus} ]}
+
+{p}{cmd:ivreg2} may be used with time-series or panel data,
+in which case the data must be {cmd:tsset}
+before using {cmd:ivreg2}; see help {help tsset}.
+
+{p}All {it:varlists} may contain time-series operators;
+see help {help varlist}.
+However, {it:depvar} may not contain time-series operators.
+
+{p}{cmd:aweight}s, {cmd:fweight}s, {cmd:iweight}s and {cmd:pweight}s
+are allowed; see help {help weights}.
+
+{p}The syntax of {help predict} following {cmd:ivreg2} is
+
+{p 8 16}{cmd:predict} [{it:type}] {it:newvarname} [{cmd:if} {it:exp}]
+[{cmd:in} {it:range}] [{cmd:,} {it:statistic}]
+
+{p}where {it:statistic} is
+
+{p 8 23}{cmd:xb}{space 11}fitted values; the default{p_end}
+{p 8 23}{cmdab:r:esiduals}{space 4}residuals{p_end}
+{p 8 23}{cmd:stdp}{space 9}standard error of the prediction{p_end}
+
+{p}These statistics are available both in and out of sample;
+type "{cmd:predict} {it:...} {cmd:if e(sample)} {it:...}"
+if wanted only for the estimation sample.
+
+
+{title:Description}
+
+{p}{cmd:ivreg2} implements a range of single-equation estimation methods
+for the linear regression model: OLS, instrumental
+variables (IV, also known as two-stage least squares, 2SLS),
+the generalized method of moments (GMM),
+limited-information maximum likelihood (LIML), and k-class estimators.
+In the language of IV/GMM, {it:varlist1} are the exogenous
+regressors or "included instruments",
+{it:varlist_iv} are the exogenous variables excluded
+from the regression or "excluded instruments",
+and {it:varlist2} the endogenous regressors that are being "instrumented".
+
+{p}{cmd:ivreg2} will also estimate linear regression models using
+robust (heteroskedastic-consistent),
+autocorrelation-consistent (AC) and
+heteroskedastic and autocorrelation-consistent (HAC) variance estimates.
+
+{p}{cmd:ivreg2} provides extensions to Stata's official {cmd:ivreg}
+and {cmd:newey}.
+{cmd:ivreg2} supports the same command syntax as official {cmd:ivreg}
+and (almost) all of its options.
+The main extensions available are as follows:
+two-step feasible GMM estimation ({cmd:gmm} option);
+LIML and k-class estimation;
+automatic output of the Hansen-Sargan or Anderson-Rubin statistic for overidentifying
+restrictions;
+C statistic test of exogeneity of subsets of instruments
+({cmd:orthog()} option);
+kernel-based autocorrelation-consistent (AC)
+and heteroskedastic and autocorrelation consistent (HAC) standard errors
+and covariance estimation ({cmd:bw(}{it:#}{cmd:)} option),
+with user-specified choice of kernel ({cmd:kernel()} option);
+default reporting of large-sample statistics
+(z and chi-squared rather than t and F);
+{cmd:small} option to report small-sample statistics;
+first-stage regression reported with F-test of excluded instruments
+and R-squared with included instruments "partialled-out";
+{cmd:ffirst} option to report only these first-stage regression statistics
+and not the regression results themselves; 
+{cmd:nofooter} option to suppress footer of regression output.
+{cmd:ivreg2} can also be used for ordinary least squares (OLS) estimation
+using the same command syntax as official {cmd:regress} and {cmd:newey}.
+The only option available in official {cmd:ivreg}
+and currently unsupported in {cmd:ivreg2} is {cmd:beta}.
+
+{p}The standard errors reported by {cmd:ivreg2} can be made consistent
+in the presence of a variety of violations of the assumption of i.i.d. errors:
+{bind:(1) {cmd:robust}} causes {cmd:ivreg2} to report standard errors that are
+robust to the presence of arbitrary heteroskedasticity;
+{bind:(2) {cmd:cluster}} standard errors are robust to both
+arbitrary heteroskedasticity and arbitrary intra-group correlation;
+{bind:(3) {cmd:bw(}{it:#}{cmd:)}} requests AC standard errors that are
+robust to arbitrary autocorrelation;
+{bind:(4) {cmd:bw(}{it:#}{cmd:)}} combined with {cmd:robust}
+requests HAC standard errors that are
+robust to both arbitrary heteroskedasticity and arbitrary autocorrelation.
+
+{p}When combined with the above options, the {cmd:gmm} option generates
+efficient estimates of the coefficients as well as consistent
+estimates of the standard errors.
+The {cmd:gmm} option implements the two-step efficient
+generalized method of moments (GMM) estimator.
+The efficient GMM estimator minimizes the GMM criterion function
+J=N*g'*W*g, where N is the sample size,
+g are the orthogonality or moment conditions
+(specifying that all the exogenous variables, or instruments,
+in the equation are uncorrelated with the error term)
+and W is a weighting matrix.
+In two-step efficient GMM, the efficient or optimal weighting matrix
+is the inverse of an estimate of the covariance matrix of orthogonality conditions.
+The efficiency gains of this estimator relative to the
+traditional IV/2SLS estimator derive from the use of the optimal
+weighting matrix, the overidentifying restrictions of the model,
+and the relaxation of the i.i.d. assumption.
+For an exactly-identified model,
+the efficient GMM and traditional IV/2SLS estimators coincide,
+and under the assumptions of conditional homoskedasticity and independence,
+the efficient GMM estimator is the traditional IV/2SLS estimator.
+For further details, see Hayashi (2000), pp. 206-13, and 226-27.
+
+{p}The efficient GMM estimators available with {cmd:gmm} correspond
+to the above choices for consistent standard errors:
+{bind:(1) used} on its own, {cmd:gmm} causes {cmd:ivreg2} to report
+coefficient estimates that are efficient in presence of arbitrary heteroskedasticity;
+{bind:(2) {cmd:gmm}} combined with {cmd:cluster}
+generates coefficient estimates that are efficient in the presence of
+arbitrary heteroskedasticity and arbitrary intra-group group correlation;
+{bind:(3) {cmd:gmm}} plus {cmd:bw(}{it:#}{cmd:)} requests coefficient estimates that are
+efficient in the presence of arbitrary autocorrelation;
+{bind:(4) {cmd:gmm}} plus {cmd:bw(}{it:#}{cmd:)} and {cmd:robust}
+generates coefficient estimates that are efficient in the presence of
+both arbitrary heteroskedasticity and arbitrary autocorrelation.
+
+{p}{cmd:ivreg2} allows a variety of options for kernel-based HAC and AC estimation.
+The {cmd:bw(}{it:#}{cmd:)} option sets the bandwidth used in the estimation
+and {cmd:kernel(}{it:string}{cmd:)} is the kernel used;
+the default kernel is the Bartlett kernel,
+also known in econometrics as Newey-West (see help {help newey}).
+{cmd:ivreg2} can also be used for kernel-based estimation
+with panel data, i.e., a cross-section of time series.
+Before using {cmd:ivreg2} for kernel-based estimation
+of time series or panel data,
+the data must be {cmd:tsset}; see help {help tsset}.
+
+{p}For further details, see Hayashi (2000), pp. 206-13 and 226-27
+(on GMM estimation),
+Wooldridge (2002), p. 193 (on cluster-robust GMM),
+and Hayashi (2000), pp. 406-10 or Cushing and McGarvey (1999)
+(on kernel-based covariance estimation).
+
+{p}The Hansen-Sargan test is a test of overidentifying restrictions.
+The joint null hypothesis is that the instruments are valid
+instruments, i.e., uncorrelated with the error term,
+and that the excluded instruments are correctly excluded from the estimated equation.
+Under the null, the test statistic is distributed as chi-squared
+in the number of overidentifying restrictions.
+A rejection casts doubt on the validity of the instruments.
+For the efficient GMM estimator, the test statistic is
+Hansen's J statistic, the minimized value of the GMM criterion function.
+For the 2SLS estimator, the test statistic is Sargan's statistic,
+typically calculated as N*R-squared from a regression of the IV residuals
+on the full set of instruments.
+Under the assumption of conditional homoskedasticity,
+Hansen's J statistic becomes Sargan's statistic.
+The J statistic is consistent in the presence of heteroskedasticity
+and (for HAC-consistent estimation) autocorrelation;
+Sargan's statistic is consistent if the disturbance is homoskedastic
+and (for AC-consistent estimation) if it is also autocorrelated.
+With {cmd:gmm}, {cmd:robust} and/or {cmd:cluster},
+Hansen's J statistic is reported.
+In the latter case the statistic allows observations
+to be correlated within groups.
+For further discussion see e.g. Hayashi (2000, pp. 227-8, 407, 417).
+
+{p}The Sargan statistic can also be calculated after
+{cmd:ivreg} or {cmd:ivreg2} by the command {cmd:overid}.
+The features of {cmd:ivreg2} that are unavailable in {cmd:overid}
+are the J statistic and the C statistic;
+the {cmd:overid} options unavailable in {cmd:ivreg2}
+are various small-sample and pseudo-F versions of Sargan's statistic
+and its close relative, Basmann's statistic.
+See help {help overid} (if installed).
+
+{p} Maximum-likelihood estimation of a single equation of this form
+(endogenous RHS variables and excluded instruments)
+is known as limited-information maximum likelihood or LIML.
+The overidentifying restrictions test
+reported after LIML estimation is the Anderson-Rubin statistic.
+LIML, OLS and IV/2SLS are examples of k-class estimators.
+LIML is a k-class estimator with k=the LIML eigenvalue lambda;
+2SLS is a k-class estimator with k=1;
+OLS is a k-class esimator with k=0.
+Estimators based on other values of k have been proposed.
+Fuller's modified LIML (available with the {cmd:fuller(}{it:#}{cmd:)} option)
+sets k = lambda - alpha/(N-K), where lambda is the LIML eigenvalue,
+K = number of instruments (included and excluded),
+and the Fuller parameter alpha is a user-specified positive constant.
+Nagar's bias-adjusted 2SLS estimator can be obtained with the
+{cmd:kclass(}{it:#}{cmd:)} option by setting
+k = 1 + (K-L)/N, where K-L = number of overidentifying restrictions
+and N = the sample size.
+A Sargan statistic is reported after estimation
+with the {cmd:kclass(}{it:#}{cmd:)} option.
+For a discussion of LIML and k-class estimators,
+see Davidson and MacKinnon (1993, pp. 644-51).
+
+{p}The C statistic, or "difference-in-Sargan" statistic,
+allows a test of a subset of the orthogonality conditions, i.e.,
+it is a test of the exogeneity of one or more instruments.
+It is defined as
+the difference of the Hansen-Sargan
+of the unrestricted equation (with the smaller set of instruments)
+and restricted equation (with the larger set of instruments).
+Under the null hypothesis that both the restricted and unrestricted equations
+are well-specified,
+the C statistic is distributed as chi-squared
+in the number of instruments tested.
+Note that failure to reject the null hypothesis that
+the subset of orthogonality conditions is valid
+requires that
+the full set of orthogonality conditions be valid;
+both the C statistic and the accompanying the Hansen-Sargan test statistic
+should be small.
+The instruments tested may be either excluded or included exogenous variables.
+If excluded exogenous variables are being tested,
+the restricted equation omits these from excluded instruments;
+if included exogenous variables, the restricted equation treats them
+as included endogenous variables.
+To guarantee that the C statistic is non-negative in finite samples,
+the estimated covariance matrix of orthogonality conditions
+from the unrestricted (more efficient) equation
+is used to calculate both Hansen-Sargan statistics
+(in the case of simple IV/2SLS, this amounts to using the MSE
+from the unrestricted equation to calculate both Sargan statistics).
+If estimation is by LIML, the C statistic reported
+is based on the unrestricted and restricted Anderson-Rubin statistics
+and the test is a likelihood ratio (LR) test.
+For further discussion, see Hayashi (2000), pp. 218-22 and pp. 232-34.
+
+{p}If the list of endogenous variables {it:varlist2} is empty
+but the list of excluded instruments {it:varlist_iv} is not,
+and the option {cmd:gmm} is specified,
+{cmd:ivreg2} calculates Cragg's "heteroskedastic OLS" (HOLS) estimator,
+an estimator that is more efficient than OLS
+in the presence of heteroskedasticity of unknown form
+(see Davidson and MacKinnon (1993), pp. 599-600).
+If the option {cmd:bw(}{it:#}{cmd:)} is specified,
+the HOLS estimator is efficient in the presence of
+arbitrary autocorrelation,
+and if both {cmd:bw(}{it:#}{cmd:)} and {cmd:robust} are specified
+the HOLS estimator is efficient in the presence of
+arbitrary heteroskedasticity and autocorrelation.
+The efficiency gains of HOLS derive from the orthogonality conditions
+of the excluded instruments listed in {it:varlist_iv}.
+If no endogenous variables are specified and {cmd:gmm} is not specified,
+{cmd:ivreg2} reports standard OLS coefficients.
+The Hansen-Sargan statistic reported
+when the list of endogenous variables {it:varlist2} is empty
+is a Lagrange multiplier (LM) test
+of the hypothesis that the excluded instruments {it:varlist_iv} are
+correctly excluded from the restricted model.
+If the estimation is LIML, the Anderson-Rubin statistic is an LR
+test of this hypothesis.
+For more on LM tests, see e.g. Wooldridge (2002), pp. 58-60.
+
+{p}{cmd:ivreg2} also allows straightforward OLS estimation
+by using the same syntax as {cmd:regress}, i.e.,
+{it:ivreg2 depvar varlist1}.
+This can be useful if the user wishes to use one of the
+features of {cmd:ivreg2} in OLS regression, e.g., AC or
+HAC standard errors.
+
+{p}A discussion of these computations and related tests
+can be found in Baum, Schaffer, and Stillman (2003).
+Some features of the program postdate that article.
+
+
+{title:Small sample corrections}
+
+{p}Mean square error = sqrt(RSS/(N-K)) if {cmd:small}, = sqrt(RSS/N) otherwise.
+
+{p}If {cmd:robust} is chosen, the finite sample adjustment
+(see {hi:[R] regress}) to the robust variance-covariance matrix
+qc = N/(N-K) if {cmd:small}, qc = 1 otherwise.
+
+{p}If {cmd:cluster} is chosen, the finite sample adjustment
+qc = (N-1)/(N-K)*M/(M-1) if {cmd:small}, where M=number of clusters,
+qc = 1 otherwise.
+
+{p}The Sargan and C (difference-in-Sargan) statistics use
+error variance = RSS/N, i.e., there is no small sample correction.
+
+
+{title:Options}
+
+{p 0 4}{cmd:gmm} requests the two-step efficient GMM estimator.
+If no endogenous variables are specified, the estimator is Cragg's HOLS estimator.
+See help {help ivgmm0} (if installed) for more details.
+
+{p 0 4}{cmd:bw(}{it:#}{cmd:)} impements AC or HAC covariance estimation
+with bandwidth equal to {it:#}, where {it:#} is an integer greater than zero.
+Specifying {cmd:robust} implements HAC covariance estimation;
+omitting it implements AC covariance estimation.
+
+{p 0 4}{cmd:kernel(}{it:string)}{cmd:)} specifies the kernel
+to be used for AC and HAC covariance estimation;
+the default kernel is Bartlett (also known in econometrics
+as Newey-West).  Other kernels available are (abbreviations in parentheses):
+Truncated (tru); Parzen (par); Tukey-Hanning (thann); Tukey-Hamming (thamm);
+Daniell (dan); Tent (ten); and Quadratic-Spectral (qua or qs).
+
+{p 4 4}Note: in the cases of the Bartlett, Parzen,
+and Tukey-Hanning/Hamming kernels, the number of lags used
+to construct the kernel estimate equals the bandwidth minus one.
+Stata's official {cmd:newey} implements
+HAC standard errors based on the Bartlett kernel,
+and requires the user to specify
+the maximum number of lags used and not the bandwidth;
+see help {help newey}.
+If these kernels are used with {cmd:bw(1)},
+no lags are used and {cmd:ivreg2} will report the usual
+Eicker/Huber/White/sandwich variance estimates.
+
+{p 0 4}{cmd:liml} requests the limited-information maximum likelihood estimator.
+
+{p 0 4}{cmd:fuller(}{it:#}{cmd:)} specifies that Fuller's modified LIML estimator
+is calculated using the user-supplied Fuller parameter alpha,
+a non-negative number.
+Alpha=1 has been suggested as a good choice.
+
+{p 0 4}{cmd:kclass(}{it:#}{cmd:)} specifies that a general k-class estimator is calculated
+using the user-supplied #, a non-negative number.
+
+{p 0 4}{cmd:coviv} specifies that the matrix used to calculate the
+covariance matrix for the LIML or k-class estimator
+is based on the 2SLS matrix, i.e., with k=1.
+In this case the covariance matrix will differ from that calculated for the 2SLS
+estimator only because the estimate of the error variance will differ.
+The default is for the covariance matrix to be based on the LIML or k-class matrix.
+
+{p 0 4}{cmd:robust} specifies that the Eicker/Huber/White/sandwich estimator of
+variance is to be used in place of the traditional calculation.  {cmd:robust}
+combined with {cmd:cluster()} further allows residuals which are not
+independent within cluster (although they must be independent between
+clusters).  See {hi:[U] 23.11 Obtaining robust variance estimates}.
+
+{p 0 4}{cmd:cluster}{cmd:(}{it:varname}{cmd:)} specifies that the observations
+are independent across groups (clusters) but not necessarily independent
+within groups.  {it:varname} specifies to which group each observation
+belongs; e.g., {cmd:cluster(personid)} in data with repeated observations on
+individuals.  {cmd:cluster()} can be used with {help pweight}s to produce
+estimates for unstratified cluster-sampled data, but see help {help svyreg}
+for a command especially designed for survey data.  Specifying {cmd:cluster()}
+implies {cmd:robust}.
+
+{p 0 4}{cmd:orthog}{cmd:(}{it:varlist_ex}{cmd:)} requests that a C-statistic
+be calculated as a test of the exogeneity of the instruments in {it:varlist_ex}.
+These may be either included or excluded exogenous variables.
+The standard order condition for identification applies:
+if included exogenous variables are specified in {cmd:orthog()},
+the restricted equation must still be identified with those 
+variables removed from the instruments list.
+
+{p 0 4}{cmd:small} requests that small-sample statistics (F and t-statistics)
+be reported instead of large-sample statistics (chi-squared and z-statistics).
+Large-sample statistics are the default.
+The exception is the statistic for the significance of the regression,
+which is always reported as a small-sample F statistic.
+
+{p 0 4}{cmd:level(}{it:#}{cmd:)} specifies the confidence level, in percent,
+for confidence intervals of the coefficients; see help {help level}.
+
+{p 0 4}{cmd:hascons} indicates that a user-defined constant or its equivalent
+is specified among the independent variables.  Some caution is recommended
+when using this option as resulting estimates may not be as accurate as they
+otherwise would be.  For more information, see help {help regress}.
+
+{p 0 4}{cmd:noconstant} suppresses the constant term (intercept) in the
+regression.  If {cmd:noconstant} is specified, the constant term is excluded
+from both the final regression and the first-stage regression.  To include a
+constant in the first-stage when {cmd:noconstant} is specified, explicitly
+include a variable containing all 1's in {it:varlist_iv}.
+
+{p 0 4}{cmd:first} requests that the first-stage regression results be displayed.
+The first-stage results include Shea's (1997) "partial R-squared" measure
+of instrument relevance that takes intercorrelations among instruments
+into account,
+the more common form of "partial R-squared"
+(a.k.a. the "squared partial correlation" between the excluded
+instruments and the endogenous regressor in question),
+and the F-test of the excluded instruments that corresponds to the latter
+R-squared measure.
+The two measures of "partial R-squared" coincide when the model has
+only one endogenous regressor.
+The two partial R-squared measures, the F statistic, degrees of freedom of the F statistic,
+and the p-value of the F statistic for each endogenous variable
+are saved in the matrix e(first).
+The first-stage results are always reported with small-sample statistics,
+to be consistent with the recommended use of the first-stage F-test as a diagnostic.
+If the estimated equation is reported with heteroskedastic-robust standard errors,
+the first-stage F-test is also heteroskedastic-robust.
+
+{p 0 4}{cmd:ffirst} requests the F-test of the excluded
+instruments and the R-squared with the included instruments partialled-out.
+The first-stage regression results themselves are not reported.
+The results are saved in the matrix e(first).
+
+{p 0 4}{cmd:pscore(}{it:newvar}{cmd:)} creates a new variable
+for the projected scores from the model fit.
+The new variable contains each observation's contribution
+to the score; see {hi:[U] 23.15 Obtaining scores}.
+
+{p 0 4}{cmd:noheader}, {cmd:eform()}, {cmd:depname()}, {cmd:mse1}, and {cmd:plus}
+are for ado-file writers; see {hi:[R] ivreg} and {hi:[R] regress}.
+
+{p 0 4}{cmd:nofooter} suppresses the display of the footer containing
+the overidentification statistic, C-statistic,
+and lists of endogenous variables and instruments.
+
+
+{title:Remarks}
+
+{p}{cmd:ivreg2} does not report an ANOVA table.
+Instead, it reports the RSS and both the centered and uncentered TSS.
+It also reports both the centered and uncentered R-squared.
+NB: the TSS and R-squared reported by official {cmd:ivreg} is centered
+if a constant is included in the regression, and uncentered otherwise.
+
+{p}{cmd:ivreg2} saves the following results in {cmd:e()}:
+
+Scalars
+{col 4}{cmd:e(N)}{col 18}Number of observations
+{col 4}{cmd:e(yy)}{col 18}Total sum of squares (SS), uncentered (y'y)
+{col 4}{cmd:e(yyc)}{col 18}Total SS, centered (y'y - ((1'y)^2)/n)
+{col 4}{cmd:e(rss)}{col 18}Residual SS
+{col 4}{cmd:e(mss)}{col 18}Model SS =yyc-rss if the eqn has a constant, =yy-rss otherwise
+{col 4}{cmd:e(df_m)}{col 18}Model degrees of freedom
+{col 4}{cmd:e(df_r)}{col 18}Residual degrees of freedom
+{col 4}{cmd:e(r2u)}{col 18}Uncentered R-squared, 1-rss/yy
+{col 4}{cmd:e(r2c)}{col 18}Centered R-squared, 1-rss/yyc
+{col 4}{cmd:e(r2)}{col 18}Centered R-squared if the eqn has a constant, uncentered otherwise
+{col 4}{cmd:e(r2_a)}{col 18}Adjusted R-squared
+{col 4}{cmd:e(rankxx)}{col 18}Rank of the matrix of observations on rhs variables=L
+{col 4}{cmd:e(rankzz)}{col 18}Rank of the matrix of observations on instruments=K
+{col 4}{cmd:e(rankS)}{col 18}Rank of covariance matrix S of orthogonality conditions
+{col 4}{cmd:e(rmse)}{col 18}root mean square error=sqrt(rss/(N-L)) if -small-, =sqrt(rss/N) otherwise
+{col 4}{cmd:e(F)}{col 18}F statistic
+{col 4}{cmd:e(N_clust)}{col 18}Number of clusters
+{col 4}{cmd:e(bw)}{col 18}Bandwidth
+{col 4}{cmd:e(lambda)}{col 18}LIML eigenvalue
+{col 4}{cmd:e(kclass)}{col 18}k in k-class estimation
+{col 4}{cmd:e(fuller)}{col 18}Fuller parameter alpha
+{col 4}{cmd:e(sargan)}{col 18}Sargan statistic
+{col 4}{cmd:e(sarganp)}{col 18}p-value of Sargan statistic
+{col 4}{cmd:e(sargandf)}{col 18}dof of Sargan statistic = degree of overidentification = K-L
+{col 4}{cmd:e(j)}{col 18}Hansen J statistic
+{col 4}{cmd:e(jp)}{col 18}p-value of Hansen J statistic
+{col 4}{cmd:e(jdf)}{col 18}dof of Hansen J statistic = degree of overidentification = K-L
+{col 4}{cmd:e(arubin)}{col 18}Anderson-Rubin J statistic
+{col 4}{cmd:e(arubinp)}{col 18}p-value of Anderson-Rubin J statistic
+{col 4}{cmd:e(arubindf)}{col 18}dof of Anderson-Rubin J statistic = degree of overidentification = K-L
+{col 4}{cmd:e(cstat)}{col 18}C-statistic
+{col 4}{cmd:e(cstatp)}{col 18}p-value of C-statistic
+{col 4}{cmd:e(cstatdf)}{col 18}Degrees of freedom of C-statistic
+{col 4}{cmd:e(cons)}{col 18}1 when equation has a Stata-supplied constant; 0 otherwise
+
+Macros
+{col 4}{cmd:e(cmd)}{col 18}ivreg2
+{col 4}{cmd:e(version)}{col 18}Version number of ivreg2
+{col 4}{cmd:e(model)}{col 18}ols, iv, gmm, liml, or kclass
+{col 4}{cmd:e(depvar)}{col 18}Name of dependent variable
+{col 4}{cmd:e(instd)}{col 18}Instrumented (RHS endogenous) variables
+{col 4}{cmd:e(insts)}{col 18}Instruments
+{col 4}{cmd:e(small)}{col 18}small
+{col 4}{cmd:e(wtype)}{col 18}weight type
+{col 4}{cmd:e(wexp)}{col 18}weight expression
+{col 4}{cmd:e(clustvar)}{col 18}Name of cluster variable
+{col 4}{cmd:e(vcetype)}{col 18}Covariance estimation method
+{col 4}{cmd:e(kernel)}{col 18}Kernel
+{col 4}{cmd:e(tvar)}{col 18}Time variable
+{col 4}{cmd:e(ivar)}{col 18}Panel variable
+{col 4}{cmd:e(pscorevars)}{col 18}Name of score variable
+{col 4}{cmd:e(predict)}{col 18}Program used to implement predict
+
+Matrices
+{col 4}{cmd:e(b)}{col 18}Coefficient vector
+{col 4}{cmd:e(V)}{col 18}Variance-covariance matrix of the estimators
+{col 4}{cmd:e(S)}{col 18}Covariance matrix of orthogonality conditions
+{col 4}{cmd:e(W)}{col 18}GMM weighting matrix (=inverse of S)
+{col 4}{cmd:e(first)}{col 18}First-stage regression results
+
+Functions
+{col 4}{cmd:e(sample)}{col 18}Marks estimation sample
+
+
+
+{title:Examples}
+
+{p 8 12}{stata "use http://fmwww.bc.edu/ec-p/data/hayashi/griliches76.dta" : . use http://fmwww.bc.edu/ec-p/data/hayashi/griliches76.dta }{p_end}
+{p 8 12}(Wages of Very Young Men, Zvi Griliches, J.Pol.Ec. 1976)
+
+{p 8 12}{stata "xi i.year" : . xi i.year}
+
+{col 0}(Instrumental variables.  Examples follow Hayashi 2000, p. 255.)
+
+{p 8 12}{stata "ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt)" : . ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt)}
+
+{p 8 12}{stata "ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), small ffirst" : . ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), small ffirst}
+
+{col 0}(Testing for the presence of heteroskedasticity in IV/GMM estimation)
+
+{p 8 12}{stata "ivhettest, fitlev" : . ivhettest, fitlev}
+
+{col 0}(Two-step GMM efficient in the presence of arbitrary heteroskedasticity)
+
+{p 8 12}{stata "ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), gmm" : . ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), gmm}
+
+{col 0}(Sargan-Basmann tests of overidentifying restrictions for IV estimation)
+
+{p 8 12}{stata "ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt)" : . ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt)}
+
+{p 8 12}{stata "overid, all" : . overid, all}
+
+{col 0}(Tests of exogeneity and endogeneity)
+
+{col 0}(Test the exogeneity of 1 regressor)
+
+{p 8 12}{stata "ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), gmm orthog(s)" : . ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), gmm orthog(s)}
+
+{col 0}(Test the exogeneity of 2 excluded instruments)
+
+{p 8 12}{stata "ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), gmm orthog(age mrt)" : . ivreg2 lw s expr tenure rns smsa _I* (iq=med kww age mrt), gmm orthog(age mrt)}
+
+{col 0}(Examples following Wooldridge 2002, pp.59, 61)
+
+{p 8 12}{stata "use http://fmwww.bc.edu/ec-p/data/wooldridge/mroz.dta" : . use http://fmwww.bc.edu/ec-p/data/wooldridge/mroz.dta }
+
+{col 0}(Equivalence of DWH endogeneity test when variable is endogenous...)
+
+{p 8 12}{stata "ivreg2 lwage exper expersq (educ=age kidslt6 kidsge6)" : . ivreg2 lwage exper expersq (educ=age kidslt6 kidsge6)}
+
+{p 8 12}{stata "ivendog educ" :. ivendog educ}
+
+{col 0}(...and C-test of exogeneity when variable is exogenous)
+
+{p 8 12}{stata "ivreg2 lwage exper expersq educ (=age kidslt6 kidsge6), orthog(educ)" : . ivreg2 lwage exper expersq educ (=age kidslt6 kidsge6), orthog(educ)}
+
+{col 0}(Heteroskedastic Ordinary Least Squares, HOLS)
+
+{p 8 12}{stata "ivreg2 lwage exper expersq educ (=age kidslt6 kidsge6), gmm" : . ivreg2 lwage exper expersq educ (=age kidslt6 kidsge6), gmm}
+
+{col 0}(LIML and k-class estimation using Klein data; run .do file to load data)
+{col 9}{stata "qui do http://fmwww.bc.edu/repec/bocode/k/klein.do" :. qui do http://fmwww.bc.edu/repec/bocode/k/klein.do}
+{col 9}{stata "gen wages=wagepriv+wagegovt" :. gen wages=wagepriv+wagegovt}
+{col 9}{stata "gen trend=year-1931" :. gen trend=year-1931}
+{col 9}{stata "gen demand=consump+invest+govt" :. gen demand=consump+invest+govt}
+{col 9}{stata "tsset year, yearly" :. tsset year, yearly}
+
+{col 0}(LIML estimates of Klein's consumption function)
+
+{p 8 12}{stata "ivreg2 consump L.profit (profit wages = govt taxes trend wagegovt capital1 L.demand), liml" :. ivreg2 consump L.profit (profit wages = govt taxes trend wagegovt capital1 L.demand), liml}
+
+{col 0}(Fuller's modified LIML with alpha=1)
+
+{p 8 12}{stata "ivreg2 consump L.profit (profit wages = govt taxes trend wagegovt capital1 L.demand), fuller(1)" :. ivreg2 consump L.profit (profit wages = govt taxes trend wagegovt capital1 L.demand), fuller(1)}
+
+{col 0}(k-class estimation with Nagar's bias-adjusted IV, k=1+(K-L)/N=1+4/21=1.19)
+
+{p 8 12}{stata "ivreg2 consump L.profit (profit wages = govt taxes trend wagegovt capital1 L.demand), kclass(1.19)" :. ivreg2 consump L.profit (profit wages = govt taxes trend wagegovt capital1 L.demand), kclass(1.19)}
+
+{col 0}(Kernel-based covariance estimation using time-series data)
+
+{p 8 12}{stata "use http://fmwww.bc.edu/ec-p/data/wooldridge/phillips.dta" :. use http://fmwww.bc.edu/ec-p/data/wooldridge/phillips.dta}
+
+{p 8 12}{stata "tsset year, yearly" :. tsset year, yearly}
+
+{col 0}(Autocorrelation-consistent (AC) inference in an OLS Regression)
+
+{p 8 12}{stata "ivreg2 cinf unem, bw(3)" :. ivreg2 cinf unem, bw(3)}
+
+{col 0}(Heteroskedastic and autocorrelation-consistent (HAC) inference in an OLS regression)
+
+{p 8 12}{stata "ivreg2 cinf unem, bw(3) kernel(bartlett) robust small" :. ivreg2 cinf unem, bw(3) kernel(bartlett) robust small}
+
+{p 8 12}{stata "newey cinf unem, lag(2)" :. newey cinf unem, lag(2)}
+
+{col 0}(AC and HAC in IV and GMM estimation)
+
+{p 8 12}{stata "ivreg2 cinf (unem = l(1/3).unem), bw(3)" :. ivreg2 cinf (unem = l(1/3).unem), bw(3)}
+
+{p 8 12}{stata "ivreg2 cinf (unem = l(1/3).unem), bw(3) gmm kernel(thann)" :. ivreg2 cinf (unem = l(1/3).unem), bw(3) gmm kernel(thann)}
+
+{p 8 12}{stata "ivreg2 cinf (unem = l(1/3).unem), bw(3) gmm kernel(qs) robust orthog(l1.unem)" :. ivreg2 cinf (unem = l(1/3).unem), bw(3) gmm kernel(qs) robust orthog(l1.unem)}
+
+{col 0}(Examples using Large N, Small T Panel Data)
+
+{p 8 12}{stata "use http://fmwww.bc.edu/ec-p/data/macro/abdata.dta" : . use http://fmwww.bc.edu/ec-p/data/macro/abdata.dta }{p_end}
+{p 8 12}(Layard & Nickell, Unemployment in Britain, Economica 53, 1986, from Ox dist)
+
+{p 8 12}{stata "tsset id year" :. tsset id year}
+
+{col 0}(Autocorrelation-consistent inference in an IV regression)
+
+{p 8 12}{stata "ivreg2 n (w k ys = d.w d.k d.ys d2.w d2.k d2.ys), bw(2) kernel(tru)": . ivreg2 n (w k ys = d.w d.k d.ys d2.w d2.k d2.ys), bw(2) kernel(tru)}
+
+{col 0}(Efficient GMM in the presence of arbitrary heteroskedasticity and autocorrelation)
+
+{p 8 12}{stata "ivreg2 n (w k ys = d.w d.k d.ys d2.w d2.k d2.ys), bw(2) gmm kernel(tru) robust": . ivreg2 n (w k ys = d.w d.k d.ys d2.w d2.k d2.ys), bw(2) gmm kernel(tru) robust}
+
+{col 0}(Efficient GMM in the presence of arbitrary heteroskedasticity and intra-group correlation)
+
+{p 8 12}{stata "ivreg2 n (w k ys = d.w d.k d.ys d2.w d2.k d2.ys), gmm cluster(id)": . ivreg2 n (w k ys = d.w d.k d.ys d2.w d2.k d2.ys), gmm cluster(id)}
+
+
+{title:References}
+
+{p 0 4}Baum, C.F., Schaffer, M.E., Stillman, S. 2003. Instrumental variables and GMM:
+Estimation and testing.  The Stata Journal, Vol. 3, No. 1, pp. 1-31.
+Unpublished working paper version:
+Boston College Department of Economics Working Paper No 545. http://fmwww.bc.edu/ec-p/WP545.pdf
+
+{p 0 4}Cushing, M. J. and McGarvey, M.G., 1999. Covariance Matrix Estimation.
+In L. Matyas (ed.), Generalized Methods of Moments Estimation.
+Cambridge: Cambridge University Press.
+
+{p 0 4}Davidson, R. and MacKinnon, J. 1993. Estimation and Inference in Econometrics.
+1993. New York: Oxford University Press.
+
+{p 0 4}Hayashi, F. Econometrics. 2000. Princeton: Princeton University Press.
+
+{p 0 4}Shea, J. 1997.  Instrument Relevance in Multivariate Linear Models:
+A Simple Measure.
+Review of Economics and Statistics, Vol. 49, No. 2, pp. 348-352.
+
+{p 0 4}Wooldridge, J.M. 2002. Econometric Analysis of Cross Section and Panel Data.
+Cambridge, MA: MIT Press.
+
+{title:Authors}
+
+	Christopher F Baum, Boston College, USA
+	baum@bc.edu
+
+	Mark E Schaffer, Heriot-Watt University, UK
+	m.e.schaffer@hw.ac.uk
+
+	Steven Stillman, Motu Economic and Public Policy Research
+	stillman@motu.org.nz
+
+
+{title:Also see}
+
+{p 1 14}Manual:  {hi:[U] 23 Estimation and post-estimation commands},{p_end}
+{p 10 14}{hi:[U] 29 Overview of model estimation in Stata},{p_end}
+	  {hi:[R] ivreg}
+{p 0 19}On-line:  help for {help ivreg}, {help newey};
+{help overid}, {help ivendog}, {help ivhettest} (if installed);
+{help est}, {help postest};
+{help regress}{p_end}

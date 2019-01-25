@@ -1,0 +1,49 @@
+  
+\begin{sidewaystable}
+\caption{ Additional Saving Regressions I.---Robustness to Explanatory Variables} \label{tOLS} \footnotesize 
+\begin{center}
+\begin{tabular}{@{}ld{6}d{6}d{6}d{6}d{6}d{6}d{6}d{6}d{6}d{6}@{}}
+\multicolumn{11}{c}{ $s_t=\gamma_0+\gamma_m m_t+\gamma_{\CEA}\CEA_t+ \gamma_{Eu}\Ex_t u_{t+4}+\gamma_\sigma\sigma_t+\gamma_s s_{t-1}+\gamma_d d_t+\gamma_{top5\%} \text{top5\%}_t+  {}$\dots } \\
+\multicolumn{11}{c}{ \phantom{$s_t=$}\dots${}+\gamma_{db}\text{db}_t+ \gamma_{hitax} \text{hitax}_t+ \gamma_{lotax} \text{lotax}_t+\gamma_{r}r_t+\gamma_{GS}GS_t+\gamma_{CS} CS_t+\varepsilon_t$ } \\
+\toprule
+     Model & \multicolumn{1}{c}{Baseline} & \multicolumn{1}{c}{Uncert} & \multicolumn{1}{c}{Lggd $s_{t-1}$} & \multicolumn{1}{c}{Debt} & \multicolumn{1}{c}{Inc Ineq} & \multicolumn{1}{c}{DB Pnsn} & \multicolumn{1}{c}{Hi Tax Br} & \multicolumn{1}{c}{Lo Tax Br} & \multicolumn{1}{c}{Mult Cntrls} & \multicolumn{1}{c}{IV}  \\
+\midrule 
+$\gamma_0$ & 15.226^{ ***}  & 15.080^{ ***}  & 5.323^{ ***}  & 13.884^{ ***}  & 14.868^{ ***}  & 11.394^{ ***}  & 15.597^{ ***}  & 13.762^{ ***} & 17.459^{ ***} & 21.323^{ ***}\\
+ & (2.157)  &  (2.180)  &  (1.667)  &  (2.100)  &  (2.182)  &  (2.614)  &  (2.231)  &  (2.893)  &  (1.877)  &  (2.746)\\
+$\gamma_m$   & -1.183^{ ***}  & -1.211^{ ***}  & -0.307^{ }  & -0.803^{ **}  & -0.814^{ *}  & -0.683^{ *}  & -1.100^{ ***}  & -1.086^{ ***}  & -1.304^{ ***}  & -2.022^{ ***}\\
+ & (0.347)  &  (0.363)  &  (0.222)  &  (0.360)  &  (0.478)  &  (0.398)  &  (0.344)  &  (0.385)  &  (0.308)  &  (0.492) \\
+ $\gamma_{\CEA}$   & -6.121^{ ***}  & -5.967^{ ***}  & -2.874^{ ***}  & -5.399^{ ***}  & -5.235^{ ***}  & -6.020^{ ***}  & -6.749^{ ***}  & -6.122^{ ***}  & -6.242^{ ***}  & -5.846^{ ***}\\
+ & (0.573)  &  (0.648)  &  (0.531)  &  (0.732)  &  (1.013)  &  (0.524)  &  (0.805)  &  (0.554)  &  (0.628)  &  (1.166 ) \\
+$\gamma_{Eu}$  & 0.287^{ ***}  &  0.282^{ ***}  &  0.143^{ ***}  & 0.345^{ ***}  & 0.314^{ ***}  & 0.302^{ ***}  & 0.293^{ ***}  & 0.314^{ ***}  & 0.117^{ }  & 0.084^{ }\\
+ &   (0.075)  &   (0.094)  &   (0.053)  &   (0.071)  &   (0.076)  &   (0.078)  &   (0.076)  &   (0.078 )  &   (0.088 )  &   (0.133 ) \\
+ $\gamma_{\sigma}$   &   & 0.257^{ }  &  &  &  & & & & & \\
+ &   &  (0.466)  &  &   &  & & & & & \\
+ $\gamma_s$   &   & & 0.574^{ ***}  &  &  & & & & & \\
+ &   &  & (0.072)  &  &  & & & & & \\
+ $\gamma_d$   &   & & &-1.905^{ }  &  &  & & & & \\
+ &   &  &  &(1.162)  &  &  & & & & \\
+ $\gamma_{top5\%}$   &   & & & & -0.087^{ }  &  &  & & & \\
+ &   &  &  & & (0.089)  &  &  & & &  \\
+ $\gamma_{db}$   &   & & & & & 0.666^{ **}    &  & & &  \\
+ &   &  & & & & (0.321)    &  & & &   \\
+ $\gamma_{hitax}$   &   & & & & & & -0.011^{ }  &  &  &  \\
+ &  & &  & & & & (0.010)  &  &  &  \\
+ $\gamma_{lotax}$   &   & & & & & & &0.055^{ }   &  &  \\
+ &  & & & & & & & (0.061)   &  & \\
+ $\gamma_{r}$  &   & & & & & & & & 0.129^{ ***}  &  \\
+ &   &  & & & & & & & (0.043)  &  \\
+ $\gamma_{GS}$  &  & & & & & & & &  -0.121^{ }  & \\
+ &   & & & & & & & &  (0.081)  &   \\
+ $\gamma_{CS}$  &   & & & & & & & &  -0.310^{ **}  &  \\
+ &  & & & & & & & &  (0.138)  &  \\
+\midrule 
+ $\bar{R}^2$  & 0.895  & 0.896  & 0.927  & 0.898  & 0.896  & 0.905  & 0.896  & 0.896  & 0.910  & \\
+ F st p val  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000\\
+DW stat  & 0.933  & 0.940  & 2.134  & 0.924  & 0.923  & 0.940  & 0.936  & 0.945  & 0.954 & \\
+OID p val &  & & & &  & & & & &0.740\\
+\bottomrule
+\end{tabular}
+\end{center}
+\showEstTime{Estimated:  1 Sep 2012, 23:49:06}
+ {\footnotesize Notes: Estimation sample: 1966q2--2011q1. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent. Newey--West standard errors, 4 lags. $\CEA$ is the Credit Easing Accumulated Index, top5\%\ is the income share of the top 5 percent households (including capital gains, taken from \cite{pikettySaez:incomeIneq_qje03}), db is the gap between the BEA saving rate and the saving rate adjusted for defined-benefit pensions plans, hitax and lotax are top and bottom marginal tax rates respectively, $GS$ is the government saving as a fraction of GDP, $CS$ is the corporate saving as a fraction of GDP. In model IV, $m$, $CEA$ and $\Ex u$ are instrumented with lags 1 and 2 of $m$, $\Ex u$ and the \cite{abiadEtAl_FinReforms} Index of Financial Liberalization; the sample for the IV model is 1973q1--2005q4. OID p val denotes the p-value from the Hansen's $J$ statistic for overidentification.}
+\end{sidewaystable} 

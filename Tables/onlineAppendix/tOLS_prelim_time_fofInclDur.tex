@@ -1,0 +1,31 @@
+
+\begin{table}
+\caption{ Preliminary regressions with time trend---Flow of Funds SR including Durables} \label{tOLSprelim}
+\begin{center}
+\begin{tabular}{@{}ld{6}d{6}d{6}d{6}d{6}d{6}d{6}@{}}
+\multicolumn{8}{c}{ $s_t=\gamma_0+\gamma_m m_t+\gamma_{\CEA}\CEA_t+ \gamma_{Eu}\Ex_t u_{t+4}+\gamma_t t+\gamma_{uC} (\Ex_t u_{t+4}\times\CEA_t)+\varepsilon_t$ } \\
+\toprule
+  Model & \multicolumn{1}{c}{Time} & \multicolumn{1}{c}{Wealth} & \multicolumn{1}{c}{CEA} & \multicolumn{1}{c}{Un Risk}& \multicolumn{1}{c}{All 3} & \multicolumn{1}{c}{Baseline} & \multicolumn{1}{c}{Interact} \\
+\midrule
+$\gamma_0$ & 17.899^{ ***}  & 29.121^{ ***}  & 15.761^{ ***}  & 14.390^{ ***}  & 22.418^{ ***}  & 25.107^{ ***}  & 22.151^{ ***}\\
+ & (0.805)  &  (3.744)  &  (1.049)  &  (0.984)  &  (6.940)  &  (5.716)  & (7.098)\\
+$\gamma_m$   & &-2.748^{ ***}  & & & -1.592^{ }  & -2.176^{ *}  & -1.432^{ }\\
+ & & (0.867)  &  & &   (1.418)  &  (1.142)  &  (1.493) \\
+ $\gamma_{\CEA}$   & & & -11.484^{ ***}  & &-1.825^{ }  & -8.266^{ ***}  & -2.391^{ }\\
+ & & & (3.903)  &   &   (5.459)  &  (1.433)  &  (5.711)\\
+$\gamma_{Eu}$  & & & & 0.635^{ ***}  & 0.298^{ }  & 0.010^{ }  & 0.253^{ }\\
+ &   &   &  & (0.163)  &   (0.344)  &   (0.174)  &   (0.344 ) \\
+ $\gamma_{t}$   & -0.067^{ ***}  &  -0.047^{ ***}  &  0.003^{ }  &  -0.070^{ ***}  &  -0.046^{ }  & & -0.051^{ }\\
+ & (0.007)& (0.007) & (0.024) & (0.006) & ( 0.042 ) & & (0.046)\\
+ $\gamma_{uC}$   &  & & & & & & 0.209^{ }\\
+ &   &  &  & & & & (0.495)   \\
+\midrule
+ $\bar{R}^2$  & 0.472  & 0.517  & 0.493  & 0.516  & 0.516  & 0.515  & 0.514\\
+ F stat p val  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000\\
+DW stat  & 1.665  & 1.876  & 1.747  & 1.851 & 1.883 & 1.869 & 1.883\\
+\bottomrule
+\end{tabular}
+\end{center}
+\showEstTime{Estimated:  5 Feb 2012, 18:05:32}
+ {\footnotesize Notes: Estimation sample: 1966Q2--2011Q1. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent. Newey--West standard errors, 4 lags.}
+\end{table}

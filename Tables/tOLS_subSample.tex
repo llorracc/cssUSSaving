@@ -1,0 +1,36 @@
+  
+\begin{table}
+\caption{ Additional Saving Regressions II.---Sub-sample Stability} \label{tOLS_subSample} %\small 
+\begin{center}
+\begin{tabular}{@{}ld{6}d{6}d{6}@{}}
+\multicolumn{4}{c}{ $s_t=\gamma_0+\gamma_m m_t+\gamma_{\CEA}\CEA_t+ \gamma_{Eu}\Ex_t u_{t+4}+\varepsilon_t$ } \\
+\toprule
+     Model & \multicolumn{1}{c}{Baseline} & \multicolumn{1}{c}{Post-1980}& \multicolumn{1}{c}{Pre-2008}  \\
+\midrule 
+$\gamma_0$ & 15.226^{ ***}  & 16.692^{ **}  & 16.002^{ ***}\\
+ & (2.157)  &  (7.571)  &  (1.340)\\
+$\gamma_m$   & -1.183^{ ***}  & -1.503^{ }  & -1.327^{ ***}\\
+ & (0.347)  &  (1.248)  &  (0.215) \\
+ $\gamma_{\CEA}$   & -6.121^{ ***}  & -4.999^{ **}  & -6.002^{ ***}\\
+ & (0.573)  &  (2.000)  &  (0.369 ) \\
+$\gamma_{Eu}$  & 0.287^{ ***}  &  0.298^{ **}  &  0.288^{ ***}\\
+ &   (0.075)  &   (0.136)  &   (0.053 ) \\
+ $\gamma_{\text{0post80}}$/$\gamma_{\text{0post07}}$  &   & -1.479^{ }  &  11.891^{ }\\
+ &  &  (7.905)   & (24.356)  \\
+ $\gamma_{m\text{post80}}$/$\gamma_{m\text{post07}}$  &   &  0.559^{ }  & -1.234^{ }\\
+ & &  (1.289)  & (1.556)  \\
+ $\gamma_{\CEA\text{post80}}$/$\gamma_{\CEA\text{post07}}$  &   &  -2.350^{ }  & 5.426^{ }\\
+ &  & (2.135)  & (12.414) \\
+ $\gamma_{Eu\text{post80}}$/$\gamma_{Eu\text{post07}}$  &   & -0.098^{ }  & -1.027^{ }\\
+ &   &  (0.162)  &  (0.715) \\
+\midrule 
+ $\bar{R}^2$  & 0.895  & 0.899  & 0.903\\
+ F stat p val  & 0.00000  & 0.00000  & 0.00000\\
+ F p val post-80/pre-08 & & 0.16665  &  0.00012\\
+DW stat  & 0.933  & 0.967  & 1.052\\
+\bottomrule
+\end{tabular}
+\end{center}
+\showEstTime{Estimated:  1 Sep 2012, 23:49:08}
+ {\footnotesize Notes: Estimation sample: 1966q2--2011q1. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent. Newey--West standard errors, 4 lags. $\CEA$ is the Credit Easing Accumulated Index. Pre-2008: Heteroscedasticity robust standard errors (because post-2007 sample consists of only 13 observations).}
+\end{table} 

@@ -1,0 +1,50 @@
+
+\begin{table}
+\caption{ Constant target wealth models---Flow of Funds SR Including Durables} \label{tOLS} \small
+\begin{center}
+\begin{tabular}{@{}ld{6}d{6}d{6}d{6}d{6}d{6}d{6}@{}}
+\multicolumn{8}{c}{ $s_t=\gamma_0+\gamma_m m_t+\gamma_{\CEA}\CEA_t+ \gamma_{Eu}\Ex_t u_{t+4}+\gamma_\sigma\sigma_t+\gamma_s s_{t-1}+\gamma_d d_t+{}$\dots } \\
+\multicolumn{8}{c}{ \phantom{$s_t=$}\dots${}+\gamma_{r}r_t+\gamma_{GS}GS_t+\gamma_{CS} CS_t+\varepsilon_t$ } \\
+\toprule
+     Model & \multicolumn{1}{c}{Baseline} & \multicolumn{1}{c}{Uncertainty} & \multicolumn{1}{c}{Lagged $s_{t-1}$} & \multicolumn{1}{c}{Debt} & \multicolumn{1}{c}{Full Controls} & \multicolumn{1}{c}{Post-1980} & \multicolumn{1}{c}{IV}  \\
+\midrule
+$\gamma_0$ & 25.107^{ ***}  & 24.658^{ ***}  & 22.930^{ ***}  & 23.194^{ ***}  & 25.300^{ ***}  & 3.569^{ }  & 40.602^{ ***}\\
+ & (5.716)  &  (5.753)  &  (6.504)  &  (6.310)  &  (5.102)  &  (18.187)  &  (6.888)\\
+$\gamma_m$   & -2.176^{ *}  & -1.512^{ }  & -1.962^{ *}  & -1.422^{ }  & -1.677^{ }  & 2.117^{ }  & -5.876^{ ***}\\
+ & (1.142)  &  (1.153)  &  (1.171)  &  (1.491)  &  (1.027)  &  (3.580)  &  (1.546) \\
+ $\gamma_{\CEA}$   & -8.266^{ ***}  & -10.188^{ ***}  & -7.695^{ ***}  & -6.830^{ ***}  & -9.876^{ ***}  & 2.612^{ }  & -2.630^{ }\\
+ & (1.433)  &  (1.603)  &  (1.311)  &  (1.917)  &  (1.475)  &  (5.716)  &  (3.097)\\
+$\gamma_{Eu}$  & 0.010^{ }  &  0.294^{ }  &  0.019^{ }  & 0.125^{ }  & -0.511^{ **}  & 0.038^{ }  & -0.084^{ }\\
+ &   (0.174)  &   (0.243)  &   (0.169)  &   (0.171)  &   (0.252)  &   (0.374)  &   (0.273 ) \\
+ $\gamma_{\sigma}$   &   & -3.301^{ ***}  &  &  &  & & \\
+ &   &  (1.086)  &  &   &  & & \\
+ $\gamma_s$   &   & & 0.075^{ }  &  &  & & \\
+ &   &  & (0.092)  &  &  & & \\
+ $\gamma_d$   &   & & &-3.788^{ }  &  &  & \\
+ &   &  &  &(3.969)  &  &  & \\
+ $\gamma_{r}$  &   & & & & 0.395^{ ***}  & & \\
+ &   &  & & & (0.096)  & & \\
+ $\gamma_{GS}$  &   & & & & -0.576^{ ***}  & & \\
+ &   &  & & & (0.204)  &  & \\
+ $\gamma_{CS}$  &   & & & &-0.184^{ }  & & \\
+ &   &  & & & (0.414)  & & \\
+ $\gamma_{\text{0post80}}$  &   & & & & &22.816^{ }  &  \\
+ &   &  & & & & (19.401)   & \\
+ $\gamma_{m\text{post80}}$  &   & & & & &-4.081^{ }  &  \\
+ &   &  & &  & &(3.819)  &  \\
+ $\gamma_{\CEA\text{post80}}$  &   & & & & &-13.194^{ **}  & \\
+ &   &  & & & &(6.364)  & \\
+ $\gamma_{Eu\text{post80}}$  &   & & & & &-0.126^{ }  &  \\
+ &   &  & &  & & (0.455)  &  \\
+\midrule
+ $\bar{R}^2$  & 0.515  & 0.536  & 0.515  & 0.516  & 0.548  & 0.519  & \\
+ F stat p val  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000\\
+ F p val post 80 &  & & & & & 0.17716  &  \\
+DW stat  & 1.869  & 1.924  & 2.026  & 1.864  & 2.000  & 1.900 & \\
+OID p val &  & & & &  & & 0.576\\
+\bottomrule
+\end{tabular}
+\end{center}
+\showEstTime{Estimated:  5 Feb 2012, 18:28:51}
+ {\footnotesize Notes: Estimation sample: 1966Q2--2011Q1. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent. Newey--West standard errors, 4 lags. $\CEA$ is the Credit Easing Accumulated Index, $GS$ is the government saving as a fraction of GDP, $CS$ is the corporate saving as a fraction of GDP. In model IV, $m$, $CEA$ and $\Ex u$ are instrumented with lags 1 and 2 of $m$, $\Ex u$ and the \cite{abiadEtAl_FinReforms} Index of Financial Liberalization; the sample for the IV model is 1973Q1--2005Q4. OID p val denotes the p-value from the Hansen's $J$ statistic for overidentification.}
+\end{table}

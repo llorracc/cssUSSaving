@@ -1,0 +1,31 @@
+
+\begin{table}
+\caption{ Preliminary regressions with time trend---Structural Model Fitted PSR} \label{tOLSprelim}
+\begin{center}
+\begin{tabular}{@{}ld{6}d{6}d{6}d{6}d{6}d{6}d{6}@{}}
+\multicolumn{8}{c}{ $s_t=\gamma_0+\gamma_m m_t+\gamma_{\CEA}\CEA_t+ \gamma_{Eu}\Ex_t u_{t+4}+\gamma_t t+\gamma_{uC} (\Ex_t u_{t+4}\times\CEA_t)+\varepsilon_t$ } \\
+\toprule
+  Model & \multicolumn{1}{c}{Time} & \multicolumn{1}{c}{Wealth} & \multicolumn{1}{c}{CEA} & \multicolumn{1}{c}{Un Risk}& \multicolumn{1}{c}{All 3} & \multicolumn{1}{c}{Baseline} & \multicolumn{1}{c}{Interact} \\
+\midrule
+$\gamma_0$ & 11.955^{ ***}  & 21.438^{ ***}  & 9.354^{ ***}  & 8.422^{ ***}  & 12.242^{ ***}  & 12.509^{ ***}  & 12.487^{ ***}\\
+ & (0.502)  &  (1.107)  &  (0.410)  &  (0.160)  &  (0.602)  &  (0.532)  & (0.550)\\
+$\gamma_m$   & &-2.327^{ ***}  & & & -0.790^{ ***}  & -0.848^{ ***}  & -0.936^{ ***}\\
+ & & (0.251)  &  & &   (0.120)  &  (0.105)  &  (0.108) \\
+ $\gamma_{\CEA}$   & & & -13.821^{ ***}  & &-5.846^{ ***}  & -6.486^{ ***}  & -5.327^{ ***}\\
+ & & & (1.124)  &   &   (0.594)  &  (0.141)  &  (0.467)\\
+$\gamma_{Eu}$  & & & & 0.633^{ ***}  & 0.328^{ ***}  & 0.299^{ ***}  & 0.369^{ ***}\\
+ &   &   &  & (0.024)  &   (0.035)  &   (0.019)  &   (0.030 ) \\
+ $\gamma_{t}$   & -0.044^{ ***}  &  -0.027^{ ***}  &  0.040^{ ***}  &  -0.048^{ ***}  &  -0.005^{ }  & & 0.000^{ }\\
+ & (0.004)& (0.002) & (0.007) & (0.001) & ( 0.004 ) & & (0.003)\\
+ $\gamma_{uC}$   &  & & & & & & -0.192^{ ***}\\
+ &   &  &  & & & & (0.037)   \\
+\midrule
+ $\bar{R}^2$  & 0.799  & 0.929  & 0.931  & 0.979  & 0.993  & 0.992  & 0.994\\
+ F stat p val  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000\\
+DW stat  & 0.053  & 0.220  & 0.095  & 0.387 & 0.721 & 0.714 & 0.994\\
+\bottomrule
+\end{tabular}
+\end{center}
+\showEstTime{Estimated:  5 Feb 2012, 18:01:13}
+ {\footnotesize Notes: Estimation sample: 1966Q2--2011Q1. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent. Newey--West standard errors, 4 lags.}
+\end{table}

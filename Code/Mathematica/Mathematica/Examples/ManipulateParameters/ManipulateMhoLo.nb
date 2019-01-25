@@ -1,0 +1,1597 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     82904,       1589]
+NotebookOptionsPosition[     76706,       1455]
+NotebookOutlinePosition[     77135,       1474]
+CellTagsIndexPosition[     77092,       1471]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";", 
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+  RowBox[{"<<", "ManipulatePrepare.m"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.447958278359967*^9, 3.447958294691051*^9}, 
+   3.447958378118826*^9, {3.447958493960994*^9, 
+   3.447958498536675*^9}},ExpressionUUID->"8ed2ab5f-0746-4723-a15a-\
+e716b4a23f68"],
+
+Cell["Manipulate\[Mho]", "Section",
+ InitializationCell->True,
+ CellChangeTimes->{{3.420213147835127*^9, 3.4202131504065943`*^9}, {
+  3.42644433161839*^9, 3.4264443407101917`*^9}, {3.426444517224485*^9, 
+  3.426444519227916*^9}, {3.426447103535618*^9, 3.426447109616365*^9}, {
+  3.426447230929802*^9, 3.4264472318311663`*^9}, {3.4264473149189034`*^9, 
+  3.4264473172011147`*^9}, {3.426447457284823*^9, 3.426447459931831*^9}, {
+  3.4264566303504343`*^9, 3.426456632920279*^9}, {3.426482771085021*^9, 
+  3.426482773293933*^9}, {3.426482812492299*^9, 3.4264828143131037`*^9}, {
+  3.4264829383697243`*^9, 3.426482940087377*^9}, {3.42650511909451*^9, 
+  3.426505120430109*^9}},ExpressionUUID->"e7c8d374-cc2a-4829-9c45-\
+9bec79053318"],
+
+Cell[CellGroupData[{
+
+Cell["Low", "Section",
+ InitializationCell->True,
+ CellChangeTimes->{{3.420213147835127*^9, 3.4202131504065943`*^9}, {
+  3.42644433161839*^9, 3.4264443407101917`*^9}, {3.426444517224485*^9, 
+  3.426444519227916*^9}, {3.426447103535618*^9, 3.426447109616365*^9}, {
+  3.426447230929802*^9, 3.4264472318311663`*^9}, {3.4264473149189034`*^9, 
+  3.4264473172011147`*^9}, {3.426447457284823*^9, 3.426447459931831*^9}, {
+  3.4264566303504343`*^9, 3.426456632920279*^9}, {3.426482771085021*^9, 
+  3.426482773293933*^9}, {3.426482812492299*^9, 3.4264828143131037`*^9}, {
+  3.4264829383697243`*^9, 3.426482940087377*^9}, {3.42650511909451*^9, 
+  3.426505120430109*^9}, {3.4265084304355288`*^9, 
+  3.42650843292741*^9}},ExpressionUUID->"080ab654-5105-46e7-a841-\
+9f0f7c028480"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FindStableArm", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[ScriptM]Max", ",", "\[ScriptM]MaxMax"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "3"}], "}"}], " ", "\[ScriptM]E"}], " ", "//", 
+    "N"}]}], ";", 
+  RowBox[{"\[ScriptC]Max", "=", 
+   RowBox[{
+    RowBox[{"cE", "[", "\[ScriptM]MaxMax", "]"}], " ", "//", "N"}]}], ";", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[ScriptM]Max", ",", "\[ScriptM]MaxMax"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "5"}], "}"}], "\[ScriptM]E"}], " ", "//", "N"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"$PerformanceGoal", "=", "\"\<Speed\>\""}], ",", "\[Mho]", ",",
+        "\[Mho]Base"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\[Mho]", "=", "\[Mho]Slider"}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", "\[CapitalGamma]"}], 
+          " ", "\[GreaterEqual]", "  ", "1"}], "||", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", 
+           RowBox[{"(", "R", ")"}]}], " ", "\[GreaterEqual]", "  ", "1"}]}], 
+        ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{
+          "Text", "[", "\"\<Impatience Condition Not Satisfied.\>\"", "]"}], 
+          ",", "24"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DrawPhaseDiagram", "[", 
+       RowBox[{
+       "\[ScriptM]Max", ",", "\[ScriptM]MaxMax", ",", "\[ScriptC]Max"}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Mho]Slider", ",", "0.01", ",", "\"\<\[Mho]\>\""}], "}"}], 
+     ",", "0.001", ",", "0.01", ",", "0.001"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.420152995260653*^9, 3.420153060256028*^9}, {
+   3.420153448771255*^9, 3.420153495730507*^9}, {3.420153875299324*^9, 
+   3.420153916369935*^9}, {3.4201539531458807`*^9, 3.420153981461334*^9}, {
+   3.420154882625534*^9, 3.420154921822242*^9}, {3.420155521331831*^9, 
+   3.420155624638013*^9}, {3.4201560183089733`*^9, 3.420156019092039*^9}, {
+   3.420159924229837*^9, 3.420159951622138*^9}, 3.420164451138542*^9, {
+   3.420210133792045*^9, 3.4202101652034073`*^9}, {3.420210251017335*^9, 
+   3.420210267827066*^9}, {3.4202103392727423`*^9, 3.420210368925075*^9}, {
+   3.420210418870116*^9, 3.420210419132986*^9}, {3.420212014090701*^9, 
+   3.4202121012554092`*^9}, {3.420212453269247*^9, 3.420212498935313*^9}, {
+   3.420212576815176*^9, 3.420212578316436*^9}, {3.420212806584901*^9, 
+   3.4202128584381247`*^9}, {3.42021292375949*^9, 3.420212923892323*^9}, 
+   3.420213242835517*^9, {3.4233025056297283`*^9, 3.4233025264258337`*^9}, {
+   3.423302570675579*^9, 3.423302570715127*^9}, {3.423302885073079*^9, 
+   3.423302893783193*^9}, {3.423302963279566*^9, 3.4233030146739798`*^9}, {
+   3.426419504647056*^9, 3.426419519053845*^9}, {3.4264196241559677`*^9, 
+   3.426419630092752*^9}, {3.4264197849222803`*^9, 3.4264197894721518`*^9}, {
+   3.426419832512763*^9, 3.426419847982398*^9}, {3.426447122243643*^9, 
+   3.4264471389185867`*^9}, {3.4264473431041813`*^9, 3.426447349197194*^9}, {
+   3.426447479195465*^9, 3.426447493384697*^9}, {3.426447529587325*^9, 
+   3.426447557278236*^9}, {3.4264475940446253`*^9, 3.426447595517712*^9}, {
+   3.426455021684596*^9, 3.426455087658908*^9}, {3.426455132168263*^9, 
+   3.426455132821782*^9}, {3.426455732223634*^9, 3.426455735286086*^9}, {
+   3.426455770139801*^9, 3.426455806258988*^9}, {3.426455889509659*^9, 
+   3.4264559439087877`*^9}, {3.426456185840166*^9, 3.4264562122531967`*^9}, {
+   3.426456340922948*^9, 3.426456356554308*^9}, {3.426456410373501*^9, 
+   3.4264564378806763`*^9}, 3.426482205262773*^9, {3.4264822635820723`*^9, 
+   3.426482266426785*^9}, {3.426482307750296*^9, 3.426482314011464*^9}, {
+   3.426482363554727*^9, 3.4264824240095663`*^9}, {3.426482478517323*^9, 
+   3.4264825151697206`*^9}, {3.426482586595593*^9, 3.4264827004636517`*^9}, {
+   3.42648273226049*^9, 3.426482733976487*^9}, {3.426482818671603*^9, 
+   3.426482844086557*^9}, {3.4264828882628813`*^9, 3.4264828922051992`*^9}, {
+   3.4264829484810753`*^9, 3.426483014332*^9}, 3.426483074575019*^9, {
+   3.426484324849118*^9, 3.4264843275097723`*^9}, {3.426484377085886*^9, 
+   3.426484431395813*^9}, {3.42648448160772*^9, 3.426484511018628*^9}, {
+   3.4264846657021847`*^9, 3.426484667236031*^9}, {3.426484746922098*^9, 
+   3.426484750889654*^9}, {3.426484831236644*^9, 3.426484860091138*^9}, {
+   3.4264851433046513`*^9, 3.426485169978602*^9}, {3.4264855579534082`*^9, 
+   3.426485559210083*^9}, {3.426485673791807*^9, 3.426485674215804*^9}, {
+   3.4264859099829473`*^9, 3.426485911852744*^9}, {3.4265049618364067`*^9, 
+   3.426504998260693*^9}, {3.42650505340058*^9, 3.426505056429242*^9}, {
+   3.42650513308988*^9, 3.426505189415413*^9}, 3.4265077133947697`*^9, {
+   3.4265078547653303`*^9, 3.4265078953200903`*^9}, {3.426507934790954*^9, 
+   3.4265079590542297`*^9}, {3.4265081710765533`*^9, 3.4265081715932493`*^9}, 
+   3.426508283469047*^9, {3.426508442269519*^9, 3.4265084450933113`*^9}, {
+   3.426508488774036*^9, 3.426508507827654*^9}, {3.4265085427253942`*^9, 
+   3.4265085478536873`*^9}, {3.42650861291639*^9, 3.426508626177616*^9}, {
+   3.4265087660198793`*^9, 3.426508766743881*^9}, 3.4265088078106728`*^9, {
+   3.445685290300539*^9, 3.445685292010706*^9}, 3.4456854207029257`*^9, 
+   3.4477516803965*^9, {3.447751820491829*^9, 3.4477518226318083`*^9}, {
+   3.447752267004962*^9, 3.447752267890373*^9}, 3.447752360864628*^9, 
+   3.4479529315627623`*^9, {3.447953425752021*^9, 3.447953440158532*^9}, {
+   3.447958276863698*^9, 3.4479582972381907`*^9}, 3.4479583763367767`*^9, 
+   3.447958501068575*^9},ExpressionUUID->"83528ba3-93a8-44a7-94e7-\
+23534dfd22a1"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Mho]Slider$$ = 0.001, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Mho]Slider$$], 0.01, "\[Mho]"}, 0.001, 0.01, 
+      0.001}}, Typeset`size$$ = {
+    1095.4199995040894`, {448., 21.528076171875}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Mho]Slider$13766$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Mho]Slider$$ = 0.01}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Mho]Slider$$, $CellContext`\[Mho]Slider$13766$$, 
+         0]}, "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Block[{$PerformanceGoal = 
+         "Speed", $CellContext`\[Mho], $CellContext`\[Mho]Base}, \
+$CellContext`\[Mho] = $CellContext`\[Mho]Slider$$; If[
+          
+          Or[($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`\[CapitalGamma] >= 
+           1, ($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`R >= 1], 
+          Style[
+           Text["Impatience Condition Not Satisfied."], 
+           24]]; $CellContext`DrawPhaseDiagram[$CellContext`\[ScriptM]Max, \
+$CellContext`\[ScriptM]MaxMax, $CellContext`\[ScriptC]Max]], 
+      "Specifications" :> {{{$CellContext`\[Mho]Slider$$, 0.01, "\[Mho]"}, 
+         0.001, 0.01, 0.001}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1162., {293., 302.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ InitializationCell->True,
+ CellChangeTimes->{{3.426507897015127*^9, 3.426507980909918*^9}, {
+   3.426508156342852*^9, 3.4265081784630203`*^9}, {3.426508290904356*^9, 
+   3.4265082993563013`*^9}, {3.426508449335692*^9, 3.426508454322961*^9}, {
+   3.426508509821368*^9, 3.426508555848181*^9}, {3.426508608974864*^9, 
+   3.426508633831995*^9}, {3.426508762302462*^9, 3.426508833997006*^9}, {
+   3.426509061702683*^9, 3.4265090883273773`*^9}, {3.4265091498922*^9, 
+   3.4265091547698593`*^9}, 3.426509190736891*^9, {3.426509239812344*^9, 
+   3.426509244280818*^9}, 3.4265093408555717`*^9, {3.4265095992892857`*^9, 
+   3.426509604101918*^9}, 3.426509657519331*^9, 3.426509692637398*^9, {
+   3.426511869281692*^9, 3.426511896218075*^9}, 3.445393933352064*^9, 
+   3.445393980393908*^9, {3.445394181896937*^9, 3.4453941839473467`*^9}, 
+   3.445395004831526*^9, 3.445514657043314*^9, 3.445685280397881*^9, 
+   3.445685383128895*^9, {3.445685422812196*^9, 3.445685470926045*^9}, 
+   3.445685582543415*^9, 3.446466735405635*^9, 3.447052649287052*^9, 
+   3.447052680307602*^9, {3.4473676688085117`*^9, 3.4473676733713007`*^9}, {
+   3.4477501690503273`*^9, 3.44775019467162*^9}, {3.4477502544084053`*^9, 
+   3.447750318381888*^9}, 3.447750358298654*^9, 3.447750762563019*^9, 
+   3.447750908079718*^9, {3.447751684106423*^9, 3.447751690275564*^9}, {
+   3.447751723738522*^9, 3.447751777128273*^9}, {3.447751831193941*^9, 
+   3.447751865429791*^9}, 3.447752269182356*^9, {3.447752371452574*^9, 
+   3.447752416710168*^9}, 3.447952953623953*^9, 3.4479534461940317`*^9, 
+   3.4479534969606028`*^9, 3.447953534224999*^9, {3.44795527439431*^9, 
+   3.447955279903623*^9}, {3.447958023433196*^9, 3.447958036208761*^9}, 
+   3.447958074036017*^9, 3.447958157024826*^9, 3.447958255094859*^9, 
+   3.447958313537512*^9, 3.4479583909097767`*^9, 3.447958547786531*^9, 
+   3.4479587019218817`*^9},ExpressionUUID->"a518a46a-4ef2-47b2-8ad8-\
+8ac65708d379"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,85,132,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7215982168281717`*^9},ExpressionUUID->"016194f7-f135-4897-ac6e-\
+9754d3945f27"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,85,133,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721598216927732*^9},ExpressionUUID->"b94117ff-bd6e-4527-9cd4-\
+1f59a7e13db0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"cE\\\", \\\"[\\\", \
+\\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", RowBox[{\\\"cE\
+\\\", \\\"[\\\", \\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]}], \\\"}\\\"}]\\) is \
+not a machine-sized real number.\"",2,85,134,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721598217014023*^9},ExpressionUUID->"b411d479-d234-489b-a0ce-\
+72bc0f6e7abf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Plot\\\", \\\"::\\\", \
+\\\"plln\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,85,135,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7215982171220303`*^9},ExpressionUUID->"40382b6f-d138-4560-9ede-\
+ef9b831b8133"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,85,
+   136,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721598217174617*^9},ExpressionUUID->"438f80b8-cbda-45f5-8c86-\
+2be048e5c38c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,85,
+   137,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721598217299736*^9},ExpressionUUID->"5c41bcf6-cfd4-48fa-911f-\
+a8467e01eb22"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}]\\).\"",2,85,138,
+   21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721598217388362*^9},ExpressionUUID->"32425c4e-4d0e-4a4a-bd22-\
+ecc83247936d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"Stable Arm \\\\[LongRightArrow] \\\\\
+\\\"\\\", TraditionalForm], List[Times[Rational[9, 10], \\\\[ScriptM]Max], \
+cE[Times[Rational[9, 10], \\\\[ScriptM]Max]]], List[1, 0]]], \\\",\\\", \
+GraphicsBox[List[List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 0.5291935555799931`], \
+List[Plus[Skeleton[2]], 0.5291935555799931`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+0.5291935555799931`], List[3.073820703151237`, 0.3175161333479959`]]]], \
+List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 1.5875806667399794`], \
+List[Plus[Skeleton[2]], 1.5875806667399794`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+1.5875806667399794`], List[3.073820703151237`, 1.7992580889719767`]]]]], \
+List[]], \\\",\\\", RowBox[{\\\"AxesLabel\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"48\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"48\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"AxesOrigin\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"0.`\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \
+\\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \\\"}\\\
+\"}]}]}], \\\"]\\\"}]\\).\"",2,85,139,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721598217529395*^9},ExpressionUUID->"284b509d-4eac-401a-83c1-\
+42b08a0a1eae"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"5\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", \
+RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \
+\\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \\\"}\\\
+\"}]}]}], \\\"]\\\"}]\\).\"",2,85,140,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7215982175878572`*^9},ExpressionUUID->"12f81494-ed07-4faa-a105-\
+564dfe0ca2c2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Show\\\", \\\"::\\\", \
+\\\"gcomb\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,85,141,21021944658459223161,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721598217652388*^9},ExpressionUUID->"0d2dd26f-5c10-4bfb-b6e3-\
+ae5d7fb29503"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,7,4,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758246391696*^9},ExpressionUUID->"a2539205-3041-4249-be98-\
+ef58632c88fc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,7,5,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.72175824649971*^9},ExpressionUUID->"add964b8-7883-417c-a3f6-246bb8835472"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"cE\\\", \\\"[\\\", \
+\\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", RowBox[{\\\"cE\
+\\\", \\\"[\\\", \\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]}], \\\"}\\\"}]\\) is \
+not a machine-sized real number.\"",2,7,6,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758246569592*^9},ExpressionUUID->"27409073-13a5-4cd1-950a-\
+5e09928443b9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Plot\\\", \\\"::\\\", \
+\\\"plln\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,7,7,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217582466202297`*^9},ExpressionUUID->"0af79fdb-33ee-4176-b6a8-\
+aa04f958ac99"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,7,8,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217582466762733`*^9},ExpressionUUID->"7b554b4a-3a27-49c9-a788-\
+896126c29c6e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,7,9,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217582467489767`*^9},ExpressionUUID->"67912cd2-64b7-4bbd-aad8-\
+fb6101986528"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}]\\).\"",2,7,10,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758246783745*^9},ExpressionUUID->"e42bd5fc-83e3-41d7-a32e-\
+d703b1ce931f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"Stable Arm \\\\[LongRightArrow] \\\\\
+\\\"\\\", TraditionalForm], List[Times[Rational[9, 10], \\\\[ScriptM]Max], \
+cE[Times[Rational[9, 10], \\\\[ScriptM]Max]]], List[1, 0]]], \\\",\\\", \
+GraphicsBox[List[List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 0.5291935555799931`], \
+List[Plus[Skeleton[2]], 0.5291935555799931`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+0.5291935555799931`], List[3.073820703151237`, 0.3175161333479959`]]]], \
+List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 1.5875806667399794`], \
+List[Plus[Skeleton[2]], 1.5875806667399794`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+1.5875806667399794`], List[3.073820703151237`, 1.7992580889719767`]]]]], \
+List[]], \\\",\\\", RowBox[{\\\"AxesLabel\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"48\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"48\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"AxesOrigin\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"0.`\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \
+\\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \\\"}\\\
+\"}]}]}], \\\"]\\\"}]\\).\"",2,7,11,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217582470653257`*^9},ExpressionUUID->"7172a90f-7085-4ca9-8818-\
+3fc6119fbb81"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"restylePlot\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Plot\\\", \\\"[\\\
+\", RowBox[{RowBox[{\\\"cE\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", RowBox[{\
+\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\[ScriptCapitalR]\\\"]}], \\\",\
+\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Dashing\\\", \\\"[\\\", \\\"Small\\\", \\\"]\\\
+\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"4\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\
+\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \
+\\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\"]\\\"}]\\).\"",2,7,12,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758247110589*^9},ExpressionUUID->"91842795-88f7-4900-8ed1-\
+00416a709bc5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Show\\\", \\\"::\\\", \
+\\\"gcomb\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,7,13,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758247176181*^9},ExpressionUUID->"148e82d9-bf7f-4be6-aa85-\
+859134ec9b3b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,12,24,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758535718726*^9},ExpressionUUID->"adca5305-9bc9-411c-bd44-\
+43947622e933"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,12,25,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758535785083*^9},ExpressionUUID->"9bb9e15e-68c4-4dd9-89eb-\
+1be52077a9e1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"cE\\\", \\\"[\\\", \
+\\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", RowBox[{\\\"cE\
+\\\", \\\"[\\\", \\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]}], \\\"}\\\"}]\\) is \
+not a machine-sized real number.\"",2,12,26,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217585358657303`*^9},ExpressionUUID->"ae5bc65b-519f-40d2-8c7a-\
+519b868b9438"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Plot\\\", \\\"::\\\", \
+\\\"plln\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,12,27,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758535917406*^9},ExpressionUUID->"4c7e3a1d-920f-457f-868b-\
+e11e80c854b1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,12,
+   28,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217585359741783`*^9},ExpressionUUID->"25cca3ad-a8db-4a95-a8fa-\
+3497a8ffa94b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,12,
+   29,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758536028638*^9},ExpressionUUID->"7579bb11-94ea-4a64-a75c-\
+5b8948864536"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}]\\).\"",2,12,30,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758536082376*^9},ExpressionUUID->"3e44956b-4210-4692-8bb8-\
+6e47aab62adf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"Stable Arm \\\\[LongRightArrow] \\\\\
+\\\"\\\", TraditionalForm], List[Times[Rational[9, 10], \\\\[ScriptM]Max], \
+cE[Times[Rational[9, 10], \\\\[ScriptM]Max]]], List[1, 0]]], \\\",\\\", \
+GraphicsBox[List[List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 0.5291935555799931`], \
+List[Plus[Skeleton[2]], 0.5291935555799931`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+0.5291935555799931`], List[3.073820703151237`, 0.3175161333479959`]]]], \
+List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 1.5875806667399794`], \
+List[Plus[Skeleton[2]], 1.5875806667399794`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+1.5875806667399794`], List[3.073820703151237`, 1.7992580889719767`]]]]], \
+List[]], \\\",\\\", RowBox[{\\\"AxesLabel\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"48\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"48\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"AxesOrigin\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"0.`\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \
+\\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \\\"}\\\
+\"}]}]}], \\\"]\\\"}]\\).\"",2,12,31,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758536243514*^9},ExpressionUUID->"a476ea13-2cb4-4834-9be0-\
+33e99b4cac47"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"restylePlot\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Plot\\\", \\\"[\\\
+\", RowBox[{RowBox[{\\\"cE\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", RowBox[{\
+\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\[ScriptCapitalR]\\\"]}], \\\",\
+\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Dashing\\\", \\\"[\\\", \\\"Small\\\", \\\"]\\\
+\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"4\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\
+\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \
+\\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\"]\\\"}]\\).\"",2,12,32,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217585362905903`*^9},ExpressionUUID->"73163f31-3392-40ff-96c5-\
+0ac20d87039f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Show\\\", \\\"::\\\", \
+\\\"gcomb\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,12,33,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758536355728*^9},ExpressionUUID->"eb10d14f-46b3-4bda-83f1-\
+e6dc34beef04"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,12,34,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758895405821*^9},ExpressionUUID->"d5aa8fbd-310f-4e2e-b538-\
+bafd0711f868"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,12,35,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758895505076*^9},ExpressionUUID->"9cc57bee-60f9-4941-9277-\
+c88676f38437"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"cE\\\", \\\"[\\\", \
+\\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", RowBox[{\\\"cE\
+\\\", \\\"[\\\", \\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]}], \\\"}\\\"}]\\) is \
+not a machine-sized real number.\"",2,12,36,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217588955605707`*^9},ExpressionUUID->"c1c0fa5a-7dfc-4742-93bc-\
+d286c70d3a68"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Plot\\\", \\\"::\\\", \
+\\\"plln\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,12,37,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758895658104*^9},ExpressionUUID->"feb5714e-5082-439e-af18-\
+3a0a8ee22a65"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,12,
+   38,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217588957162037`*^9},ExpressionUUID->"276e9e7c-948a-47e6-a53d-\
+ebaae65f1488"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,12,
+   39,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758895813575*^9},ExpressionUUID->"35083cd1-cf8e-48c8-bdc9-\
+9df8ebc96cd5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}]\\).\"",2,12,40,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217588959244013`*^9},ExpressionUUID->"a3e03b9a-8e4d-4bf8-ab88-\
+8a29d86251d7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"Stable Arm \\\\[LongRightArrow] \\\\\
+\\\"\\\", TraditionalForm], List[Times[Rational[9, 10], \\\\[ScriptM]Max], \
+cE[Times[Rational[9, 10], \\\\[ScriptM]Max]]], List[1, 0]]], \\\",\\\", \
+GraphicsBox[List[List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 0.5291935555799931`], \
+List[Plus[Skeleton[2]], 0.5291935555799931`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+0.5291935555799931`], List[3.073820703151237`, 0.3175161333479959`]]]], \
+List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 1.5875806667399794`], \
+List[Plus[Skeleton[2]], 1.5875806667399794`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+1.5875806667399794`], List[3.073820703151237`, 1.7992580889719767`]]]]], \
+List[]], \\\",\\\", RowBox[{\\\"AxesLabel\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"48\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"48\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"AxesOrigin\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"0.`\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \
+\\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \\\"}\\\
+\"}]}]}], \\\"]\\\"}]\\).\"",2,12,41,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217588960774193`*^9},ExpressionUUID->"36d82253-374d-4b9a-85da-\
+3189211dde25"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"restylePlot\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Plot\\\", \\\"[\\\
+\", RowBox[{RowBox[{\\\"cE\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", RowBox[{\
+\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\[ScriptCapitalR]\\\"]}], \\\",\
+\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Dashing\\\", \\\"[\\\", \\\"Small\\\", \\\"]\\\
+\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"4\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\
+\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \
+\\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\"]\\\"}]\\).\"",2,12,42,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758896136767*^9},ExpressionUUID->"182a3a20-c396-4933-a5c6-\
+bf1923b35f0f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Show\\\", \\\"::\\\", \
+\\\"gcomb\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,12,43,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758896220315*^9},ExpressionUUID->"319848f5-1df1-4290-b032-\
+154ed566d0e9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,18,48,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758946656488*^9},ExpressionUUID->"b34b2340-7a10-4c24-b4cf-\
+164fa74dd78e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"\[ScriptM]Max\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \
+\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]\\) is not a \
+machine-sized real number.\"",2,18,49,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758946713998*^9},ExpressionUUID->"f8e7c1a8-3dee-4867-aaf8-\
+0bf2d3001d09"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","plln",
+   "\"Limiting value \\!\\(\\*RowBox[{\\\"cE\\\", \\\"[\\\", \
+\\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", RowBox[{\\\"cE\
+\\\", \\\"[\\\", \\\"\[ScriptM]MaxMax\\\", \\\"]\\\"}]}], \\\"}\\\"}]\\) is \
+not a machine-sized real number.\"",2,18,50,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758946771538*^9},ExpressionUUID->"c2efeb86-c2cc-4b51-bb25-\
+9f5d856c7655"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Plot\\\", \\\"::\\\", \
+\\\"plln\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,18,51,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758946875952*^9},ExpressionUUID->"5ba5ec82-d15a-4b16-890e-\
+f25ff983f8a5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,18,
+   52,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758946931657*^9},ExpressionUUID->"1da0e60f-17d6-4cd7-b5a2-\
+2882ab784124"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gtype",
+   "\"\\!\\(\\*RowBox[{\\\"Plot\\\"}]\\) is not a type of graphics.\"",2,18,
+   53,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758947031988*^9},ExpressionUUID->"8d5840dc-f92c-4370-a11e-\
+f9340a42a007"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}]\\).\"",2,18,54,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217589471479673`*^9},ExpressionUUID->"97b8280d-025a-4267-ae06-\
+118f3e7139db"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"Stable Arm \\\\[LongRightArrow] \\\\\
+\\\"\\\", TraditionalForm], List[Times[Rational[9, 10], \\\\[ScriptM]Max], \
+cE[Times[Rational[9, 10], \\\\[ScriptM]Max]]], List[1, 0]]], \\\",\\\", \
+GraphicsBox[List[List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 0.5291935555799931`], \
+List[Plus[Skeleton[2]], 0.5291935555799931`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+0.5291935555799931`], List[3.073820703151237`, 0.3175161333479959`]]]], \
+List[Thickness[Large], Arrowheads[0.025`], \
+ArrowBox[List[List[3.073820703151237`, 1.5875806667399794`], \
+List[Plus[Skeleton[2]], 1.5875806667399794`]]]], List[Thickness[Large], \
+Arrowheads[0.025`], ArrowBox[List[List[3.073820703151237`, \
+1.5875806667399794`], List[3.073820703151237`, 1.7992580889719767`]]]]], \
+List[]], \\\",\\\", RowBox[{\\\"AxesLabel\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\
+\\\", RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"48\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"48\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"AxesOrigin\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"0.`\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \
+\\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \\\"}\\\
+\"}]}]}], \\\"]\\\"}]\\).\"",2,18,55,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758947261788*^9},ExpressionUUID->"b206af71-99f5-4d3a-bffb-\
+fb7abb0b0dc7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{\\\"Plot\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"\[ScriptC]EDelEqZero\\\", \\\"[\\\", \\\"\
+\[ScriptM]\\\", \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[ScriptM]\\\", \\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \
+\\\"\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Automatic\\\", \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Automatic\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]}]}], \\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.842275878939046`, \
+1.3229838889499828`], List[1, 0]]], \\\",\\\", RowBox[{\\\"Show\\\", \
+\\\"[\\\", RowBox[{\\\"Plot\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\[ScriptM]EDelEqZero\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \
+\\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\
+\[ScriptCapitalR]\\\"]}], \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9718456320398069`, Times[0.022523494368154484`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \\\",\\\", \
+GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[3.073820703151237`, \
+1.0583871111599863`], List[1, -1]]]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"restylePlot\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Plot\\\", \\\"[\\\
+\", RowBox[{RowBox[{\\\"cE\\\", \\\"[\\\", \\\"\[ScriptM]\\\", \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[ScriptM]\\\", \\\",\\\", RowBox[{\
+\\\"-\\\", FractionBox[\\\"Severance\\\", \\\"\[ScriptCapitalR]\\\"]}], \\\",\
+\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"Dashing\\\", \\\"[\\\", \\\"Small\\\", \\\"]\\\
+\"}], \\\"}\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"4\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"PlotRange\\\", \
+\\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"0.`\\\", \\\",\\\", \\\"\[ScriptM]Max\\\"}], \\\"}\\\"}], \\\",\\\
+\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"\[ScriptC]Max\\\"}], \
+\\\"}\\\"}]}], \\\"}\\\"}]}]}], \\\"]\\\"}]\\).\"",2,18,56,
+   21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.721758947330493*^9},ExpressionUUID->"16cc5475-6d5f-4bf2-86b9-\
+f2701309376c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Show\\\", \\\"::\\\", \
+\\\"gcomb\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,18,57,21023081650194020906,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7217589474370403`*^9},ExpressionUUID->"817bcf07-5099-4c84-a459-\
+a9bcb2358d26"]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1376, 856},
+WindowMargins->{{77, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+Magnification->1.5,
+FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 18, \
+2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 456, 10, 73, "Input", "ExpressionUUID" -> \
+"8ed2ab5f-0746-4723-a15a-e716b4a23f68",
+ InitializationCell->True],
+Cell[1017, 32, 729, 11, 96, "Section", "ExpressionUUID" -> \
+"e7c8d374-cc2a-4829-9c45-9bec79053318",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[1771, 47, 766, 12, 73, "Section", "ExpressionUUID" -> \
+"080ab654-5105-46e7-a841-9f0f7c028480",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[2562, 63, 6384, 122, 298, "Input", "ExpressionUUID" -> \
+"83528ba3-93a8-44a7-94e7-23534dfd22a1"],
+Cell[8949, 187, 4151, 72, 620, "Output", "ExpressionUUID" -> \
+"a518a46a-4ef2-47b2-8ad8-8ac65708d379",
+ InitializationCell->True],
+Cell[13103, 261, 474, 10, 34, "Message", "ExpressionUUID" -> \
+"016194f7-f135-4897-ac6e-9754d3945f27"],
+Cell[13580, 273, 472, 10, 34, "Message", "ExpressionUUID" -> \
+"b94117ff-bd6e-4527-9cd4-1f59a7e13db0"],
+Cell[14055, 285, 558, 11, 34, "Message", "ExpressionUUID" -> \
+"b411d479-d234-489b-a0ce-72bc0f6e7abf"],
+Cell[14616, 298, 400, 9, 34, "Message", "ExpressionUUID" -> \
+"40382b6f-d138-4560-9ede-ef9b831b8133"],
+Cell[15019, 309, 304, 8, 34, "Message", "ExpressionUUID" -> \
+"438f80b8-cbda-45f5-8c86-2be048e5c38c"],
+Cell[15326, 319, 304, 8, 34, "Message", "ExpressionUUID" -> \
+"5c41bcf6-cfd4-48fa-911f-a8467e01eb22"],
+Cell[15633, 329, 2428, 40, 343, "Message", "ExpressionUUID" -> \
+"32425c4e-4d0e-4a4a-bd22-ecc83247936d"],
+Cell[18064, 371, 4083, 63, 392, "Message", "ExpressionUUID" -> \
+"284b509d-4eac-401a-83c1-42b08a0a1eae"],
+Cell[22150, 436, 2863, 45, 514, "Message", "ExpressionUUID" -> \
+"12f81494-ed07-4faa-a105-564dfe0ca2c2"],
+Cell[25016, 483, 399, 9, 34, "Message", "ExpressionUUID" -> \
+"0d2dd26f-5c10-4bfb-b6e3-ae5d7fb29503"],
+Cell[25418, 494, 469, 10, 34, "Message", "ExpressionUUID" -> \
+"a2539205-3041-4249-be98-ef58632c88fc"],
+Cell[25890, 506, 466, 9, 34, "Message", "ExpressionUUID" -> \
+"add964b8-7883-417c-a3f6-246bb8835472"],
+Cell[26359, 517, 555, 11, 34, "Message", "ExpressionUUID" -> \
+"27409073-13a5-4cd1-950a-5e09928443b9"],
+Cell[26917, 530, 397, 9, 34, "Message", "ExpressionUUID" -> \
+"0af79fdb-33ee-4176-b6a8-aa04f958ac99"],
+Cell[27317, 541, 303, 8, 34, "Message", "ExpressionUUID" -> \
+"7b554b4a-3a27-49c9-a788-896126c29c6e"],
+Cell[27623, 551, 303, 8, 34, "Message", "ExpressionUUID" -> \
+"67912cd2-64b7-4bbd-aad8-fb6101986528"],
+Cell[27929, 561, 2426, 40, 343, "Message", "ExpressionUUID" -> \
+"e42bd5fc-83e3-41d7-a32e-d703b1ce931f"],
+Cell[30358, 603, 4083, 63, 392, "Message", "ExpressionUUID" -> \
+"7172a90f-7085-4ca9-8818-3fc6119fbb81"],
+Cell[34444, 668, 3374, 52, 392, "Message", "ExpressionUUID" -> \
+"91842795-88f7-4900-8ed1-00416a709bc5"],
+Cell[37821, 722, 397, 9, 34, "Message", "ExpressionUUID" -> \
+"148e82d9-bf7f-4be6-aa85-859134ec9b3b"],
+Cell[38221, 733, 471, 10, 34, "Message", "ExpressionUUID" -> \
+"adca5305-9bc9-411c-bd44-43947622e933"],
+Cell[38695, 745, 471, 10, 34, "Message", "ExpressionUUID" -> \
+"9bb9e15e-68c4-4dd9-89eb-1be52077a9e1"],
+Cell[39169, 757, 559, 11, 34, "Message", "ExpressionUUID" -> \
+"ae5bc65b-519f-40d2-8c7a-519b868b9438"],
+Cell[39731, 770, 397, 9, 34, "Message", "ExpressionUUID" -> \
+"4c7e3a1d-920f-457f-868b-e11e80c854b1"],
+Cell[40131, 781, 305, 8, 34, "Message", "ExpressionUUID" -> \
+"25cca3ad-a8db-4a95-a8fa-3497a8ffa94b"],
+Cell[40439, 791, 303, 8, 34, "Message", "ExpressionUUID" -> \
+"7579bb11-94ea-4a64-a75c-5b8948864536"],
+Cell[40745, 801, 2427, 40, 343, "Message", "ExpressionUUID" -> \
+"3e44956b-4210-4692-8bb8-6e47aab62adf"],
+Cell[43175, 843, 4082, 63, 392, "Message", "ExpressionUUID" -> \
+"a476ea13-2cb4-4834-9be0-33e99b4cac47"],
+Cell[47260, 908, 3377, 52, 392, "Message", "ExpressionUUID" -> \
+"73163f31-3392-40ff-96c5-0ac20d87039f"],
+Cell[50640, 962, 398, 9, 34, "Message", "ExpressionUUID" -> \
+"eb10d14f-46b3-4bda-83f1-e6dc34beef04"],
+Cell[51041, 973, 471, 10, 34, "Message", "ExpressionUUID" -> \
+"d5aa8fbd-310f-4e2e-b538-bafd0711f868"],
+Cell[51515, 985, 471, 10, 34, "Message", "ExpressionUUID" -> \
+"9cc57bee-60f9-4941-9277-c88676f38437"],
+Cell[51989, 997, 559, 11, 34, "Message", "ExpressionUUID" -> \
+"c1c0fa5a-7dfc-4742-93bc-d286c70d3a68"],
+Cell[52551, 1010, 397, 9, 34, "Message", "ExpressionUUID" -> \
+"feb5714e-5082-439e-af18-3a0a8ee22a65"],
+Cell[52951, 1021, 305, 8, 34, "Message", "ExpressionUUID" -> \
+"276e9e7c-948a-47e6-a53d-ebaae65f1488"],
+Cell[53259, 1031, 303, 8, 34, "Message", "ExpressionUUID" -> \
+"35083cd1-cf8e-48c8-bdc9-9df8ebc96cd5"],
+Cell[53565, 1041, 2429, 40, 343, "Message", "ExpressionUUID" -> \
+"a3e03b9a-8e4d-4bf8-ab88-8a29d86251d7"],
+Cell[55997, 1083, 4084, 63, 392, "Message", "ExpressionUUID" -> \
+"36d82253-374d-4b9a-85da-3189211dde25"],
+Cell[60084, 1148, 3375, 52, 392, "Message", "ExpressionUUID" -> \
+"182a3a20-c396-4933-a5c6-bf1923b35f0f"],
+Cell[63462, 1202, 398, 9, 34, "Message", "ExpressionUUID" -> \
+"319848f5-1df1-4290-b032-154ed566d0e9"],
+Cell[63863, 1213, 471, 10, 34, "Message", "ExpressionUUID" -> \
+"b34b2340-7a10-4c24-b4cf-164fa74dd78e"],
+Cell[64337, 1225, 471, 10, 34, "Message", "ExpressionUUID" -> \
+"f8e7c1a8-3dee-4867-aaf8-0bf2d3001d09"],
+Cell[64811, 1237, 557, 11, 34, "Message", "ExpressionUUID" -> \
+"c2efeb86-c2cc-4b51-bb25-9f5d856c7655"],
+Cell[65371, 1250, 397, 9, 34, "Message", "ExpressionUUID" -> \
+"5ba5ec82-d15a-4b16-890e-f25ff983f8a5"],
+Cell[65771, 1261, 303, 8, 34, "Message", "ExpressionUUID" -> \
+"1da0e60f-17d6-4cd7-b5a2-2882ab784124"],
+Cell[66077, 1271, 303, 8, 34, "Message", "ExpressionUUID" -> \
+"8d5840dc-f92c-4370-a11e-f9340a42a007"],
+Cell[66383, 1281, 2429, 40, 343, "Message", "ExpressionUUID" -> \
+"97b8280d-025a-4267-ae06-118f3e7139db"],
+Cell[68815, 1323, 4082, 63, 392, "Message", "ExpressionUUID" -> \
+"b206af71-99f5-4d3a-bffb-fb7abb0b0dc7"],
+Cell[72900, 1388, 3375, 52, 392, "Message", "ExpressionUUID" -> \
+"16cc5475-6d5f-4bf2-86b9-f2701309376c"],
+Cell[76278, 1442, 400, 9, 34, "Message", "ExpressionUUID" -> \
+"817bcf07-5099-4c84-a459-a9bcb2358d26"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

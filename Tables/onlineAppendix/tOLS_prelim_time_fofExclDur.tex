@@ -1,0 +1,31 @@
+
+\begin{table}
+\caption{ Preliminary regressions with time trend---Flow of Funds SR Excluding Durables} \label{tOLSprelim}
+\begin{center}
+\begin{tabular}{@{}ld{6}d{6}d{6}d{6}d{6}d{6}d{6}@{}}
+\multicolumn{8}{c}{ $s_t=\gamma_0+\gamma_m m_t+\gamma_{\CEA}\CEA_t+ \gamma_{Eu}\Ex_t u_{t+4}+\gamma_t t+\gamma_{uC} (\Ex_t u_{t+4}\times\CEA_t)+\varepsilon_t$ } \\
+\toprule
+  Model & \multicolumn{1}{c}{Time} & \multicolumn{1}{c}{Wealth} & \multicolumn{1}{c}{CEA} & \multicolumn{1}{c}{Un Risk}& \multicolumn{1}{c}{All 3} & \multicolumn{1}{c}{Baseline} & \multicolumn{1}{c}{Interact} \\
+\midrule
+$\gamma_0$ & 15.194^{ ***}  & 30.419^{ ***}  & 11.953^{ ***}  & 9.813^{ ***}  & 15.778^{ **}  & 18.836^{ ***}  & 15.310^{ **}\\
+ & (0.920)  &  (4.020)  &  (1.115)  &  (0.949)  &  (6.917)  &  (5.982)  & (7.085)\\
+$\gamma_m$   & &-3.727^{ ***}  & & & -1.181^{ }  & -1.845^{ }  & -0.902^{ }\\
+ & & (0.920)  &  & &   (1.401)  &  (1.192)  &  (1.477) \\
+ $\gamma_{\CEA}$   & & & -17.409^{ ***}  & &-1.080^{ }  & -8.404^{ ***}  & -2.070^{ }\\
+ & & & (4.319)  &   &   (5.103)  &  (1.471)  &  (5.343)\\
+$\gamma_{Eu}$  & & & & 0.971^{ ***}  & 0.729^{ **}  & 0.402^{ **}  & 0.651^{ **}\\
+ &   &   &  & (0.163)  &   (0.330)  &   (0.179)  &   (0.331 ) \\
+ $\gamma_{t}$   & -0.063^{ ***}  &  -0.036^{ ***}  &  0.043^{ }  &  -0.069^{ ***}  &  -0.052^{ }  & & -0.061^{ }\\
+ & (0.009)& (0.007) & (0.026) & (0.006) & ( 0.040 ) & & (0.043)\\
+ $\gamma_{uC}$   &  & & & & & & 0.366^{ }\\
+ &   &  &  & & & & (0.489)   \\
+\midrule
+ $\bar{R}^2$  & 0.419  & 0.503  & 0.471  & 0.526  & 0.524  & 0.522  & 0.523\\
+ F stat p val  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000  & 0.00000\\
+DW stat  & 1.501  & 1.827  & 1.658  & 1.888 & 1.907 & 1.884 & 1.910\\
+\bottomrule
+\end{tabular}
+\end{center}
+\showEstTime{Estimated:  5 Feb 2012, 18:06:05}
+ {\footnotesize Notes: Estimation sample: 1966Q2--2011Q1. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent. Newey--West standard errors, 4 lags.}
+\end{table}
