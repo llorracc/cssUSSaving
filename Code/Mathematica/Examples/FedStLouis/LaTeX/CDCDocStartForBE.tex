@@ -130,8 +130,8 @@
     }
     \providecommand{\wideMargins}{\usepackage[twoside,marginparwidth=0in,left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}\usepackage{layouts}}
     \ifthenelse{\boolean{wideMargins}}{\wideMargins}{}
-    \newcommand{\CDCFig}[1]{\centerline{\includegraphics[width=0.75\textwidth]{\econtexRoot/Figures/#1}}}
-    \newcommand{\CDCFigSideways}[1]{\centerline{\includegraphics[width=7.8in,height=5.5in]{\econtexRoot/Figures/#1}}}
+    \newcommand{\CDCFig}[1]{\centerline{\includegraphics[width=0.75\textwidth]{../Figures/#1}}}
+    \newcommand{\CDCFigSideways}[1]{\centerline{\includegraphics[width=7.8in,height=5.5in]{../Figures/#1}}}
     \DeclareGraphicsExtensions{.pdf}
     \ifthenelse{\boolean{bigPrint}}{\renewcommand{\titlepagefinish}{\newpage\large}}{}
 \fi
@@ -149,6 +149,7 @@
    linkcolor=darkred
 }
 
+%% Define the title table as different from the regular table
 
 %\let\tabularTitle\tabular
 %\let\endtabularTitle\endtabular

@@ -1,0 +1,1986 @@
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Severance", "Section"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+  RowBox[{"<<", "ManipulatePrepare.m"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FindStableArm", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[ScriptM]Max", ",", "\[ScriptM]MaxMax"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "4"}], "}"}], " ", "\[ScriptM]E"}]}], ";", 
+  RowBox[{"\[ScriptC]Max", "=", 
+   RowBox[{"cE", "[", "\[ScriptM]MaxMax", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Severance", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"$PerformanceGoal", "=", "\"\<Quality\>\""}], ",", " ", "r"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"r", "=", "rSlider"}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", "\[CapitalGamma]"}], 
+          " ", "\[GreaterEqual]", "  ", "1"}], "||", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", 
+           RowBox[{"(", "R", ")"}]}], " ", "\[GreaterEqual]", "  ", "1"}]}], 
+        ",", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{
+           "Text", "[", "\"\<Impatience Condition Not Satisfied.\>\"", "]"}], 
+           ",", "24"}], "]"}], ";", 
+         RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"\[ScriptM]TargetDiagram", "[", 
+       RowBox[{
+       "\[ScriptM]Max", ",", "\[ScriptM]MaxMax", ",", "\[ScriptC]Max"}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rSlider", ",", "rBase", ",", "\"\<r\>\""}], "}"}], ",", 
+     RowBox[{"rBase", "-", "0.025"}], ",", 
+     RowBox[{"rBase", "+", ".06"}], ",", "0.005"}], "}"}]}], "]"}]}], "Input",
+ 
+ InitializationCell->True],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`rSlider$$ = 0.03, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rSlider$$], 0.03, "r"}, 0.0049999999999999975`, 0.09,
+       0.005}}, Typeset`size$$ = {702., {209., 225.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`rSlider$252130$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`rSlider$$ = 0.03}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`rSlider$$, $CellContext`rSlider$252130$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Block[{$PerformanceGoal = 
+         "Quality", $CellContext`r}, $CellContext`r = $CellContext`rSlider$$; 
+        If[
+          
+          Or[($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`\[CapitalGamma] >= 
+           1, ($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`R >= 1], Style[
+            Text["Impatience Condition Not Satisfied."], 24]; 
+          
+          Abort[]]; $CellContext`\[ScriptM]TargetDiagram[$CellContext`\
+\[ScriptM]Max, $CellContext`\[ScriptM]MaxMax, $CellContext`\[ScriptC]Max]], 
+      "Specifications" :> {{{$CellContext`rSlider$$, 0.03, "r"}, 
+         0.0049999999999999975`, 0.09, 0.005}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{768., {272., 281.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FindRoot", "::", "nlnum"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The function value \
+\[NoBreak]\\!\\({\\(\\(0.1353352832366127` \[VeryThinSpace]\\)\\) - \
+\\(1.0609`\\\\ 6.580727781898569`\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \
+\[Rho]\\)\\)\\)\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\))\\)\\)\\\\ \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\\\ \\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\^2\\\\ \
+\\((\\(\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\/\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\))\\)\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \[Rho]\\)\\)\\)\
+\\\\ \[Mho]\\)\\/\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[GothicG])\\)\\^2\
+\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[CurlyTheta])\\)\\)\\\\ \
+\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \\(1.0609`\\\\ \
+\\(\\(\[LeftSkeleton] 5 \[RightSkeleton]\\)\\)\\\\ \[Mho]\\)\\/\\(\\(Plus[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\^2\\\\ \\(\\(Plus[\\(\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\)\\))\\)\\)\\)}\\)\[NoBreak] is \
+not a list of numbers with dimensions \[NoBreak]\\!\\({1}\\)\[NoBreak] at \
+\[NoBreak]\\!\\({\[Kappa]EInvSeek}\\)\[NoBreak] = \[NoBreak]\\!\\({0.5`}\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/FindRoot\\\", ButtonNote -> \
+\\\"FindRoot::nlnum\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(FindRoot[\\(\\(\\(\\(\\(\\(Exp[\\(\\(-\
+\\(\\(1\\/\[Kappa]EInvSeek\\)\\)\\)\\)]\\)\\) \[Equal] \
+\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(-\\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)]\\)\\)]\\)\\/\\(1 + \
+\\(\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)]\\)\\)\\)\\)\\), \\(\\({\[Kappa]EInvSeek, 0.5`, \
+100}\\)\\)\\)\\)]\\)}\\)\[NoBreak] is neither a list of replacement rules nor \
+a valid dispatch table, and so cannot be used for replacing. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FindRoot", "::", "nlnum"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The function value \
+\[NoBreak]\\!\\({\\(\\(0.1353352832366127` \[VeryThinSpace]\\)\\) - \
+\\(1.0609`\\\\ 6.580727781898569`\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \
+\[Rho]\\)\\)\\)\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\))\\)\\)\\\\ \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\\\ \\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\^2\\\\ \
+\\((\\(\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\/\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\))\\)\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \[Rho]\\)\\)\\)\
+\\\\ \[Mho]\\)\\/\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[GothicG])\\)\\^2\
+\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[CurlyTheta])\\)\\)\\\\ \
+\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \\(1.0609`\\\\ \
+\\(\\(\[LeftSkeleton] 5 \[RightSkeleton]\\)\\)\\\\ \[Mho]\\)\\/\\(\\(Plus[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\^2\\\\ \\(\\(Plus[\\(\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\)\\))\\)\\)\\)}\\)\[NoBreak] is \
+not a list of numbers with dimensions \[NoBreak]\\!\\({1}\\)\[NoBreak] at \
+\[NoBreak]\\!\\({\[Kappa]EInvSeek}\\)\[NoBreak] = \[NoBreak]\\!\\({0.5`}\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/FindRoot\\\", ButtonNote -> \
+\\\"FindRoot::nlnum\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(FindRoot[\\(\\(\\(\\(\\(\\(Exp[\\(\\(-\
+\\(\\(1\\/\[Kappa]EInvSeek\\)\\)\\)\\)]\\)\\) \[Equal] \
+\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(-\\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)]\\)\\)]\\)\\/\\(1 + \
+\\(\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)]\\)\\)\\)\\)\\), \\(\\({\[Kappa]EInvSeek, 0.5`, \
+100}\\)\\)\\)\\)]\\)}\\)\[NoBreak] is neither a list of replacement rules nor \
+a valid dispatch table, and so cannot be used for replacing. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FindRoot", "::", "nlnum"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The function value \
+\[NoBreak]\\!\\({\\(\\(0.1353352832366127` \[VeryThinSpace]\\)\\) - \
+\\(1.0609`\\\\ 6.580727781898569`\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \
+\[Rho]\\)\\)\\)\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\))\\)\\)\\\\ \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\\\ \\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\^2\\\\ \
+\\((\\(\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\/\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\))\\)\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \[Rho]\\)\\)\\)\
+\\\\ \[Mho]\\)\\/\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[GothicG])\\)\\^2\
+\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[CurlyTheta])\\)\\)\\\\ \
+\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \\(1.0609`\\\\ \
+\\(\\(\[LeftSkeleton] 5 \[RightSkeleton]\\)\\)\\\\ \[Mho]\\)\\/\\(\\(Plus[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\^2\\\\ \\(\\(Plus[\\(\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\)\\))\\)\\)\\)}\\)\[NoBreak] is \
+not a list of numbers with dimensions \[NoBreak]\\!\\({1}\\)\[NoBreak] at \
+\[NoBreak]\\!\\({\[Kappa]EInvSeek}\\)\[NoBreak] = \[NoBreak]\\!\\({0.5`}\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/FindRoot\\\", ButtonNote -> \
+\\\"FindRoot::nlnum\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(FindRoot \
+:: nlnum\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(FindRoot[\\(\\(\\(\\(\\(\\(Exp[\\(\\(-\
+\\(\\(1\\/\[Kappa]EInvSeek\\)\\)\\)\\)]\\)\\) \[Equal] \
+\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(-\\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)]\\)\\)]\\)\\/\\(1 + \
+\\(\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)]\\)\\)\\)\\)\\), \\(\\({\[Kappa]EInvSeek, 0.5`, \
+100}\\)\\)\\)\\)]\\)}\\)\[NoBreak] is neither a list of replacement rules nor \
+a valid dispatch table, and so cannot be used for replacing. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: reps\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(1\\)\[NoBreak] of \
+\[NoBreak]\\!\\({}\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Kappa]E = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"{", "}"}], "\[LeftDoubleBracket]", "1", 
+    "\[RightDoubleBracket]"}], 
+   "\[InvisibleSpace]", "\<\" is not a number in FindStableArm.\"\>"}],
+  SequenceForm["\[Kappa]E = ", 
+   Part[{}, 1], " is not a number in FindStableArm."],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FindRoot", "::", "nlnum"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The function value \
+\[NoBreak]\\!\\({\\(\\(0.1353352832366127` \[VeryThinSpace]\\)\\) - \
+\\(1.0609`\\\\ 6.580727781898569`\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \
+\[Rho]\\)\\)\\)\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\))\\)\\)\\\\ \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\\\ \\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\^2\\\\ \
+\\((\\(\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\/\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\))\\)\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \[Rho]\\)\\)\\)\
+\\\\ \[Mho]\\)\\/\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[GothicG])\\)\\^2\
+\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[CurlyTheta])\\)\\)\\\\ \
+\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \\(1.0609`\\\\ \
+\\(\\(\[LeftSkeleton] 5 \[RightSkeleton]\\)\\)\\\\ \[Mho]\\)\\/\\(\\(Plus[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\^2\\\\ \\(\\(Plus[\\(\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\)\\))\\)\\)\\)}\\)\[NoBreak] is \
+not a list of numbers with dimensions \[NoBreak]\\!\\({1}\\)\[NoBreak] at \
+\[NoBreak]\\!\\({\[Kappa]EInvSeek}\\)\[NoBreak] = \[NoBreak]\\!\\({0.5`}\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/FindRoot\\\", ButtonNote -> \
+\\\"FindRoot::nlnum\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(FindRoot[\\(\\(\\(\\(\\(\\(Exp[\\(\\(-\
+\\(\\(1\\/\[Kappa]EInvSeek\\)\\)\\)\\)]\\)\\) \[Equal] \
+\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(-\\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)]\\)\\)]\\)\\/\\(1 + \
+\\(\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)]\\)\\)\\)\\)\\), \\(\\({\[Kappa]EInvSeek, 0.5`, \
+100}\\)\\)\\)\\)]\\)}\\)\[NoBreak] is neither a list of replacement rules nor \
+a valid dispatch table, and so cannot be used for replacing. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FindRoot", "::", "nlnum"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The function value \
+\[NoBreak]\\!\\({\\(\\(0.1353352832366127` \[VeryThinSpace]\\)\\) - \
+\\(1.0609`\\\\ 6.580727781898569`\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \
+\[Rho]\\)\\)\\)\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\))\\)\\)\\\\ \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\\\ \\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\^2\\\\ \
+\\((\\(\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\/\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\))\\)\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \[Rho]\\)\\)\\)\
+\\\\ \[Mho]\\)\\/\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[GothicG])\\)\\^2\
+\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[CurlyTheta])\\)\\)\\\\ \
+\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \\(1.0609`\\\\ \
+\\(\\(\[LeftSkeleton] 5 \[RightSkeleton]\\)\\)\\\\ \[Mho]\\)\\/\\(\\(Plus[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\^2\\\\ \\(\\(Plus[\\(\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\)\\))\\)\\)\\)}\\)\[NoBreak] is \
+not a list of numbers with dimensions \[NoBreak]\\!\\({1}\\)\[NoBreak] at \
+\[NoBreak]\\!\\({\[Kappa]EInvSeek}\\)\[NoBreak] = \[NoBreak]\\!\\({0.5`}\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/FindRoot\\\", ButtonNote -> \
+\\\"FindRoot::nlnum\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(FindRoot[\\(\\(\\(\\(\\(\\(Exp[\\(\\(-\
+\\(\\(1\\/\[Kappa]EInvSeek\\)\\)\\)\\)]\\)\\) \[Equal] \
+\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(-\\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)]\\)\\)]\\)\\/\\(1 + \
+\\(\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)]\\)\\)\\)\\)\\), \\(\\({\[Kappa]EInvSeek, 0.5`, \
+100}\\)\\)\\)\\)]\\)}\\)\[NoBreak] is neither a list of replacement rules nor \
+a valid dispatch table, and so cannot be used for replacing. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"FindRoot", "::", "nlnum"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The function value \
+\[NoBreak]\\!\\({\\(\\(0.1353352832366127` \[VeryThinSpace]\\)\\) - \
+\\(1.0609`\\\\ 6.580727781898569`\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \
+\[Rho]\\)\\)\\)\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\))\\)\\)\\\\ \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\\\ \\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\^2\\\\ \
+\\((\\(\\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\/\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\))\\)\\^\\(\\(\\(-1.`\\)\\) - \\(\\(1.`\\\\ \[Rho]\\)\\)\\)\
+\\\\ \[Mho]\\)\\/\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[GothicG])\\)\\^2\
+\\\\ \\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \[CurlyTheta])\\)\\)\\\\ \
+\\(\\((\\(\\(1.` \[VeryThinSpace]\\)\\) + \\(1.0609`\\\\ \
+\\(\\(\[LeftSkeleton] 5 \[RightSkeleton]\\)\\)\\\\ \[Mho]\\)\\/\\(\\(Plus[\\(\
+\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\^2\\\\ \\(\\(Plus[\\(\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)\\)]\\)\\)\\))\\)\\)\\)}\\)\[NoBreak] is \
+not a list of numbers with dimensions \[NoBreak]\\!\\({1}\\)\[NoBreak] at \
+\[NoBreak]\\!\\({\[Kappa]EInvSeek}\\)\[NoBreak] = \[NoBreak]\\!\\({0.5`}\\)\
+\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/FindRoot\\\", ButtonNote -> \
+\\\"FindRoot::nlnum\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(FindRoot \
+:: nlnum\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\(FindRoot[\\(\\(\\(\\(\\(\\(Exp[\\(\\(-\
+\\(\\(1\\/\[Kappa]EInvSeek\\)\\)\\)\\)]\\)\\) \[Equal] \
+\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(-\\(\\(Power[\\(\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)]\\)\\)]\\)\\/\\(1 + \
+\\(\\(\[Natural]EFuncLim0[\\(\\(Exp[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)]\\)\\)\\)\\)\\), \\(\\({\[Kappa]EInvSeek, 0.5`, \
+100}\\)\\)\\)\\)]\\)}\\)\[NoBreak] is neither a list of replacement rules nor \
+a valid dispatch table, and so cannot be used for replacing. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", \
+ButtonNote -> \\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: reps\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(1\\)\[NoBreak] of \
+\[NoBreak]\\!\\({}\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Kappa]E = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"{", "}"}], "\[LeftDoubleBracket]", "1", 
+    "\[RightDoubleBracket]"}], 
+   "\[InvisibleSpace]", "\<\" is not a number in FindStableArm.\"\>"}],
+  SequenceForm["\[Kappa]E = ", 
+   Part[{}, 1], " is not a number in FindStableArm."],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "nlim"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\[Bullet]\\)\[NoBreak] = \
+\[NoBreak]\\!\\(\\(\\(-1.`\\)\\)\\\\ \[CurlyEpsilon]\\)\[NoBreak] is not a \
+valid limit of integration. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/nlim\\\", ButtonNote -> \
+\\\"NIntegrate::nlim\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "nlim"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\[Bullet]\\)\[NoBreak] = \
+\[NoBreak]\\!\\(\\(\\(-1.`\\)\\)\\\\ \[CurlyEpsilon]\\)\[NoBreak] is not a \
+valid limit of integration. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/nlim\\\", ButtonNote -> \
+\\\"NIntegrate::nlim\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "nlim"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\[Bullet]\\)\[NoBreak] = \
+\[NoBreak]\\!\\(\\(\\(-1.`\\)\\)\\\\ \[CurlyEpsilon]\\)\[NoBreak] is not a \
+valid limit of integration. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/nlim\\\", ButtonNote -> \
+\\\"NIntegrate::nlim\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(NIntegrate :: nlim\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData["\<\"Solving ...\"\>"], "Print"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(-1\\)\[NoBreak] of \[NoBreak]\\!\\({}\
+\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(-2\\)\[NoBreak] of \[NoBreak]\\!\\({}\
+\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData["\<\"Solving ...\"\>"], "Print"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(1\\)\[NoBreak] of \
+\[NoBreak]\\!\\({}\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Part :: \
+partw\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Take", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(5\\)\[NoBreak] in \[NoBreak]\\!\\(\\(\\({}\\)\\) \
+\[LeftDoubleBracket] 1 \[RightDoubleBracket]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Take/take\\\", \
+ButtonNote -> \\\"Take::take\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Set", "::", "shape"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Lists \[NoBreak]\\!\\({\[ScriptM]Bot, \[ScriptC]Bot, \
+\[Kappa]Bot, \[ScriptV]Bot, \[Kappa]PBot}\\)\[NoBreak] and \
+\[NoBreak]\\!\\(Take[\\(\\(\\(\\(\\(\\({}\\)\\) \[LeftDoubleBracket] 1 \
+\[RightDoubleBracket]\\)\\), 5\\)\\)]\\)\[NoBreak] are not the same shape. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Set/shape\\\", \
+ButtonNote -> \\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Take", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(5\\)\[NoBreak] in \[NoBreak]\\!\\(\\(\\({}\\)\\) \
+\[LeftDoubleBracket] \\(\\(-1\\)\\) \[RightDoubleBracket]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Take/take\\\", \
+ButtonNote -> \\\"Take::take\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Set", "::", "shape"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Lists \[NoBreak]\\!\\({\[ScriptM]Top, \[ScriptC]Top, \
+\[Kappa]Top, \[ScriptV]Top, \[Kappa]PTop}\\)\[NoBreak] and \
+\[NoBreak]\\!\\(Take[\\(\\(\\(\\(\\(\\({}\\)\\) \[LeftDoubleBracket] \\(\\(-1\
+\\)\\) \[RightDoubleBracket]\\)\\), 5\\)\\)]\\)\[NoBreak] are not the same \
+shape. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Set/shape\\\", ButtonNote -> \
+\\\"Set::shape\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Interpolation", "::", "inhr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Requested order is too high; order has been reduced to \
+\[NoBreak]\\!\\({2}\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Interpolation/inhr\\\", \
+ButtonNote -> \\\"Interpolation::inhr\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(cE[17.681039772025382`]\\)\
+\[NoBreak] in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \\(\\(cE[17.681039772025382`]\\)\\)}\\)\
+\[NoBreak] is not a machine-sized real number. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/plln\\\", ButtonNote -> \
+\\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(cE[17.681039772025382`]\\)\
+\[NoBreak] in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \\(\\(cE[17.681039772025382`]\\)\\)}\\)\
+\[NoBreak] is not a machine-sized real number. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/plln\\\", ButtonNote -> \
+\\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(cE[17.681039772025382`]\\)\
+\[NoBreak] in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \\(\\(cE[17.681039772025382`]\\)\\)}\\)\
+\[NoBreak] is not a machine-sized real number. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/plln\\\", ButtonNote -> \
+\\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Plot :: \
+plln\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Plot :: \
+plln\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gtype\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(General \
+:: prng\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gcomb\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)}\\)\\)}\\)\
+\[NoBreak] is not All, Full, Automatic, a positive machine number, or an \
+appropriate list of range specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Plot :: \
+plln\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gtype\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(General \
+:: prng\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gcomb\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \
+\\(\\(ConditionalExpression[\\(\\(\\(\\(\\(\\(5.426389961680812` \
+\[VeryThinSpace]\\)\\) - 2.718281828459045`\\^\\(\\(\\(-3.110228604221721`\\)\
+\\) \\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\\(\\((\\(\\(0.` \
+\[VeryThinSpace]\\)\\) + \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\))\\)\\) \\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \
+\\(\\(C \\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] \
+1 \[RightSkeleton]\\)\\)]\\)\\)\\)\\)\\) - \
+2.718281828459045`\\^\\(\\(\\(-5.076525418191559`\\)\\) + \
+\\(\\(\\(\\((\\(\\(0.` \[VeryThinSpace]\\)\\) + \\(\\(6.283185307179586`\\\\ \
+\[ImaginaryI]\\)\\))\\)\\)\\\\ \\(\\(C[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)\\)\\)\\), \\(\\(\\(\\(\\(\\(C[1]\\)\\) \
+\[Element] Integers\\)\\) && \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\)\\)\\)]\\)\\)}\\)\\)}\\)\[NoBreak] is not All, \
+Full, Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Plot :: \
+plln\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gtype\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(General \
+:: prng\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gcomb\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \
+\\(\\(ConditionalExpression[\\(\\(\\(\\(\\(\\(5.426389961680812` \
+\[VeryThinSpace]\\)\\) - 2.718281828459045`\\^\\(\\(\\(-3.110228604221721`\\)\
+\\) \\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\\(\\((\\(\\(0.` \
+\[VeryThinSpace]\\)\\) + \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\))\\)\\) \\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \
+\\(\\(C \\(\\(\[LeftSkeleton] 1 \[RightSkeleton]\\)\\) \\(\\(\[LeftSkeleton] \
+1 \[RightSkeleton]\\)\\)]\\)\\)\\)\\)\\) - \
+2.718281828459045`\\^\\(\\(\\(-5.076525418191559`\\)\\) + \
+\\(\\(\\(\\((\\(\\(0.` \[VeryThinSpace]\\)\\) + \\(\\(6.283185307179586`\\\\ \
+\[ImaginaryI]\\)\\))\\)\\)\\\\ \\(\\(C[\\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)]\\)\\)\\)\\)\\)\\)\\), \\(\\(\\(\\(\\(\\(C[1]\\)\\) \
+\[Element] Integers\\)\\) && \\(\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)\\)\\)\\)\\)\\)]\\)\\)}\\)\\)}\\)\[NoBreak] is not All, \
+Full, Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(\[ScriptM]Max\\)\[NoBreak] \
+in \[NoBreak]\\!\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\[ScriptCapitalR]\\)\
+\\)\\)\\), \[ScriptM]Max}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Plot :: \
+plln\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gtype"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(Plot\\)\[NoBreak] is not a type of \
+graphics. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gtype\\\", ButtonNote -> \
+\\\"Show::gtype\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gtype\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(General \
+:: prng\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptC]\
+EDelEqZero[\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\), \\(\\(PlotRange \[Rule] \
+\\(\\({Automatic, \\(\\({Automatic, \
+\[ScriptC]Max}\\)\\)}\\)\\)\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[ScriptC]\\\\\\\\), \
+\\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)=0 \\\\[LongRightArrow] \
+\\\\\\\"\\\", TraditionalForm], List[6.844815697608061`, 1.385660018622784`], \
+List[1, 0]]], \\(\\(Show[\\(\\(Plot[\\(\\(\\(\\(\[ScriptM]EDelEqZero[\
+\[ScriptM]]\\)\\), \\(\\({\[ScriptM], \\(\\(-\\(\\(Severance\\/\
+\[ScriptCapitalR]\\)\\)\\)\\), \[ScriptM]Max}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*\
+SubscriptBox[\\\\\\\\(\\\\\\\\), \\\\\\\\nStyleBox[\\\\\\\\\\\\\\\" \
+\\\\\\\\\\\\\\\",\\\\\\\\nFontSize->10]]\\\\\\\\) \
+\\\\\\\\!\\\\\\\\(\\\\\\\\*SubsuperscriptBox[\\\\\\\\(\\\\[CapitalDelta]\\\\[\
+ScriptM]\\\\\\\\), \\\\\\\\( \\\\\\\\), \\\\\\\\(e\\\\\\\\)]\\\\\\\\)= 0 \
+\\\\[UpperRightArrow]\\\\\\\"\\\", TraditionalForm], List[Times[0.8`, \
+\\\\[ScriptM]Max], Plus[0.9757525491535346`, Times[0.019397960677172324`, \
+\\\\[ScriptM]Max]]], List[-1, 1]]], \
+\\*GraphicsBox[InsetBox[FormBox[\\\"\\\\\\\"SS \\\\[LowerRightArrow] \\\\\\\"\
+\\\", TraditionalForm], List[5.475852558086449`, 1.1085280148982277`], \
+List[1, -1]]]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", \
+ButtonNote -> \\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(Show :: \
+gcomb\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "prng"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Value of option PlotRange -> \[NoBreak]\\!\\({Automatic, \
+\\(\\({Automatic, \[ScriptC]Max}\\)\\)}\\)\[NoBreak] is not All, Full, \
+Automatic, a positive machine number, or an appropriate list of range \
+specifications.\"\>"}]], "Message", "MSG"]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1029, 949},
+WindowMargins->{{-1433, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+

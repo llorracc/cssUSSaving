@@ -1,0 +1,378 @@
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<../../CoreCode/Autoload/init.m\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<../../CoreCode/MakeAnalyticalResults.m\>\"", "]"}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<../../CoreCode/VarsAndFuncs.m\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NotebookDirectory", "::", "nosv"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The notebook \
+\[NoBreak]\\!\\(\\*TemplateBox[List[FrontEndObject[LinkObject[\\\"7h52r_shm\\\
+\", 3, 1]], 175, \\\"FrontEndObject[LinkObject[\\\\\\\"7h52r_shm\\\\\\\", 3, \
+1]]\\\", \\\"175\\\", \\\"\\\\\\\"Untitled-9\\\\\\\"\\\"], \
+\\\"NotebookObjectUnsaved\\\"]\\)\[NoBreak] is not saved. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/NotebookDirectory\\\", ButtonNote -> \
+\\\"NotebookDirectory::nosv\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"SetDirectory", "::", "fstr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File specification \[NoBreak]\\!\\($Failed\\)\[NoBreak] is \
+not a string of one or more characters. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/fstr\\\", ButtonNote -> \
+\\\"SetDirectory::fstr\\\"]\\)\"\>"}]], "Message", "MSG"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["rBase"], "Input"],
+
+Cell[BoxData["0.03`"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\[GothicG]Base"], "Input"],
+
+Cell[BoxData["0.`"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"??", "\[ScriptM]E"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Global`\[ScriptM]E", "Print", "PrintUsage",
+ CellTags->"Info-a31b878e-7d31-4f84-aa41-8fb6edd14536"],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {GridBox[{
+       {
+        RowBox[{"\[ScriptM]E", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"1", "+", "r"}], ")"}], " ", "Severance", " ", 
+               RowBox[{"(", 
+                RowBox[{"1", "-", 
+                 FractionBox[
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"1", "-", "PDies"}], ")"}], " ", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]]}], 
+                  RowBox[{"1", "+", "r"}]]}], ")"}], " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"1", "+", 
+                  FractionBox[
+                   RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", "\[Mho]"}], ")"}]}], 
+                    RowBox[{"1", "+", "\[GothicG]"}]], ")"}], 
+                    RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+                FractionBox["1", "\[Rho]"]], " ", 
+               RowBox[{"(", 
+                RowBox[{"1", "-", "\[Mho]"}], ")"}]}], 
+              RowBox[{"1", "+", "\[GothicG]"}]]}], "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"1", "+", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"1", "+", "r"}], ")"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "-", 
+                   FractionBox[
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", "PDies"}], ")"}], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]]}], 
+                    RowBox[{"1", "+", "r"}]]}], ")"}], " ", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"1", "+", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", "\[Mho]"}], ")"}]}], 
+                    RowBox[{"1", "+", "\[GothicG]"}]], ")"}], 
+                    RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+                  FractionBox["1", "\[Rho]"]], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "-", "\[Mho]"}], ")"}]}], 
+                RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", 
+               RowBox[{"Severance", " ", "\[Mho]"}]}], ")"}]}]}], ")"}], "/", 
+          
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"1", "+", "r"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"1", "-", "\[Tau]"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"1", "-", "\[Mho]"}], ")"}]}], 
+             RowBox[{"1", "+", "\[GothicG]"}]], "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"1", "+", "r"}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"1", "-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"1", "-", "PDies"}], ")"}], " ", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                   FractionBox["1", "\[Rho]"]]}], 
+                 RowBox[{"1", "+", "r"}]]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"1", "+", 
+                 FractionBox[
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", "\[Mho]"}], ")"}]}], 
+                    RowBox[{"1", "+", "\[GothicG]"}]], ")"}], 
+                    RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+               FractionBox["1", "\[Rho]"]], " ", 
+              RowBox[{"(", 
+               RowBox[{"1", "-", "\[Mho]"}], ")"}]}], 
+             RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}]}]}]}
+      },
+      BaselinePosition->{Baseline, {1, 1}},
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxItemSize->{"Columns" -> {{
+           Scaled[0.999]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+        "RowsIndexed" -> {}}]}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  Definition[$CellContext`\[ScriptM]E],
+  Editable->False]], "Print",
+ CellTags->"Info-a31b878e-7d31-4f84-aa41-8fb6edd14536"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\[ScriptM]ENoSoi"], "Input"],
+
+Cell[BoxData["5.4758525580864505`"], "Output"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{"FindStableArm", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[ScriptM]Max", ",", "\[ScriptM]MaxMax"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "4"}], "}"}], " ", "\[ScriptM]E"}]}], ";", 
+  RowBox[{"\[ScriptC]Max", "=", 
+   RowBox[{"cE", "[", "\[ScriptM]MaxMax", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Severance", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"$PerformanceGoal", "=", "\"\<Quality\>\""}], ",", " ", "r"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"r", "=", "rSlider"}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", "\[CapitalGamma]"}], 
+          " ", "\[GreaterEqual]", "  ", "1"}], "||", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", 
+           RowBox[{"(", "R", ")"}]}], " ", "\[GreaterEqual]", "  ", "1"}]}], 
+        ",", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{
+           "Text", "[", "\"\<Impatience Condition Not Satisfied.\>\"", "]"}], 
+           ",", "24"}], "]"}], ";", 
+         RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"\[ScriptM]TargetDiagram", "[", 
+       RowBox[{
+       "\[ScriptM]Max", ",", "\[ScriptM]MaxMax", ",", "\[ScriptC]Max"}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rSlider", ",", "rBase", ",", "\"\<r\>\""}], "}"}], ",", 
+     RowBox[{"rBase", "-", "0.025"}], ",", 
+     RowBox[{"rBase", "+", ".06"}], ",", "0.005"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+  RowBox[{"<<", "ManipulatePrepare.m"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NotebookDirectory", "::", "nosv"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The notebook \
+\[NoBreak]\\!\\(\\*TemplateBox[List[FrontEndObject[LinkObject[\\\"aepsi_shm\\\
+\", 3, 1]], 175, \\\"FrontEndObject[LinkObject[\\\\\\\"aepsi_shm\\\\\\\", 3, \
+1]]\\\", \\\"175\\\", \\\"\\\\\\\"Untitled-9\\\\\\\"\\\"], \
+\\\"NotebookObjectUnsaved\\\"]\\)\[NoBreak] is not saved. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/NotebookDirectory\\\", ButtonNote -> \
+\\\"NotebookDirectory::nosv\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"SetDirectory", "::", "fstr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File specification \[NoBreak]\\!\\($Failed\\)\[NoBreak] is \
+not a string of one or more characters. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/fstr\\\", ButtonNote -> \
+\\\"SetDirectory::fstr\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NotebookDirectory", "::", "nosv"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"The notebook \
+\[NoBreak]\\!\\(\\*TemplateBox[List[FrontEndObject[LinkObject[\\\"aepsi_shm\\\
+\", 3, 1]], 175, \\\"FrontEndObject[LinkObject[\\\\\\\"aepsi_shm\\\\\\\", 3, \
+1]]\\\", \\\"175\\\", \\\"\\\\\\\"Untitled-9\\\\\\\"\\\"], \
+\\\"NotebookObjectUnsaved\\\"]\\)\[NoBreak] is not saved. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/NotebookDirectory\\\", ButtonNote -> \
+\\\"NotebookDirectory::nosv\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"SetDirectory", "::", "fstr"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File specification \[NoBreak]\\!\\($Failed\\)\[NoBreak] is \
+not a string of one or more characters. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/fstr\\\", ButtonNote -> \
+\\\"SetDirectory::fstr\\\"]\\)\"\>"}]], "Message", "MSG"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 22}, {55, Automatic}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+

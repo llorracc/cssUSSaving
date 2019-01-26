@@ -1,0 +1,2215 @@
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<../../CoreCode/Autoload/init.m\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<../../CoreCode/MakeAnalyticalResults.m\>\"", "]"}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<../../CoreCode/VarsAndFuncs.m\>\"", "]"}], 
+  ";"}]}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{"D", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[ScriptCapitalR]", " ", "\[Kappa]", " ", "\[CapitalPi]Alt"}], 
+       ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        RowBox[{"\[ScriptCapitalR]", " ", "\[Kappa]", " ", "\[CapitalPi]Alt"}]}], 
+       ")"}]}], ")"}], ",", 
+    RowBox[{"{", "r", "}"}]}], "]"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "+", "\[GothicG]"}], ")"}], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"-", 
+              FractionBox[
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  FractionBox[
+                   RowBox[{"1", "+", "r"}], 
+                   RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                 FractionBox["1", "\[Rho]"]], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+               RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+            RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+       FractionBox["1", "\[Rho]"]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "\[Rho]", "-", 
+        RowBox[{"\[Rho]", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                FractionBox[
+                 RowBox[{"1", "+", "r"}], 
+                 RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+               FractionBox["1", "\[Rho]"]], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+             RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], "\[Rho]"]}], "-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "+", "\[GothicG]"}], ")"}], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"-", 
+             FractionBox[
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 FractionBox[
+                  RowBox[{"1", "+", "r"}], 
+                  RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                FractionBox["1", "\[Rho]"]], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+              RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+           RowBox[{"1", "+", "\[Rho]"}]]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[Mho]"}]], "+", 
+        FractionBox[
+         RowBox[{"PDies", " ", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", "\[GothicG]"}], ")"}], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"-", 
+             FractionBox[
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 FractionBox[
+                  RowBox[{"1", "+", "r"}], 
+                  RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                FractionBox["1", "\[Rho]"]], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+              RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+           RowBox[{"1", "+", "\[Rho]"}]]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[Mho]"}]], "+", 
+        RowBox[{"\[Rho]", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                FractionBox[
+                 RowBox[{"1", "+", "r"}], 
+                 RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+               FractionBox["1", "\[Rho]"]], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+             RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], "\[Rho]"], " ", 
+         "\[Mho]"}], "+", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "+", "\[GothicG]"}], ")"}], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"-", 
+             FractionBox[
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 FractionBox[
+                  RowBox[{"1", "+", "r"}], 
+                  RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                FractionBox["1", "\[Rho]"]], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+              RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+           RowBox[{"1", "+", "\[Rho]"}]], " ", "\[Mho]"}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[Mho]"}]], "-", 
+        FractionBox[
+         RowBox[{"PDies", " ", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", "\[GothicG]"}], ")"}], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"-", 
+             FractionBox[
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 FractionBox[
+                  RowBox[{"1", "+", "r"}], 
+                  RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                FractionBox["1", "\[Rho]"]], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+              RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+           RowBox[{"1", "+", "\[Rho]"}]], " ", "\[Mho]"}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[Mho]"}]], "+", 
+        RowBox[{"r", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", "\[Rho]", "-", 
+           RowBox[{"\[Rho]", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"-", 
+               FractionBox[
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                  FractionBox["1", "\[Rho]"]], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], "\[Rho]"]}], "+", 
+           
+           RowBox[{"\[Rho]", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"-", 
+               FractionBox[
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                  FractionBox["1", "\[Rho]"]], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], "\[Rho]"], " ", 
+            "\[Mho]"}]}], ")"}]}]}], ")"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "+", "r"}], ")"}], " ", "\[Rho]", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "+", "\[GothicG]", "+", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            FractionBox[
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"-", 
+                 FractionBox[
+                  RowBox[{
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                  RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+               RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+          FractionBox["1", "\[Rho]"]], "-", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"1", "+", "r"}], 
+             RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                   RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+                RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+           FractionBox["1", "\[Rho]"]]}], "+", 
+         RowBox[{"PDies", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"1", "+", "r"}], 
+             RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                   RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+                RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+           FractionBox["1", "\[Rho]"]]}], "-", 
+         RowBox[{"r", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                   RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+                RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], "-", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                   RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+                RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", "\[Mho]"}], "+", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"1", "+", "r"}], 
+             RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                   RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+                RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", "\[Mho]"}], "-", 
+         RowBox[{"PDies", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"1", "+", "r"}], 
+             RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "+", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "1"}], "+", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    FractionBox[
+                    RowBox[{"1", "+", "r"}], 
+                    RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+                    FractionBox["1", "\[Rho]"]], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+                   RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], 
+                RowBox[{"-", "\[Rho]"}]]}], "\[Mho]"]}], ")"}], 
+           FractionBox["1", "\[Rho]"]], " ", "\[Mho]"}]}], ")"}], "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               FractionBox[
+                RowBox[{"1", "+", "r"}], 
+                RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+              FractionBox["1", "\[Rho]"]], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+            RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], "\[Rho]"], "+", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                FractionBox[
+                 RowBox[{"1", "+", "r"}], 
+                 RowBox[{"1", "+", "\[CurlyTheta]"}]], ")"}], 
+               FractionBox["1", "\[Rho]"]], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", "\[Mho]"}], ")"}]}], 
+             RowBox[{"1", "+", "\[GothicG]"}]]}], ")"}], "\[Rho]"], " ", 
+         "\[Mho]"}]}], ")"}]}], ")"}]}], ")"}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["init", "Section",
+ CellChangeTimes->{{3.420213171398819*^9, 3.4202131718772097`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+  RowBox[{"<<", "ManipulatePrepare.m"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FindStableArm", ";"}]}], "Input",
+ PageWidth->Infinity,
+ InitializationCell->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["manipulate 1", "Section",
+ CellChangeTimes->{{3.420213147835127*^9, 3.4202131504065943`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+  RowBox[{"<<", "ManipulatePrepare.m"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FindStableArm", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[ScriptM]MaxPlot", ",", "\[ScriptM]MaxMaxPlot"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"4", ",", "10"}], "}"}], " ", "\[ScriptM]E"}]}], ";", 
+  RowBox[{"\[ScriptC]MaxPlot", "=", 
+   RowBox[{"cE", "[", "\[ScriptM]MaxPlot", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"$PerformanceGoal", "=", "\"\<Quality\>\""}], ",", "r", ",", 
+       " ", "\[Mho]", ",", " ", "\[CurlyTheta]", ",", " ", "\[Rho]", ",", " ",
+        "\[GothicG]", ",", "\[CurlyTheta]Base", ",", "\[GothicG]Base", ",", 
+       "\[Rho]Base", ",", "\[Mho]Base"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"r", "=", 
+       RowBox[{"rBase", "=", "p1"}]}], ";", 
+      RowBox[{"\[Mho]", "=", 
+       RowBox[{"\[Mho]Base", "=", " ", "p2"}]}], ";", 
+      RowBox[{"\[CurlyTheta]", "=", 
+       RowBox[{"\[CurlyTheta]Base", "=", "p3"}]}], ";", 
+      RowBox[{"\[Rho]", "=", 
+       RowBox[{"\[Rho]Base", "=", "p4"}]}], ";", 
+      RowBox[{"\[GothicG]", "=", 
+       RowBox[{"\[GothicG]Base", "=", "p5"}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", "\[CapitalGamma]"}], 
+          " ", ">", " ", "1"}], "||", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", 
+           RowBox[{"(", "R", ")"}]}], " ", ">", " ", "1"}]}], 
+        "\[IndentingNewLine]", ",", 
+        RowBox[{"(*", " ", "then", " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"Text", "[", "\"\<No solution.\>\"", "]"}], ",", "24"}], 
+         "]"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"(*", " ", "else", " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"\[ScriptM]TargetDiagram", "[", 
+         RowBox[{
+         "\[ScriptM]MaxPlot", ",", "\[ScriptM]MaxMaxPlot", ",", 
+          "\[ScriptC]MaxPlot"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p1", ",", "0.05", ",", "\"\<r\>\""}], "}"}], ",", 
+     RowBox[{"0.05", "-", ".02"}], ",", 
+     RowBox[{"0.05", "+", ".02"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p2", ",", ".05", ",", "\"\<\[Mho]\>\""}], "}"}], ",", 
+     RowBox[{"0.05", "-", ".049"}], ",", 
+     RowBox[{"0.05", "+", ".05"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p3", ",", ".10", ",", "\"\<\[CurlyTheta]\>\""}], "}"}], ",", 
+     RowBox[{".10", "-", ".05"}], ",", 
+     RowBox[{".10", "+", ".05"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p4", ",", "3", ",", "\"\<\[Rho]\>\""}], "}"}], ",", "2", ",", 
+     "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p5", ",", "0.00", ",", "\"\<\[GothicG]\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "0.02"}], "-", ".01"}], ",", 
+     RowBox[{
+      RowBox[{"-", "0.02"}], "+", ".01"}]}], "}"}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`p1$$ = 0.04805, $CellContext`p2$$ = 
+    0.0296, $CellContext`p3$$ = 0.1, $CellContext`p4$$ = 
+    3, $CellContext`p5$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p1$$], 0.05, "r"}, 0.030000000000000002`, 0.07}, {{
+       Hold[$CellContext`p2$$], 0.05, "\[Mho]"}, 0.0010000000000000009`, 
+      0.1}, {{
+       Hold[$CellContext`p3$$], 0.1, "\[CurlyTheta]"}, 0.05, 
+      0.15000000000000002`}, {{
+       Hold[$CellContext`p4$$], 3, "\[Rho]"}, 2, 4}, {{
+       Hold[$CellContext`p5$$], 0., "\[GothicG]"}, -0.03, -0.01}}, 
+    Typeset`size$$ = {702., {209., 225.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`p1$202060$$ = 0, $CellContext`p2$202061$$ = 
+    0, $CellContext`p3$202062$$ = 0, $CellContext`p4$202063$$ = 
+    0, $CellContext`p5$202064$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`p1$$ = 0.05, $CellContext`p2$$ = 
+        0.05, $CellContext`p3$$ = 0.1, $CellContext`p4$$ = 
+        3, $CellContext`p5$$ = 0.}, "ControllerVariables" :> {
+        Hold[$CellContext`p1$$, $CellContext`p1$202060$$, 0], 
+        Hold[$CellContext`p2$$, $CellContext`p2$202061$$, 0], 
+        Hold[$CellContext`p3$$, $CellContext`p3$202062$$, 0], 
+        Hold[$CellContext`p4$$, $CellContext`p4$202063$$, 0], 
+        Hold[$CellContext`p5$$, $CellContext`p5$202064$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Block[{$PerformanceGoal = 
+         "Quality", $CellContext`r, $CellContext`\[Mho], $CellContext`\
+\[CurlyTheta], $CellContext`\[Rho], $CellContext`\[GothicG], $CellContext`\
+\[CurlyTheta]Base, $CellContext`\[GothicG]Base, $CellContext`\[Rho]Base, \
+$CellContext`\[Mho]Base}, $CellContext`r = ($CellContext`rBase = \
+$CellContext`p1$$); $CellContext`\[Mho] = ($CellContext`\[Mho]Base = \
+$CellContext`p2$$); $CellContext`\[CurlyTheta] = \
+($CellContext`\[CurlyTheta]Base = $CellContext`p3$$); $CellContext`\[Rho] = \
+($CellContext`\[Rho]Base = $CellContext`p4$$); $CellContext`\[GothicG] = \
+($CellContext`\[GothicG]Base = $CellContext`p5$$); If[
+          
+          Or[($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`\[CapitalGamma] > 
+           1, ($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`R > 1], 
+          Style[
+           Text["No solution."], 24], 
+          $CellContext`\[ScriptM]TargetDiagram[$CellContext`\[ScriptM]MaxPlot,\
+ $CellContext`\[ScriptM]MaxMaxPlot, $CellContext`\[ScriptC]MaxPlot]]], 
+      "Specifications" :> {{{$CellContext`p1$$, 0.05, "r"}, 
+         0.030000000000000002`, 0.07}, {{$CellContext`p2$$, 0.05, "\[Mho]"}, 
+         0.0010000000000000009`, 
+         0.1}, {{$CellContext`p3$$, 0.1, "\[CurlyTheta]"}, 0.05, 
+         0.15000000000000002`}, {{$CellContext`p4$$, 3, "\[Rho]"}, 2, 
+         4}, {{$CellContext`p5$$, 0., "\[GothicG]"}, -0.03, -0.01}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{768., {330., 339.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input"],
+
+Cell[BoxData[""], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+  RowBox[{"<<", "ManipulatePrepare.m"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"FindStableArm", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[ScriptM]MaxPlot", ",", "\[ScriptM]MaxMaxPlot"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"4", ",", "10"}], "}"}], " ", "\[ScriptM]E"}]}], ";", 
+  RowBox[{"\[ScriptC]MaxPlot", "=", 
+   RowBox[{"cE", "[", "\[ScriptM]MaxPlot", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"$PerformanceGoal", "=", "\"\<Quality\>\""}], ",", "r", ",", 
+       " ", "\[Mho]", ",", " ", "\[CurlyTheta]", ",", " ", "\[Rho]", ",", " ",
+        "\[GothicG]", ",", "\[CurlyTheta]Base", ",", "\[GothicG]Base", ",", 
+       "\[Rho]Base", ",", "\[Mho]Base"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"r", "=", 
+       RowBox[{"rBase", "=", "p1"}]}], ";", 
+      RowBox[{"\[Mho]", "=", 
+       RowBox[{"\[Mho]Base", "=", " ", "p2"}]}], ";", 
+      RowBox[{"\[CurlyTheta]", "=", 
+       RowBox[{"\[CurlyTheta]Base", "=", "p3"}]}], ";", 
+      RowBox[{"\[Rho]", "=", 
+       RowBox[{"\[Rho]Base", "=", "p4"}]}], ";", 
+      RowBox[{"\[GothicG]", "=", 
+       RowBox[{"\[GothicG]Base", "=", "p5"}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", "\[CapitalGamma]"}], 
+          " ", ">", " ", "1"}], "||", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", 
+           RowBox[{"(", "R", ")"}]}], " ", ">", " ", "1"}]}], 
+        "\[IndentingNewLine]", ",", 
+        RowBox[{"(*", " ", "then", " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"Text", "[", "\"\<No solution.\>\"", "]"}], ",", "24"}], 
+         "]"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"(*", " ", "else", " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"rMin", " ", "==", " ", 
+          RowBox[{
+           RowBox[{"\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{"\[GothicG]", " ", "+", " ", "\[Mho]"}], ")"}]}], "+", 
+           "\[CurlyTheta]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"\[ScriptM]TargetDiagram", "[", 
+          RowBox[{
+          "\[ScriptM]MaxPlot", ",", "\[ScriptM]MaxMaxPlot", ",", 
+           "\[ScriptC]MaxPlot"}], "]"}]}]}], "]"}]}]}], "\[IndentingNewLine]",
+     "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p1", ",", "0.05", ",", "\"\<r\>\""}], "}"}], ",", 
+     RowBox[{"0.05", "-", ".02"}], ",", 
+     RowBox[{"0.05", "+", ".02"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p2", ",", ".05", ",", "\"\<\[Mho]\>\""}], "}"}], ",", 
+     RowBox[{"0.05", "-", ".049"}], ",", 
+     RowBox[{"0.05", "+", ".05"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p3", ",", ".10", ",", "\"\<\[CurlyTheta]\>\""}], "}"}], ",", 
+     RowBox[{".10", "-", ".05"}], ",", 
+     RowBox[{".10", "+", ".05"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p4", ",", "3", ",", "\"\<\[Rho]\>\""}], "}"}], ",", "2", ",", 
+     "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p5", ",", "0.00", ",", "\"\<\[GothicG]\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "0.02"}], "-", ".01"}], ",", 
+     RowBox[{
+      RowBox[{"-", "0.02"}], "+", ".01"}]}], "}"}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"$PerformanceGoal", "=", "\"\<Quality\>\""}], ",", "r", ",", 
+      " ", "\[Mho]", ",", " ", "\[CurlyTheta]", ",", " ", "\[Rho]", ",", " ", 
+      "\[GothicG]", ",", "\[CurlyTheta]Base", ",", "\[GothicG]Base", ",", 
+      "\[Rho]Base", ",", "\[Mho]Base"}], "}"}], ",", 
+    "\[IndentingNewLine]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[Rho]", 
+        RowBox[{"-", "1"}]], 
+       RowBox[{"(", 
+        RowBox[{"r", "-", "\[CurlyTheta]"}], ")"}]}], "-", 
+      RowBox[{"(", 
+       RowBox[{"\[GothicG]", "+", "\[Mho]"}], ")"}]}], "<", 
+     RowBox[{
+      SuperscriptBox["\[Rho]", 
+       RowBox[{"-", "1"}]], "\[Mho]"}]}], "\[IndentingNewLine]", ",", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"r", "-", "\[CurlyTheta]"}], ")"}], "<", 
+     RowBox[{"\[Mho]", "+", 
+      RowBox[{"\[Rho]", 
+       RowBox[{"(", 
+        RowBox[{"\[GothicG]", "+", "\[Mho]"}], ")"}]}]}]}], 
+    "\[IndentingNewLine]", ",", 
+    RowBox[{"r", "<", 
+     RowBox[{"\[CurlyTheta]", " ", "+", " ", 
+      RowBox[{"\[Mho]", 
+       RowBox[{"(", 
+        RowBox[{"\[Rho]", "+", "1"}], ")"}]}], "+", 
+      RowBox[{"\[Rho]", " ", "\[GothicG]"}]}]}], "\[IndentingNewLine]", ",", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["\[Rho]", 
+         RowBox[{"-", "1"}]], 
+        RowBox[{"(", 
+         RowBox[{"r", "-", "\[CurlyTheta]"}], ")"}]}], "-", "r"}], ")"}], "<",
+      "0"}], "\[IndentingNewLine]", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"r", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["\[Rho]", 
+          RowBox[{"-", "1"}]], "-", "1"}], ")"}]}], "-", 
+      RowBox[{"\[CurlyTheta]", " ", 
+       SuperscriptBox["\[Rho]", 
+        RowBox[{"-", "1"}]]}]}], "<", "0"}], "\[IndentingNewLine]", ",", 
+    RowBox[{
+     RowBox[{"r", " ", 
+      SuperscriptBox["\[Rho]", 
+       RowBox[{"-", "1"}]], 
+      RowBox[{"(", 
+       RowBox[{"1", "-", "\[Rho]"}], ")"}]}], "<", 
+     RowBox[{"\[CurlyTheta]", " ", 
+      SuperscriptBox["\[Rho]", 
+       RowBox[{"-", "1"}]]}]}], "\[IndentingNewLine]", ",", 
+    RowBox[{
+     RowBox[{"r", " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", "\[Rho]"}], ")"}]}], "<", "\[CurlyTheta]"}], 
+    "\[IndentingNewLine]", ",", 
+    RowBox[{
+     RowBox[{"r", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Rho]", "-", "1"}], ")"}]}], ">", "\[CurlyTheta]"}], 
+    "\[IndentingNewLine]", ",", 
+    RowBox[{
+     RowBox[{"r", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Rho]", "-", "1"}], ")"}]}], ">", "\[CurlyTheta]"}], 
+    "\[IndentingNewLine]", ",", 
+    RowBox[{"r", ">", "\[GothicG]"}]}], "}"}], 
+  "\[IndentingNewLine]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\[CapitalThorn]Rtn"], "Input"],
+
+Cell[BoxData[
+ FractionBox["0.9853292781642932`", 
+  SqrtBox[
+   RowBox[{"1", "+", "r"}]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], 
+        RowBox[{"1", "/", "\[Rho]"}]], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[GothicCapitalG]", "/", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Mho]"}], ")"}]}], ")"}]}], "<", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "\[Rho]"}]]}], "\[IndentingNewLine]", ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], 
+        RowBox[{"1", "/", "\[Rho]"}]], ")"}], 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Mho]"}], ")"}], "/", "\[GothicCapitalG]"}]}], 
+     "<", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "\[Rho]"}]]}], "\[IndentingNewLine]", ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], 
+        RowBox[{"1", "/", "\[Rho]"}]], ")"}], 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+        RowBox[{"1", "+", 
+         RowBox[{"1", "/", "\[Rho]"}]}]], "/", "\[GothicCapitalG]"}]}], "<", 
+     "1"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], 
+        RowBox[{"1", "/", "\[Rho]"}]], ")"}], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\[Rho]", "+", "1"}], ")"}], "/", "\[Rho]"}]], 
+      SuperscriptBox["\[GothicCapitalG]", 
+       RowBox[{"-", "1"}]]}], "<", "1"}], "\[IndentingNewLine]", ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+       RowBox[{"(", 
+        RowBox[{"\[Rho]", "+", "1"}], ")"}]], 
+      SuperscriptBox["\[GothicCapitalG]", 
+       RowBox[{"-", "\[Rho]"}]]}], "<", "1"}], "\[IndentingNewLine]", ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "<", 
+     RowBox[{
+      SuperscriptBox["\[GothicCapitalG]", "\[Rho]"], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+       RowBox[{"-", 
+        RowBox[{"(", 
+         RowBox[{"\[Rho]", "+", "1"}], ")"}]}]]}]}], "\[IndentingNewLine]", 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"(", "R", ")"}], " ", "<", 
+     RowBox[{
+      SuperscriptBox["\[GothicCapitalG]", "\[Rho]"], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Beta]", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]", "+", "1"}], ")"}]]}], ")"}]}]}]}], 
+   "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"0.9804026317734718`", " ", 
+     SqrtBox[
+      RowBox[{"1", "+", "r"}]]}], "<", "1.002509414234171`"}], ",", 
+   RowBox[{
+    RowBox[{"0.9804026317734716`", " ", 
+     SqrtBox[
+      RowBox[{"1", "+", "r"}]]}], "<", "1.002509414234171`"}], ",", 
+   RowBox[{
+    RowBox[{"0.9779485537523984`", " ", 
+     SqrtBox[
+      RowBox[{"1", "+", "r"}]]}], "<", "1"}], ",", 
+   RowBox[{
+    RowBox[{"0.9779485537523984`", " ", 
+     SqrtBox[
+      RowBox[{"1", "+", "r"}]]}], "<", "1"}], ",", 
+   RowBox[{
+    RowBox[{"0.9563833737864078`", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", "r"}], ")"}]}], "<", "1"}], ",", 
+   RowBox[{
+    RowBox[{"0.970873786407767`", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", "r"}], ")"}]}], "<", "1.0151512594410652`"}], ",", 
+   RowBox[{
+    RowBox[{"1", "+", "r"}], "<", "1.0456057972242971`"}]}], 
+  "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[GothicCapitalG]", "\[Rho]"], "/", 
+       RowBox[{"(", 
+        RowBox[{"\[Beta]", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+          RowBox[{"(", 
+           RowBox[{"1", "+", "\[Rho]"}], ")"}]]}], ")"}]}], "-", 
+      RowBox[{"(", 
+       RowBox[{"(", "R", ")"}], ")"}]}], "}"}], " ", "/.", " ", 
+    RowBox[{"r", "\[Rule]", " ", "rIndex"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rIndex", ",", "rMin", ",", "rMaxFromGIC"}], "}"}]}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {GrayLevel[0], Thickness[Medium], Opacity[1.], LineBox[CompressedData["
+1:eJwVzX0w1AkcBvANiSVtZRTlbJJchLQmpH28VbbpDV23N3ZFXnojjbPa6c1b
+q9ZLXmLz1tr9sWzLsnVdb1rrEnlpjppxbHnpTCdJL1Mpreh+/vjOM595npnv
+qoPxwdF6FAplF3lzedidMxV0RwxTf+V252YCoSJ9tX+jGAUFv0X/2URg91dF
+qnuTGJYj89O91QQYd79RLR+KYZ8a1rTjHoEf3lesX3SL4aNZ5H7oJgFRwFO/
+46/E4G1OsJXICTwMCczJtKjA0MZNM4vzCdgkMGxbEiugsvvrxmQEAQubEuoF
+ugQKpp9nz7QUU/k84lWyBO1d0dL4cilkumNbjwxKsCIyfvYtU4rZdZOP+/yk
+eOA2mpSslcBt7HlCqlSKS7wfPb2nJFgS98vMMiMC9R8E22AugfrVWEF3LAHD
+iZcRiw5UwP+9dtuDTgK6AT3dz5ViJDZxh6WulShmTrcf7buKFCuI7udWIiXD
+I9Td8irYsV7sqYlK9Iz49qnDyvFc0D5LD65CZ8OazNjCMng63Ww5r6qCWeRu
+iqyvFP6lbnG9FjLoMoKU+ialWD7buWr7aRn2augBdL8StL9r/vypX4YPgwxx
+W0Yx7GpYdTnManjErXa53HgFoRMuaQevVqNzZH/66xkRtnyTe9sZ1MCwI8os
+xlWEN9Ob9RYcqYGihZkuiSlCYpbTqN2jGhRXcRujFIWQjzTUu6yXw/XL/nV7
+hi7jdlteES9bjiXORZwWm8vIl2RdGHgtR9ipCv5kVAGW+VmGue65huBN57t2
+leaDf8IgRKO8hrxnyn9dBvMgiElz2myuQNK7684etDxwg60W9/MVyF5v0PU9
+5xJoXYvMVf8o0LzDWVNukYN4k+LpRO9aBLAWrhImZ0Hef3Yer6wW4eZJxkL9
+TCjLzi4RTdVip9HJVoPci+Da04yquHXIHnR6/1iXgbEtlJVvG+sQnhxbIU8V
+wMY63Xy1rRLn9SLUPWPp2CCMdCxMVcI7eDjC9FgazN5wd9kPK9HeOalt+ZyC
+K+ZvQmQB9QhkpSXnqs9hurOXf6CyHg4iJ3bTo9OgskLSDKkNUMl8TDMK+Pjv
+/rjo7+MN6DcUHNoay0OZerjjyeMGOMwb7HY8k4DZB398CLdUwefMlrX7S46j
+PK4660ugCikOY+1E9WHYLLWvKz+pAp3/6c7Qk4Pgr3zP9FSoQCmt0hR/ZwMT
+o+G/a8n93oh0OmcH3FyHfLc9I/tfNQtUH1mwT+y1tXxOmmudDSELZt9bXjYN
+kD6iLQy7FYghE+lh6gvSqUHV5bTtOOMYekI6SvqGb8fyVn/cO9qd3P2JtH3A
+T7YcL9TXt4UTn0m7Udb6Cj1BfFT78iZJM++7hN/ygPBUnf6Kr3P/Gb5i2iaw
+M4UXYnSkL9pFWbVuxNdr/rkzlOugPDXet4azDuNvvU70zCM9kRodecsBQxvc
+gir1SBvokqS0tWi7S1/KMiDNGC+xbl0NUceMqHABaYcijSPHCpkLJ08eMiLN
+FozU0JbhXNAE28uY9EXefLvWpYjWPrN6QSXdXyvy4FDBtn46fcOEtE/2gGur
+PnZGdAwITOesDQjm6Jg+smY1eyFpCkMq4IwzGa9vix3N5kwJX19vzPwfoa43
+JA==
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.03, 0},
+  BaseStyle->{FontSize -> 14},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{468., 289.23990673495075`},
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None},
+  PlotRange->{{0.03, 0.0666224737485055}, {0., 0.036622473001108075`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input"],
+
+Cell[BoxData["1.0050251256281406`"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"\[CapitalThorn]Rtn", " ", "/.", " ", 
+    RowBox[{"r", " ", "\[Rule]", " ", "rIndex"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rIndex", ",", "rMin", ",", "rMaxFromGIC"}], "}"}]}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {GrayLevel[0], Thickness[Medium], Opacity[1.], LineBox[CompressedData["
+1:eJwV0n8w1HkYB/ANgyNKjF9RKuOPUMtlOoo36iozxYWmvXMiN5IiJcpdpSi5
+JZUu2/bDWruWtX59t+0q11LiFNUpnctmw1xlxfZZidCi+9wfzzzz+uc973nm
+WRKXEh5vwGKxttD5f+/2+XFy620BMnvHBuKtdIjiGTasuyOA+dzpxz9Qh07I
+snwaBVjoMk8RRr2qfsrMoUWAVD3nuC/1l7WXnPs7BJAePWJvQc1b3xm8TyPA
+FZ5+8435OrREbCrIsy3Bi980jQbUi1NXLW1OK8E2yz2tJZY62C6+bJbrIkQR
+26tJYK7DZGG6SHNcCGXkz0eemeog+bz328RXQtiwbYysjXWYXT7++EVwKbRn
+3bscDHXwHuxJzSothWpT6+pIlg4LkrfN2JmKwN+mN4mcIWjQDF7oSBKhWHFM
+EfeZYJ1OteF+uwis0LqmsgmCtMbovlK2GK46/73VYwQnHMFTnhPj68JzMZoP
+BJwkP86kVozLI5Ff2DqCnpyHsy7hZUhZ0LcrUEvg63Gj+RRThlpn/XD2O5p/
+xTu5y1aCJU++j84fILCfbV+y8YgEqTtGT4teEzwk98Y+dksQJLETavsJXCtC
+qgsCypGekdk5/YogSrsyO664HIeGdWr0EPhPSde6GlVA1TzuGtJNMKxfY2CS
+WIHt5uNWO7to/3yPAdcHFVg+5FlZ1Ukg/beudqWnFOeXtciUHQS3Ws8XpZ+R
+4tGkO1hPCAqF+bnqd1KMeilDwtsJ7IIddrDDKiGydBna84AgY79RxN2aSvA9
+nD/83kKQsyvbY42NDFMhEvmDJoLocEer7gwZtrO7xzSNBPMfzbNh/pHhm8Rr
+B/yUBCnmfH3a2ip4rv70PKKe9uk+Nif9ahWkp/s5JTcJaq4eW8CbrEKiLtV7
+SkHz3OablkVXY8KN4+QoJxj0Zzm9v1ONYf72maRagsXOJ22WLa3Bp9A2q9wq
+Ai/uT+4Xs2qQfCHJ+LmUwHI4eotbXw32Ljzq71lOcMlmOEKyvhavy/I7Q8UE
++vaujBhxLWJUJ51EQgKzkIhsY7M6ZPukaZTFBG+VQ7y/9tVh+XurOQNXCK42
+9LU9e1yHeb6nxIF8gtn7ipFYBwYWWovRuCKCa8nl+Z82MQh4obl+8wLtZ+1W
+fe0wg9jY+CL78/R+TroAXxmDFMO/twQXEEA7EHtQxSCn3ji0OI/Am90btOEl
+A66k7EQhtVta11KHHgZegd8pcqgtp5vfNKoZ2GY9td9H3Wteutusn4H/ivQ3
+AdRH3aP2lw4wGFwUltnPJfhjT8fxjo8MGoTrlcuoa2tbY0VjDKQr+CN21KLR
+hqD0cQbahCnXudTcX6oNF04wWKR+UzD2K/3vPG7urs8Mgh/GxP5JPVG57twM
+S46D/LcmCdRD7/32P50jh6LD2j+KutfLe6vYQI5KJiw1jLq13sU6xEiOzSkj
+6tXUvLYZ3kUTOXLUXddNqfMsxg8nmMpxZseBwelcgsytWo7fV3Ic4jou+kAd
+r3rp2G8mR66qiKui5jh36q+by5Exm3D3CfXmnW3qnLlyvH60cbyJOlByr4Fj
+IUdVkI/7TepV724J3C3luB3D3imj/g9l13kC
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.03, 0.9540000000000001},
+  BaseStyle->{FontSize -> 14},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{468., 289.23990673495075`},
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None},
+  PlotRange->{{0.03, 0.0666224737485055}, {0.9540607355329405, 
+   0.9708737860555201}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rMaxFromGIC", "=", 
+   RowBox[{
+    RowBox[{"(", "R", ")"}], " ", "<", 
+    RowBox[{
+     SuperscriptBox["\[GothicCapitalG]", "\[Rho]"], "/", 
+     RowBox[{"(", 
+      RowBox[{"\[Beta]", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{"\[Rho]", "+", "1"}], ")"}]]}], ")"}]}]}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["rMinFromRIC"], "Input"],
+
+Cell[BoxData["0.03`"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"\[CapitalPi]", " ", "/.", " ", 
+    RowBox[{"r", " ", "\[Rule]", " ", "rIndex"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rIndex", ",", "rMin", ",", "rMaxFromGIC"}], "}"}]}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {GrayLevel[0], Thickness[Medium], Opacity[1.], LineBox[CompressedData["
+1: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
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.03, 0},
+  BaseStyle->{FontSize -> 14},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{468., 289.23990673495075`},
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None},
+  PlotRange->{{0.03, 0.04560579722429714}, {0., 1.225513286871376}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "\[Rho]"}]], "-", "\[CapitalThorn]\[CapitalGamma]"}], 
+     "}"}], " ", "/.", " ", 
+    RowBox[{"r", "\[Rule]", " ", "rIndex"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rIndex", ",", "rMin", ",", "rMaxFromGIC"}], "}"}]}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {GrayLevel[0], Thickness[Medium], Opacity[1.], LineBox[CompressedData["
+1:eJwVzHs01GkAxvGfS8VYullRySRNThQ5lEvmUbqeLbvYjURNVqVyS5Ru+pFp
+cstMm7GLtTMY5DJN0lU0UiO2k8s5FmWZ7WxDYSXjUqJ954/3vOdznvf9Lg+O
+9DmkTVHUbnI0d6hT4KT3/Txwym3WGzUIsE+oU+NZnQfaK6JG8kwAr4nSBKfa
+PMhr1211fyqA44NPDLOneVDOcdsTVifA141Z5srmPIjW+sU3VQsg3NK2OaKP
+9HzvqC7LBHjquyM9xeQPMB1nmVLZAlhEO1rWxxBbtX8ZDRPAxOI3Bo8pgrIv
+odDLQIBJQWx+30URRMqAgNUyPiSfj289+rcIHCNedccePmZWj73o2CwGLQ7r
+nBjIgEP/6+gEMbGJ9Ax7QwYWhP80vUgvH1RDtSr25FXU9PVfaw7LBy3Z0up9
+Ox2ew13bnjSRnaViWFPpiKkN6hXbF0D+i87MR/c00IshfJRRAOqAn/vdK6nw
+D3P1nxwkzvZVm3Wk4DX3+QzTpxAe+iXrT5mkwMW2qj5JVgjaz06tCE6GZ7ZD
+eLuJBPL6Ss5C0RWYzjQt335OAsqLH6r1Dw/P/5OrRzsloA3DZivX8mBVvLM8
+nV0Eur7aqTb8MvYN2iUG/14Ej27TmZQHXLh/KtlopVsMjynF2YDxJAxMuWnP
+OUpsLJ9uXJ+EmFRblVVDMShhtJNV0iWUvLkptVtTAmpZnzb3SSLuKfiZsWkl
+8BClXXlpmAiBKJXX/Y7Yf/+SqsAELNpstt/++xvwKBvXL8ylERel6/u44gao
++yc6Rtougns40dbNuBSUs9flu17xCPJZPL8zrhQ0T4t/p/U85v0511j2F9mD
+l708FXEOkQa/TsVsLAM9Hl4YMHQGJZ0XtGJzykBRdXVfuHGoyLmwQDhJHKhz
+oHXlaQSx5ukVBpWDGv3KaCmORb87tXSomvjW7BSuZwwszC8Zr7CsAK0adjle
+F411yT/bXE8g9l7VorP3BIwGgnazeitAqdZUZg1HIst4wFeyRQpq75u5WSNh
+mGpqjztQQJxb8OMQ6xgYO30TZzNugnqnZj1mHsHbR++FLyOIX+zyUVuHIKem
+t7H1BXF8pP2JkIOYeXL7A8dMBkppfnXkeSByw4tSx3cQO7fn0HZ+sFjIKs89
+TZym/uFepTfilg6zXUqJ+YFDm+K3A4Mqzsku4pax5VUNznCw79m07RWxjCnm
+hziDFdNuafZa08/eFq7lDKMv9f/WdhMzL+iuctuAHgNxKENJHDX6Xa7UCedt
+9kWJVcRyWv9qpgMeHmu+2DxKTDWfW9pgDalUwclXa/7vMeylrJH/sWZT7Jim
+HzUgdl2F5LPlOksmiEWcdGvpSvinJPMOf9b0loW6ZFpi4oZnxjR1i/T4I20K
+U7wfco1q0dL4WdFB10XoWefgXaBNLDcZ+1DxLRQPmAt36hJ7GAbNz1wAYeO0
+8PoczfuQqkqFHlIMx04f0dM4StZVMQvx3oP+rvrEdGmPVqY2DnW9WqxkaPYd
+BWWKSba/edtUpYHGcludzI/sXQcbu7nfaGzs9FDRz/aQyGv8DTVOqnyr6GQ7
+vruXZ2OkMUXprph0/x9KYC8z
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.03, 0},
+  BaseStyle->{FontSize -> 14},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{468., 289.23990673495075`},
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None},
+  PlotRange->{{0.03, 0.0666224737485055}, {0., 0.017360899025259946`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[GothicG]", "=", 
+   RowBox[{"\[GothicG]Min", "=", "0.01"}]}], ";", 
+  RowBox[{"\[Rho]", "=", 
+   RowBox[{"\[Rho]Base", "=", "2"}]}], ";", 
+  RowBox[{"\[CurlyTheta]", "=", 
+   RowBox[{"\[CurlyTheta]Base", "=", "0.03"}]}], ";", 
+  RowBox[{"\[Mho]", "=", 
+   RowBox[{"\[Mho]Base", "=", "0.005"}]}], ";", 
+  RowBox[{"\[GothicG]Gap", "=", "0.01"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rMaxFromGICApprox", "=", 
+   RowBox[{
+    RowBox[{"\[Rho]", " ", "\[GothicG]Min"}], " ", "+", " ", 
+    RowBox[{"\[Mho]", 
+     RowBox[{"(", 
+      RowBox[{"\[Rho]", "+", "1"}], ")"}]}], "+", "\[CurlyTheta]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rMaxFromGIC", "=", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["\[GothicCapitalG]", "\[Rho]"], "/", 
+     RowBox[{"(", 
+      RowBox[{"\[Beta]", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Mho]"}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{"\[Rho]", "+", "1"}], ")"}]]}], ")"}]}], "-", "1"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rMinFromFHWC", "=", 
+   RowBox[{"\[GothicG]Min", " ", "+", " ", "\[Mho]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rMinFromRIC", "=", 
+   RowBox[{"\[CurlyTheta]", "/", 
+    RowBox[{"(", 
+     RowBox[{"\[Rho]", "-", "1"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rMin", "=", 
+   RowBox[{"Max", "[", 
+    RowBox[{"rMinFromFHWC", ",", "rMinFromRIC"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[ScriptM]Max", ",", "\[ScriptM]MaxMax"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"3", ",", "5"}], "}"}], " ", "\[ScriptM]E"}]}], ";", 
+  RowBox[{"\[ScriptC]Max", "=", 
+   RowBox[{"cE", "[", "\[ScriptM]MaxMax", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"$PerformanceGoal", "=", "\"\<Quality\>\""}], ",", " ", "r"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"r", "=", "rSlider"}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", "\[CapitalGamma]"}], 
+          " ", "\[GreaterEqual]", "  ", "1"}], "||", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", 
+           RowBox[{"(", "R", ")"}]}], " ", "\[GreaterEqual]", "  ", "1"}]}], 
+        ",", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{
+           "Text", "[", "\"\<Impatience Condition Not Satisfied.\>\"", "]"}], 
+           ",", "24"}], "]"}], ";", 
+         RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"\[ScriptM]TargetDiagram", "[", 
+       RowBox[{
+       "\[ScriptM]Max", ",", "\[ScriptM]MaxMax", ",", "\[ScriptC]Max"}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rSlider", ",", "0.05", ",", "\"\<r\>\""}], "}"}], ",", "rMin", 
+     ",", "0.05", ",", "0.005"}], "}"}]}], "]"}]}], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`rSlider$$ = 0.05, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rSlider$$], 0.05, "r"}, 0.03, 0.05, 0.005}}, 
+    Typeset`size$$ = {702., {209., 225.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`rSlider$249416$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`rSlider$$ = 0.05}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`rSlider$$, $CellContext`rSlider$249416$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Block[{$PerformanceGoal = 
+         "Quality", $CellContext`r}, $CellContext`r = $CellContext`rSlider$$; 
+        If[
+          
+          Or[($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`\[CapitalGamma] >= 
+           1, ($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`R >= 1], Style[
+            Text["Impatience Condition Not Satisfied."], 24]; 
+          Abort[]]; $CellContext`\[ScriptM]TargetDiagram[$CellContext`\
+\[ScriptM]Max, $CellContext`\[ScriptM]MaxMax, $CellContext`\[ScriptC]Max]], 
+      "Specifications" :> {{{$CellContext`rSlider$$, 0.05, "r"}, 0.03, 0.05, 
+         0.005}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{768., {272., 281.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["rMin"], "Input"],
+
+Cell[BoxData["0.03`"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["rMinFromRIC"], "Input"],
+
+Cell[BoxData["0.03`"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"rMaxFromGIC", ",", "rMaxFromGICApprox"}], "}"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.0456057972242971`", ",", "0.065`"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "r", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\[Zeta]", " ", "/", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", "\[Zeta]"}], ")"}]}], " ", "-", "1"}], ")"}], 
+       "\[ScriptCapitalR]"}], "+", "1"}], "}"}], " ", "/.", " ", 
+    RowBox[{"r", " ", "\[Rule]", " ", "rIndex"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rIndex", ",", "rMin", ",", "rMaxFromGIC"}], "}"}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Red", ",", "Green"}], "}"}]}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {RGBColor[0, 1, 0], AbsoluteThickness[1.6], Opacity[1.], 
+    LineBox[CompressedData["
+1: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
+h8wIy9fUoP8DFOSRxw==
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.03, 0},
+  BaseStyle->{FontSize -> 14},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{468., 289.23990673495075`},
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None},
+  PlotRange->{{0.03, 0.0666224737485055}, {-0.05076260439329672, 
+   0.059253682838132926`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"\[Zeta]", " ", "/", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", "\[Zeta]"}], ")"}]}], " ", "-", "1"}], ")"}], 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"(", "R", ")"}], "/", "\[CapitalGamma]"}], ")"}]}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\[ScriptCapitalR]"], "Input"],
+
+Cell[BoxData[
+ RowBox[{"0.9851485148514851`", " ", 
+  RowBox[{"(", 
+   RowBox[{"1", "+", "r"}], ")"}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Zeta]", " ", "/", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", "\[Zeta]"}], ")"}]}], " ", "-", "1"}], ")"}], 
+    "\[ScriptCapitalR]"}], ")"}], " ", "/.", " ", 
+  RowBox[{"r", "\[Rule]", "0.055"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"-", "0.9780749950087385`"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"\[Zeta]", " ", "/", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", "\[Zeta]"}], ")"}]}]}], " ", ")"}], 
+    "\[ScriptCapitalR]"}], ")"}], "/.", " ", 
+  RowBox[{"r", "\[Rule]", "0.055"}]}]], "Input"],
+
+Cell[BoxData["0.9780749950087385`"], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Need", " ", "to", " ", "impose", " ", "\[ScriptCapitalR]", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{"\[Zeta]", "/", 
+        RowBox[{"(", 
+         RowBox[{"1", "+", "\[Zeta]"}], ")"}]}]}], ")"}]}], " ", "<", " ", 
+    "1"}], " ", "*)"}], "\[IndentingNewLine]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["Severance"], "Input"],
+
+Cell[BoxData["0"], "Output"]
+}, Open  ]],
+
+Cell[BoxData["?"], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["manipulate 2", "Section",
+ CellChangeTimes->{{3.420213155365418*^9, 3.4202131576705112`*^9}, 
+   3.423303509195559*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"$PerformanceGoal", "=", "\"\<Quality\>\""}], ",", "rrr", ",", 
+       " ", "\[Mho]", ",", " ", "\[CurlyTheta]", ",", " ", "\[Rho]", ",", " ",
+        "\[GothicG]", ",", "\[CurlyTheta]Base", ",", "\[GothicG]Base", ",", 
+       "\[Rho]Base", ",", "\[Mho]Base"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"rrr", "=", "p1"}], ";", 
+      RowBox[{"\[Mho]", "=", 
+       RowBox[{"\[Mho]Base", "=", " ", "p2"}]}], ";", 
+      RowBox[{"\[CurlyTheta]", "=", 
+       RowBox[{"\[CurlyTheta]Base", "=", "p3"}]}], ";", 
+      RowBox[{"\[Rho]", "=", 
+       RowBox[{"\[Rho]Base", "=", "p4"}]}], ";", 
+      RowBox[{"\[GothicG]", "=", 
+       RowBox[{"\[GothicG]Base", "=", "p5"}]}], ";", 
+      RowBox[{"HorizAxis", "=", 
+       RowBox[{"-", "0.08`"}]}], ";", "\n", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", "\[CapitalGamma]"}], 
+          " ", "<", " ", "1"}], "&&", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "R", ")"}], " ", "\[Beta]"}], ")"}], "^", 
+            RowBox[{"(", 
+             RowBox[{"1", "/", "\[Rho]"}], ")"}]}], "/", 
+           RowBox[{"(", "R", ")"}]}], " ", "<", " ", "1"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"FindStableArm", ";", "\[IndentingNewLine]", 
+         RowBox[{"BufferFigPlot", "=", 
+          RowBox[{"Show", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Log", "[", 
+                RowBox[{
+                "\[ScriptCapitalC]tp1O\[ScriptCapitalC]t", "[", "\[ScriptM]", 
+                 "]"}], "]"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[ScriptM]", ",", 
+                RowBox[{"0.25`", " ", "\[ScriptM]E"}], ",", 
+                RowBox[{"2.5`", " ", "\[ScriptM]E"}]}], "}"}], 
+              "\[IndentingNewLine]", ",", 
+              RowBox[{"Ticks", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\[ScriptM]E", ",", 
+                    "\"\<\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\
+\), \(e\)]\)\>\""}], "}"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\[GothicG]", "+", "\[Mho]"}], ",", 
+                    "\"\<\[Gamma]\>\""}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"rrr", "-", "\[CurlyTheta]"}], "\[Rho]"], ",", 
+                    "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(-1\)]\)(rrr-\
+\[CurlyTheta])\>\""}], "}"}]}], "}"}]}], "}"}]}], "\[IndentingNewLine]", ",", 
+              
+              RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}], 
+            "\[IndentingNewLine]", ",", 
+            RowBox[{"Graphics", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Dashing", "[", 
+                RowBox[{"{", 
+                 RowBox[{"0.005`", ",", "0.025`"}], "}"}], "]"}], ",", 
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"\[ScriptM]E", ",", "HorizAxis"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"\[ScriptM]E", ",", 
+                    RowBox[{"Log", "[", 
+                    RowBox[{
+                    "\[ScriptCapitalC]tp1O\[ScriptCapitalC]t", "[", "1.5`", 
+                    "]"}], "]"}]}], "}"}]}], "}"}], "]"}]}], "}"}], "]"}], 
+            "\[IndentingNewLine]", ",", 
+            RowBox[{"Graphics", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Dashing", "[", 
+                RowBox[{"{", "}"}], "]"}], ",", 
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"\[GothicG]", "+", "\[Mho]"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"2.5`", " ", "\[ScriptM]E"}], ",", 
+                    RowBox[{"\[GothicG]", "+", "\[Mho]"}]}], "}"}]}], "}"}], 
+                "]"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Graphics", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Dashing", "[", 
+                 RowBox[{"{", "}"}], "]"}], ",", 
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", 
+                    FractionBox[
+                    RowBox[{"rrr", "-", "\[CurlyTheta]"}], "\[Rho]"]}], "}"}],
+                    ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"2.5`", " ", "\[ScriptM]E"}], ",", 
+                    FractionBox[
+                    RowBox[{"rrr", "-", "\[CurlyTheta]"}], "\[Rho]"]}], 
+                    "}"}]}], "}"}], "]"}]}], "}"}], "\[IndentingNewLine]", 
+              ",", 
+              RowBox[{"PlotRange", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2.5`", " ", "\[ScriptM]E"}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"HorizAxis", ",", "Automatic"}], "}"}]}], "}"}]}]}],
+              "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+         ";", "\n", 
+         RowBox[{"TractableBufferStockGrowthA", "=", 
+          RowBox[{"BufferFigBaseline", "=", 
+           RowBox[{"Show", "[", 
+            RowBox[{"BufferFigPlot", ",", 
+             RowBox[{"Graphics", "[", 
+              RowBox[{"Text", "[", 
+               RowBox[{
+               "\"\< \[LongLeftArrow] \[CapitalDelta] Log \!\(\*SubscriptBox[\
+\(\[ScriptCapitalC]\), \(t + 1\)]\)\[TildeTilde] \
+\!\(\*SuperscriptBox[\(\[Rho]\), \
+\(-1\)]\)(rrr-\[CurlyTheta])+\[Mho]\[Del]\!\(\*SubscriptBox[\(\[ScriptC]\), \
+\(t + 1\)]\)(\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\), \
+\(e\)]\))    \>\"", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  FractionBox["\[ScriptM]E", "2"], ",", 
+                  RowBox[{"Log", "[", 
+                   RowBox[{"\[ScriptCapitalC]tp1O\[ScriptCapitalC]t", "[", 
+                    FractionBox["\[ScriptM]E", "2"], "]"}], "]"}]}], "}"}], 
+                ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "]"}], "]"}], 
+             "\[IndentingNewLine]", ",", 
+             RowBox[{"Graphics", "[", 
+              RowBox[{"Text", "[", 
+               RowBox[{"\"\< \!\(\*
+StyleBox[\"{\",
+FontSize->36]\)\>\"", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"\[ScriptM]E", " ", "2"}], ",", 
+                  RowBox[{
+                   FractionBox["1", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"\[ScriptCapitalC]tp1O\[ScriptCapitalC]t", "[", 
+                    RowBox[{"\[ScriptM]E", " ", "2"}], "]"}], "]"}], "+", 
+                    FractionBox[
+                    RowBox[{"rrr", "-", "\[CurlyTheta]"}], "\[Rho]"]}], 
+                    ")"}]}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "]"}], "]"}], 
+             "\[IndentingNewLine]", ",", 
+             RowBox[{"Graphics", "[", 
+              RowBox[{"Text", "[", 
+               RowBox[{
+               "\"\<\[Mho]\[Del]\!\(\*SubscriptBox[\(\[ScriptC]\), \(t + 1\)]\
+\)(\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\), \(e\)]\))   \>\"", 
+                ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"\[ScriptM]E", " ", "2"}], ",", 
+                  RowBox[{
+                   FractionBox["1", "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"\[ScriptCapitalC]tp1O\[ScriptCapitalC]t", "[", 
+                    RowBox[{"\[ScriptM]E", " ", "2"}], "]"}], "]"}], "+", 
+                    FractionBox[
+                    RowBox[{"rrr", "-", "\[CurlyTheta]"}], "\[Rho]"]}], 
+                    ")"}]}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "]"}], "]"}], ",", 
+             RowBox[{"Axes", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Automatic", ",", "Automatic"}], "}"}]}], 
+             "\[IndentingNewLine]", ",", 
+             RowBox[{"AxesLabel", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+               "\"\<\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\), \
+\(e\)]\)\>\"", ",", "\"\<Growth\>\""}], "}"}]}], "\[IndentingNewLine]", ",", 
+             RowBox[{"AxesOrigin", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 FractionBox[
+                  RowBox[{"rrr", "-", "\[CurlyTheta]"}], "\[Rho]"], "-", 
+                 "0.1"}], ",", "HorizAxis"}], "}"}]}], "\[IndentingNewLine]", 
+             ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"2.5`", " ", "\[ScriptM]E"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"HorizAxis", ",", "Automatic"}], "}"}]}], "}"}]}]}], 
+            "]"}]}]}], ";", "\[IndentingNewLine]", 
+         "TractableBufferStockGrowthA"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"Text", "[", "\"\<No solution.\>\"", "]"}], ",", "24"}], 
+         "]"}]}], "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p1", ",", "0.04", ",", "\"\<rrr\>\""}], "}"}], ",", 
+     RowBox[{"0.04", "-", ".03"}], ",", 
+     RowBox[{"0.04", "+", ".03"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p2", ",", ".05", ",", "\"\<\[Mho]\>\""}], "}"}], ",", "0.001", 
+     ",", "0.1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p3", ",", ".10", ",", "\"\<\[CurlyTheta]\>\""}], "}"}], ",", 
+     RowBox[{".10", "-", ".05"}], ",", 
+     RowBox[{".10", "+", ".05"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p4", ",", "1.01", ",", "\"\<\[Rho]\>\""}], "}"}], ",", "1.01", 
+     ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p5", ",", 
+       RowBox[{"-", "0.02"}], ",", "\"\<\[GothicG]\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"-", "0.02"}], "-", ".01"}], ",", 
+     RowBox[{
+      RowBox[{"-", "0.02"}], "+", ".01"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.420210711701746*^9, 3.420210725622034*^9}, {
+   3.420210903805998*^9, 3.420210911744144*^9}, 3.4202131192988*^9, {
+   3.42021327691774*^9, 3.420213297313938*^9}, {3.423303098834261*^9, 
+   3.423303146215613*^9}, {3.423303261105318*^9, 3.4233032806017933`*^9}, 
+   3.423303392641238*^9, 3.4233035091989937`*^9, {3.4233042372648077`*^9, 
+   3.423304242468945*^9}, {3.4233042961122103`*^9, 3.42330431834776*^9}, {
+   3.423304458345744*^9, 3.423304462219198*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`p1$$ = 0.04, $CellContext`p2$$ = 
+    0.05, $CellContext`p3$$ = 0.1, $CellContext`p4$$ = 
+    1.01, $CellContext`p5$$ = -0.02, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p1$$], 0.04, "rrr"}, 0.010000000000000002`, 0.07}, {{
+      
+       Hold[$CellContext`p2$$], 0.05, "\[Mho]"}, 0.001, 0.1}, {{
+       Hold[$CellContext`p3$$], 0.1, "\[CurlyTheta]"}, 0.05, 
+      0.15000000000000002`}, {{
+       Hold[$CellContext`p4$$], 1.01, "\[Rho]"}, 1.01, 3}, {{
+       Hold[$CellContext`p5$$], -0.02, "\[GothicG]"}, -0.03, -0.01}}, 
+    Typeset`size$$ = {702., {209., 225.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`p1$40110$$ = 0, $CellContext`p2$40111$$ = 
+    0, $CellContext`p3$40112$$ = 0, $CellContext`p4$40113$$ = 
+    0, $CellContext`p5$40114$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`p1$$ = 0.04, $CellContext`p2$$ = 
+        0.05, $CellContext`p3$$ = 0.1, $CellContext`p4$$ = 
+        1.01, $CellContext`p5$$ = -0.02}, "ControllerVariables" :> {
+        Hold[$CellContext`p1$$, $CellContext`p1$40110$$, 0], 
+        Hold[$CellContext`p2$$, $CellContext`p2$40111$$, 0], 
+        Hold[$CellContext`p3$$, $CellContext`p3$40112$$, 0], 
+        Hold[$CellContext`p4$$, $CellContext`p4$40113$$, 0], 
+        Hold[$CellContext`p5$$, $CellContext`p5$40114$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Block[{$PerformanceGoal = 
+         "Quality", $CellContext`rrr, $CellContext`\[Mho], $CellContext`\
+\[CurlyTheta], $CellContext`\[Rho], $CellContext`\[GothicG], $CellContext`\
+\[CurlyTheta]Base, $CellContext`\[GothicG]Base, $CellContext`\[Rho]Base, \
+$CellContext`\[Mho]Base}, $CellContext`rrr = $CellContext`p1$$; $CellContext`\
+\[Mho] = ($CellContext`\[Mho]Base = $CellContext`p2$$); $CellContext`\
+\[CurlyTheta] = ($CellContext`\[CurlyTheta]Base = $CellContext`p3$$); \
+$CellContext`\[Rho] = ($CellContext`\[Rho]Base = $CellContext`p4$$); \
+$CellContext`\[GothicG] = ($CellContext`\[GothicG]Base = $CellContext`p5$$); \
+$CellContext`HorizAxis = -0.08; If[
+          
+          And[($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`\[CapitalGamma] < 
+           1, ($CellContext`R $CellContext`\[Beta])^(
+              1/$CellContext`\[Rho])/$CellContext`R < 
+           1], $CellContext`FindStableArm; $CellContext`BufferFigPlot = Show[
+             Plot[{
+               Log[
+                $CellContext`\[ScriptCapitalC]tp1O\[ScriptCapitalC]t[$\
+CellContext`\[ScriptM]]]}, {$CellContext`\[ScriptM], 
+               0.25 $CellContext`\[ScriptM]E, 2.5 $CellContext`\[ScriptM]E}, 
+              Ticks -> {{{$CellContext`\[ScriptM]E, 
+                  "\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\), \
+\(e\)]\)"}}, {{$CellContext`\[GothicG] + $CellContext`\[Mho], 
+                  "\[Gamma]"}, {($CellContext`rrr - \
+$CellContext`\[CurlyTheta])/$CellContext`\[Rho], 
+                  "\!\(\*SuperscriptBox[\(\[Rho]\), \(-1\)]\)(rrr-\
+\[CurlyTheta])"}}}, PlotStyle -> Black], 
+             Graphics[{
+               Dashing[{0.005, 0.025}], 
+               
+               Line[{{$CellContext`\[ScriptM]E, $CellContext`HorizAxis}, \
+{$CellContext`\[ScriptM]E, 
+                  Log[
+                   $CellContext`\[ScriptCapitalC]tp1O\[ScriptCapitalC]t[
+                   1.5]]}}]}], 
+             Graphics[{
+               Dashing[{}], 
+               
+               Line[{{0, $CellContext`\[GothicG] + $CellContext`\[Mho]}, {
+                 2.5 $CellContext`\[ScriptM]E, $CellContext`\[GothicG] + \
+$CellContext`\[Mho]}}]}], 
+             Graphics[{
+               Dashing[{}], 
+               
+               Line[{{0, ($CellContext`rrr - \
+$CellContext`\[CurlyTheta])/$CellContext`\[Rho]}, {
+                 2.5 $CellContext`\[ScriptM]E, ($CellContext`rrr - \
+$CellContext`\[CurlyTheta])/$CellContext`\[Rho]}}]}, 
+              PlotRange -> {{
+                0, 2.5 $CellContext`\[ScriptM]E}, {$CellContext`HorizAxis, 
+                 Automatic}}]]; $CellContext`TractableBufferStockGrowthA = \
+($CellContext`BufferFigBaseline = Show[$CellContext`BufferFigPlot, 
+              Graphics[
+               Text[
+               " \[LongLeftArrow] \[CapitalDelta] Log \!\(\*SubscriptBox[\(\
+\[ScriptCapitalC]\), \(t + 1\)]\)\[TildeTilde] \
+\!\(\*SuperscriptBox[\(\[Rho]\), \
+\(-1\)]\)(rrr-\[CurlyTheta])+\[Mho]\[Del]\!\(\*SubscriptBox[\(\[ScriptC]\), \
+\(t + 1\)]\)(\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\), \
+\(e\)]\))    ", {$CellContext`\[ScriptM]E/2, 
+                 Log[
+                  $CellContext`\[ScriptCapitalC]tp1O\[ScriptCapitalC]t[$\
+CellContext`\[ScriptM]E/2]]}, {-1, 0}]], 
+              Graphics[
+               Text[
+               " \!\(\*\nStyleBox[\"{\",\nFontSize->36]\)", {$CellContext`\
+\[ScriptM]E 2, (1/2) (Log[
+                    $CellContext`\[ScriptCapitalC]tp1O\[ScriptCapitalC]t[$\
+CellContext`\[ScriptM]E 
+                    2]] + ($CellContext`rrr - \
+$CellContext`\[CurlyTheta])/$CellContext`\[Rho])}, {1, 0}]], 
+              Graphics[
+               Text[
+               "\[Mho]\[Del]\!\(\*SubscriptBox[\(\[ScriptC]\), \(t + \
+1\)]\)(\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\), \(e\)]\))   ", \
+{$CellContext`\[ScriptM]E 2, (1/2) (Log[
+                    $CellContext`\[ScriptCapitalC]tp1O\[ScriptCapitalC]t[$\
+CellContext`\[ScriptM]E 
+                    2]] + ($CellContext`rrr - \
+$CellContext`\[CurlyTheta])/$CellContext`\[Rho])}, {1, 0}]], 
+              Axes -> {Automatic, Automatic}, 
+              AxesLabel -> {
+               "\!\(\*SubsuperscriptBox[\(\[ScriptM]\), \(\[ScriptT]\), \
+\(e\)]\)", "Growth"}, 
+              AxesOrigin -> {($CellContext`rrr - \
+$CellContext`\[CurlyTheta])/$CellContext`\[Rho] - 
+                0.1, $CellContext`HorizAxis}, 
+              PlotRange -> {{
+                0, 2.5 $CellContext`\[ScriptM]E}, {$CellContext`HorizAxis, 
+                 Automatic}}]); $CellContext`TractableBufferStockGrowthA, 
+          Style[
+           Text["No solution."], 24]]], 
+      "Specifications" :> {{{$CellContext`p1$$, 0.04, "rrr"}, 
+         0.010000000000000002`, 0.07}, {{$CellContext`p2$$, 0.05, "\[Mho]"}, 
+         0.001, 0.1}, {{$CellContext`p3$$, 0.1, "\[CurlyTheta]"}, 0.05, 
+         0.15000000000000002`}, {{$CellContext`p4$$, 1.01, "\[Rho]"}, 1.01, 
+         3}, {{$CellContext`p5$$, -0.02, "\[GothicG]"}, -0.03, -0.01}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{768., {330., 339.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LessEqual", "::", "nord"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Invalid comparison with \
+\[NoBreak]\\!\\(\\(\\(-0.42530388789770307`\\)\\) + \
+\\(\\(0.028011340811373454`\\\\ \[ImaginaryI]\\)\\)\\)\[NoBreak] attempted. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/nord\\\", \
+ButtonNote -> \\\"LessEqual::nord\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Greater", "::", "nord"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Invalid comparison with \
+\[NoBreak]\\!\\(\\(\\(-0.42530388789770307`\\)\\) + \
+\\(\\(0.028011340811373454`\\\\ \[ImaginaryI]\\)\\)\\)\[NoBreak] attempted. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/nord\\\", \
+ButtonNote -> \\\"Greater::nord\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Greater", "::", "nord"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Invalid comparison with \
+\[NoBreak]\\!\\(\\(\\(-0.42530388789770307`\\)\\) + \
+\\(\\(0.028011340811373454`\\\\ \[ImaginaryI]\\)\\)\\)\[NoBreak] attempted. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/nord\\\", \
+ButtonNote -> \\\"Greater::nord\\\"]\\)\"\>"}]], "Message", "MSG"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"LessEqual", "::", "nord"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Invalid comparison with \
+\[NoBreak]\\!\\(\\(\\(-0.42530388789770307`\\)\\) + \
+\\(\\(0.028011340811373454`\\\\ \[ImaginaryI]\\)\\)\\)\[NoBreak] attempted. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/nord\\\", \
+ButtonNote -> \\\"LessEqual::nord\\\"]\\)\"\>"}]], "Message", "MSG"]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1110, 960},
+WindowMargins->{{-3, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+Magnification->1.5,
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+
