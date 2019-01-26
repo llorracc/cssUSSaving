@@ -50,7 +50,7 @@ Dissecting Saving Dynamics: Measuring Wealth, Precautionary, and Credit Effects
 {Martin Sommer\tiny{~}}\authNum \\ {\small IMF}
 }
 
-\date{January 24, 2019}
+\date{January 25, 2019}
 
 \maketitle
 
@@ -63,7 +63,7 @@ Dissecting Saving Dynamics: Measuring Wealth, Precautionary, and Credit Effects
 \jelclass{E21, E32}
 
 
-\begin{abstract}\ifthenelse{\boolean{ifWeb}}{\Large}{}
+\begin{abstract}\ifthenelse{\boolean{ifWeb}}{\Large \hypertarget{abstract}{}}{}
   We argue that the U.S.\
   personal saving rate's long stability (1960s--1980s), subsequent
   steady decline (1980s--2007), and recent substantial rise
@@ -85,6 +85,7 @@ Dissecting Saving Dynamics: Measuring Wealth, Precautionary, and Credit Effects
 \texttt{Archive:~} \= \= \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving.pdf} \kill \\  % This line establishes the locations of the tabs, but is not printed because of the \kill directive
 \texttt{~~~~Web:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving/} \\
 \texttt{~~~~PDF:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving.pdf} \\
+\texttt{~~~Repo:~} \> \> \url{https://github.com/llorracc/cssUSSaving} \\
 %\texttt{~BibTeX:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving-Self.bib} \\
 \texttt{~Slides:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving-Slides.pdf} \\
 %\texttt{Archive:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving.zip} \\
@@ -112,8 +113,9 @@ Johns Hopkins University, Baltimore, MD 21218, \url{http://econ.jhu.edu/people/c
 %\begin{center}
 \label{fSRrec}
 \includegraphics{\econtexRoot/Figures/saving}
-%\end{center}
-\footnotesize Notes: The saving rate is expressed as a percent of disposable income. The figure shows the deviation from its value at the start of recession (in percentage points). Historical Range includes all recessions after 1960q1 (when quarterly data become available).\\[-2mm]
+% \end{center}
+
+\footnotesize Notes: The saving rate is expressed as a percent of disposable income. The figure shows the deviation from its value at the start of recession (in percentage points). Historical Range includes all recessions after 1960q1 (when quarterly data become available).
 
 \tiny Sources: U.S.\ Department of Commerce, Bureau of Economic Analysis.
 \end{figure}
@@ -284,9 +286,11 @@ both consumption and market resources to income ($c$ and $m$) are constant.\foot
 intuitive exposition of the model, see \\
 \url{http://econ.jhu.edu/people/ccarroll/public/lecturenotes/consumption/tractablebufferstock/}.}
 
+\hypertarget{PhaseDiag}{}
 \begin{figure}
 \caption{Consumption Function (Stable Arm of Phase Diagram)}\label{fig:PhaseDiag}
 \includegraphics{\econtexRoot/Figures/TractableBufferStockPhaseDiag}
+
 \tiny Source: Calculations by the authors using the CT  model; code generating figure is in online archive
 \end{figure}
 
@@ -297,10 +301,12 @@ literature starting with \cite{merton:restat} and \cite{samuelson:portfolio} tha
 of the stochastic return on assets.  The much more difficult problem of constructing a plausible general equilibrium theory
 of endogenous asset pricing that could justify the observed wealth shocks has not yet been satisfactorily solved, which is why we follow~\cite{hall:slump} in treating wealth shocks at the beginning of the Great Recession as exogenous.}  The consequences of a pure shock to wealth are depicted in figure~\ref{fig:WealthShock} and are straightforward: Consumption declines upon impact, to a level below the value that would leave $\mE$ constant (the leftmost red dot); because consumption is below income, $\mE$ (and thus $\cE$) rises over time back toward the original target (the sequence of dots).
 
+\hypertarget{PhaseDiag}{}
 \begin{figure}
 %\begin{center}
 \caption{A Wealth Shock}\label{fig:WealthShock}
 \includegraphics{\econtexRoot/Figures/WealthShock}
+
 \tiny Source: Calculations by the authors using the CT  model; code generating figure is in online archive
 %\end{center}
 \end{figure}
@@ -314,11 +320,13 @@ We could easily add a tighter `artificial' liquidity constraint, imposed exogeno
 Figure~\ref{fig:PhaseDiagramDebtLimRise} shows that the model reproduces the standard result from the existing literature (see, e.g., \cite{carroll:atheoryjep}, \cite{mue07}, \cite{glLiq}, \cite{hall:slump}): Relaxation of the borrowing constraint (from an initial position of 0.\ in which no borrowing occurs, to a new value in which the natural borrowing limit is $\underline{h}$ implying minimum net worth of $-\underline{h}$) leads to an immediate increase in consumption for a given level of resources.  But over time, the higher spending causes the consumer's level of wealth to decline, forcing a corresponding gradual decline in consumption until wealth eventually settles at its new, lower target level.  (For vivid illustration, parameter values for this figure were chosen such that
 the new target level of wealth is negative; that is, the consumer would be in debt, in equilibrium).
 
+\hypertarget{PhaseDiagramDebtLimRise}{}
 \begin{figure}
 %\begin{center}
 \caption{Relaxation of a Natural Borrowing Constraint from 0 to $\underline{h}$}
 \includegraphics{\econtexRoot/Figures/PhaseDiagramDebtLimRisePlot}
 \label{fig:PhaseDiagramDebtLimRise}
+
 \tiny Source: Calculations by the authors using the CT  model; code generating figure is in the paper's online archive
 %\end{center}
 \end{figure}
@@ -337,11 +345,13 @@ the saving rate, followed by a gradual decline toward a new
 equilibrium rate that is higher than the original one.
 
 
+\hypertarget{savRateAfterMhoRisePlot}{}
 \begin{figure}
 %\begin{center}
 \caption{Dynamics of the Saving Rate after an Increase in Unemployment Risk}
 \includegraphics{\econtexRoot/Figures/savRateAfterMhoRisePlot}
 \label{fig:savRateAfterMhoRisePlot}
+
 \tiny Source: Calculations by the authors using the CT model; code generating figure is in the paper's online archive
 %\end{center}
 \end{figure}
@@ -382,6 +392,7 @@ insurance) or replace the corresponding deficiency in aggregate demand
 exploration of these ideas to later work, or other authors.
 
 \begin{comment}
+\hypertarget{}{}
 \begin{figure}
 %\begin{center}
 \caption{Increase in Unemployment Risk}\label{fig:cBeforeAndAfteruRise}
@@ -453,12 +464,15 @@ defenses would take us too far afield, and we refer the reader to the extensive 
 of these measurement issues that date at least back to \cite{friedmanATheory}.}
 
 
+\hypertarget{fwyRat}{}
 \begin{figure}
 \caption{Net Worth--Disposable Income Ratio}
 %\begin{center}
 \label{fwyRat}
 \includegraphics{\econtexRoot/Figures/fwyRat}
 %\end{center}
+
+
 \footnotesize
 Notes: Shading---NBER recessions.\\[0mm]
 \tiny Sources: Federal Reserve, Flow of Funds Accounts of the United States, \url{http://www.federalreserve.gov/releases/z1/}.
@@ -472,12 +486,14 @@ Market resources $m_t$ are measured as 1 plus the ratio of household net worth t
 }
   (The index is normalized between 0 and 1 to make the interpretation of regression coefficients straightforward.)
 
-\begin{figure}
+  \hypertarget{fCEA}{}
+  \begin{figure}
 \caption{The Credit Easing Accumulated (CEA) Index}
 %\begin{center}
 \label{fCEA}
 \includegraphics{\econtexRoot/Figures/fCEA}
 %\end{center}
+
 \footnotesize
 Notes: Shading---NBER recessions.\\[0mm]
 \tiny Sources: Federal Reserve, accumulated scores from the question on change in the banks' willingness to provide consumer installment loans from the Senior Loan Officer Opinion Survey on Bank Lending Practices, \url{http://www.federalreserve.gov/boarddocs/snloansurvey/}.
@@ -487,12 +503,14 @@ The CEA index is taken to measure the availability/supply of credit to a typical
 \footnote{  \cite{ducaEtAl_EJ11_housePrices} document an increasing trend in loan--value ratios for first-time home buyers (in data from the American Housing Survey, 1979--2007), an indicator which is arguably to some extent affected by fluctuations in demand.  } In addition, they seem to reflect well the key developments of the U.S.\ financial market institutions as described in \cite{mp02}, \cite{dynanEtAl_jme06}, \cite{gw07}, \cite{chDebt}, and \cite{admmmCredit}, among others, which we summarize as follows: Until the early 1980s, the U.S.\ consumer lending markets were heavily regulated and segmented. After the phaseout of interest rate controls beginning in the early 1980s, the markets became more competitive, spurring financial innovations that led to greater access to credit. Technological progress leading to new financial instruments and better credit screening methods, a greater role of nonbanking financial institutions, and the increased use of securitization all contributed to the dramatic rise in credit availability from the early 1980s until the onset of the Great Recession in 2007. The subsequent significant drop in the \CEA\ index was associated with the funding difficulties and de-leveraging of financial institutions. As a caveat, it is important to acknowledge that \CEA\ might to some degree be influenced by developments from the demand rather than the supply side of the credit market.  But whatever its flaws in this regard, indexes of this sort seem to be gaining increasing acceptance as the best available measures of credit supply (as distinguished from credit demand).\footnote{We have verified that our results do not materially change when we use the credit conditions index of \cite{ducaEtAl10_creditArch}, which differs from our \CEA\ in that \citeauthor{ducaEtAl10_creditArch} explicitly remove identifiable effects of interest rates and the macroeconomic outlook from the SLOOS data using regression techniques.  Since the results are similar using both measures, our interpretation is that our measure is at least not merely
 capturing the most obvious cyclical components of credit demand. As reported below, including in Appendix~1, our results also do not change when we use the Financial Liberalization Index of \cite{abiadEtAl_FinReforms}---which is based on the readings of financial laws and regulations---as an instrument for CEA.}
 
+\hypertarget{mhoUnem}{}
 \begin{figure}
 \caption{Unemployment Risk $\Ex_t u_{t+4}$ and Unemployment Rate (Percent)}
 %\begin{center}
 \label{fMho}
 \includegraphics{\econtexRoot/Figures/mhoUnem}
 %\end{center}
+
 \footnotesize
 Legend: Unemployment rate: Thin black line, Unemployment risk $\Ex_t u_{t+4}$: Thick red/grey line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Thomson Reuters/University of Michigan Surveys of Consumers, \url{http://www.sca.isr.umich.edu/main.php}, Bureau of Labor Statistics.
@@ -523,12 +541,14 @@ s_t=\gamma_1+\gamma_m m_t +\gamma_{\CEA}\CEA_t+\gamma_{Eu}\Ex_t u_{t+4}+\gamma_t
 estimators, and at a minimum can be interpreted as summarizing basic
 stylized facts about the data.
 
+\hypertarget{fOLS-fit-time-compare}{}
 \begin{figure}
 \caption{The Fit of the Baseline Model and the Time Trend---Actual and Fitted PSR (Percent of Disposable Income)}
 %\begin{center}
 \label{fOLS_fit_time_compare}
 \includegraphics{\econtexRoot/Figures/fOLS_fit_time_compare}
 %\end{center}
+
 \footnotesize 
 Legend: Actual PSR: Thin black line, Baseline model: Thick red/grey line, Time trend: Dashed black line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
@@ -650,12 +670,14 @@ for the model to fit the data.  Here, however, serial correlation in saving is a
 The fourth model (Debt) explores the role of the debt--income ratio. The variable could be relevant for two reasons. First, it could partly account for the fact that debt is held by a different group of people than assets and consequently net worth might be an insufficient proxy for wealth. Second, debt might also reflect credit conditions (although---as mentioned above---we prefer the CEA index because in principle it isolates the role of credit supply from demand). The regression can thus also be interpreted as a horse-race between the CEA and the debt--income ratio. In any case, while the coefficient $\gamma_d$ has the correct (negative) sign, it is statistically insignificant and its inclusion does not substantially affect estimates obtained under the baseline specification.
 
 
+\hypertarget{fFullControls}{}
 \begin{figure}
 \caption{The Fit of the Baseline Model and the Model with Full Controls (of Table~\ref{tOLS})---Actual and Fitted PSR (Percent of Disposable Income)}
 %\begin{center}
 \label{fFullControls}
 \includegraphics{\econtexRoot/Figures/fFullControls}
 %\end{center}
+
 \footnotesize
 Legend: Actual PSR: Thin black line, Baseline model: Thick red/grey line, Model with full control variables: Dashed black line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
@@ -844,21 +866,25 @@ Figure~\ref{tMbar} shows the estimated horizontal shift in the consumption funct
 Figure~\ref{tMhoRescaled} shows the estimated quarterly intensity of perceived permanent unemployment risk.
 
 
+\hypertarget{fCEA-est}{}
 \begin{figure}
 \caption{Extent of Credit Constraints $\underline{h}_t$ (Fraction of Quarterly Disposable Income) \label{tMbar}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fCEA_est}
 %\end{center}
+
 \footnotesize
 Notes: Shading---NBER recessions.\\[0mm]
 \tiny Sources: Federal Reserve, accumulated scores from the question on change in the banks' willingness to provide consumer installment loans from the Senior Loan Officer Opinion Survey on Bank Lending Practices, \url{http://www.federalreserve.gov/boarddocs/snloansurvey/}, authors' calculations.
 \end{figure}
 
+\hypertarget{tMhoRescaled}{}
 \begin{figure}
 \caption{Per Quarter Permanent Unemployment Risk $\mho_t$  \label{tMhoRescaled}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fMho_est}
 %\end{center}
+
 \footnotesize
 Notes: Shading---NBER recessions.\\[0mm]
 \tiny Sources: Thomson Reuters/University of Michigan Surveys of Consumers, \url{http://www.sca.isr.umich.edu/main.php}, Bureau of Labor Statistics, authors' calculations.
@@ -870,11 +896,13 @@ Figure~\ref{fEstCfunction} shows the estimated consumption function of section~\
 precautionary saving makes up roughly 11 percent of disposable income.
 % Chris: Please decide if we want to keep the 11 percent in the paper (if it's not confusing to the reader).
 
+\hypertarget{fEstCfunction}{}
 \begin{figure}
 \caption{Estimated Consumption Functions Under Uncertainty and Under Perfect Foresight \label{fEstCfunction}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fEstCfunction}
 %\end{center}
+
 \footnotesize
 Legend: Perfect Foresight Consumption Function: Thin black line, Consumption Function Under Uncertainty: Thick red/grey line.\\
 The two consumption functions are calibrated using parameters from the top panel of Table~\ref{tStructEst}. The concave consumption function also assumes that  $\underline{h}=0$ and uncertainty is at its sample mean $\mho=\bar{\mho}_t=6.8\times10^{-5}$.
@@ -896,11 +924,13 @@ The two consumption functions are calibrated using parameters from the top panel
 
 Figure~\ref{fPSR_StructFit} shows the fit of the structural model. In terms of $\bar{R}^2$ (Table~\ref{tStructEst}), the model captures more than 80 percent of variation in the saving rate, doing only slightly worse than our baseline reduced-form model (whose $\bar{R}^2$ is roughly 0.9). The Mincer--Zarnowitz horse race between the models puts weight of 0.72 on the structural model. % (although the high standard error on the coefficient signals the high correlation between the two model-implied saving rates).
 
+\hypertarget{fPSRStructFit}{}
 \begin{figure}
 \caption{Fit of the Structural Model---Actual and Fitted PSR (Percent of Disposable Income) \label{fPSR_StructFit}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fPSR_StructFit}
 %\end{center}
+
 \footnotesize
 Legend: Actual PSR: Thin black line, Structural model: Thick red/grey line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
@@ -908,10 +938,12 @@ Legend: Actual PSR: Thin black line, Structural model: Thick red/grey line. Shad
 
 In principle, time variation in the fitted saving rate arises as a result of movements in its three time-varying determinants: uncertainty, wealth, and credit conditions, see Figure~\ref{fPSR_StructDecomp}. To gauge the relative importance of the three main explanatory variables, we sequentially switch off the uncertainty and credit supply channels by setting the values of these series equal to their sample means. Note that the difference between the fitted series  (red/grey line) and the fitted series excluding uncertainty (black line) should be interpreted as the effect of \emph{time variation} in unemployment risk $\mho$ rather than the \emph{total amount} of saving attributable to uncertainty. The main takeaway from the Figure is that the CEA is essential in capturing the trend decline in the PSR between the 1980s and the early 2000s. The wealth fluctuations contribute to a good fit of the model at the business-cycle frequencies, and the principal role of cyclical fluctuations in uncertainty is to magnify the increases in the PSR during recessions.
 
+\hypertarget{fPSRStructDecomp}{}
 \begin{figure}
 \caption{Decomposition of Fitted PSR  (Percent of Disposable Income) \label{fPSR_StructDecomp}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fPSR_StructDecomp}
+
 \footnotesize
 Notes: Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
@@ -988,11 +1020,13 @@ anytime in the foreseeable future.
 \section*{Appendix 1: Comparison of Alternative Measures of Credit Availability}
 
 
+\hypertarget{fCreditAvailability}{}
 \begin{figure}
 \caption{Alternative Measures of Credit Availability \label{fCreditAvailability}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fCreditAvailability_compare}
 %\end{center}
+
 \footnotesize
 Legend: Debt--disposable income ratio: Thin black line, CEA index: Thick red/grey line, the \cite{abiadEtAl_FinReforms} Index of Financial Liberalization: Dashed black line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Federal Reserve, accumulated scores from the question on change in the banks' willingness to provide consumer installment loans from the Senior Loan Officer Opinion Survey on Bank Lending Practices, \url{http://www.federalreserve.gov/boarddocs/snloansurvey/}; \cite{abiadEtAl_FinReforms}; Flow of Funds, Board of Governors of the Federal Reserve System.
@@ -1012,20 +1046,24 @@ For comparison, the figure also includes the ratio of liabilities to disposable 
 
 \subsection*{Measurement of Disposable Income}
 
+\hypertarget{fDispIncG}{}
 \begin{figure}
 \caption{Growth of Real Disposable Income (Percent) \label{fDispIncG}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fDispIncG}
+
 \footnotesize
 Legend: BEA disposable income: Thick red/grey line,  ``Less cleaned'' disposable income series: Thin black line, ``More cleaned'' disposable income series: Dashed black line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
 \end{figure}
 
+\hypertarget{fPSRcompare}{}
 \begin{figure}
 \caption{Personal Saving Rate (Percent of Disposable Income) \label{fPSRcompare}}
 %\begin{center}
 \includegraphics{\econtexRoot/Figures/fPSRcompare}
 %\end{center}
+
 \footnotesize
 Legend: BEA personal saving rate: Thick red/grey line, PSR calculated with the ``less cleaned'' income series: Thin black line, PSR calculated with the ``more cleaned'' income series: Dashed black line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
@@ -1058,17 +1096,17 @@ which is motivated by \cite{cam87}, who derives that under the permanent income 
 
 Overall, the estimates suggest that coefficient $\alpha_1$ is statistically insignificant and small, especially when the full sample, 1966q2--2011q1, is used and when income growth $\Delta y_{t+2}$ enters the regression \eqref{cambellRainyDayReg}, which might be justified because of time aggregation issues. While there is some evidence of a negative coefficient in the pre-1985 sample (which overlaps with the sample 1953q2--1984q4 considered by \cite{cam87}), the relationship seems to break down in the past 20 years.
 
-\input ./LaTeX/AppendixSeveranceBody.tex
+\input{./LaTeX/AppendixSeveranceBody.tex}
 
 \newpage
 
-\input./Tables/tOLS_prelim_time.tex
-\input./Tables/tOLS02.tex
-\input./Tables/tOLS_subSample.tex
-\input./Tables/tPred.tex
-\input./Tables/tStructEst.tex
-\input./Tables/tOLS_prelim_time_model.tex
-\input./Tables/tUnivarYPSR.tex
-\input./Tables/tCampbell87.tex
+\input{./Tables/tOLS_prelim_time.tex}
+\input{./Tables/tOLS02.tex}
+\input{./Tables/tOLS_subSample.tex}
+\input{./Tables/tPred.tex}
+\input{./Tables/tStructEst.tex}
+\input{./Tables/tOLS_prelim_time_model.tex}
+\input{./Tables/tUnivarYPSR.tex}
+\input{./Tables/tCampbell87.tex}
 
 \end{document}
