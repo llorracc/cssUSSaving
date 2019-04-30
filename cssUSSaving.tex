@@ -2,19 +2,40 @@
 \documentclass[titlepage]{\econtex}
 
 \usepackage{\econtexSetup}\usepackage{\econtexShortcuts}
-\providecommand{\texname}{cssUSSaving}% Keyname for the bibtex entry corresponding to this paper
-\usepackage{layouts,rotating,psfrag,amssymb}
+\providecommand{\texname}{cssUSSaving}
+\usepackage{layouts,psfrag,amssymb}
+\usepackage{graphicx}
+\usepackage{rotating}
 
-\provideboolean{ifWeb} 
+\usepackage[compatibility=false]{caption}
+\usepackage{subcaption}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+
+
+\definecolor{jirkasblue}{rgb}{0.2,0.2,0.7}
+\definecolor{Cerulean}{rgb}{0,0.48,0.652}
+\definecolor{Purple}{rgb}{0.5,0,0.5}
+\definecolor{Lime}{rgb}{0.52,0.706,0}
+\definecolor{Red}{rgb}{1,0,0}
+
+\newcommand{\jemph}[1]{{\color{Red}#1}}
+\newcommand{\bemph}[1]{{\color{jirkasblue}#1}}
+\newcommand{\jbemph}[1]{{\textbf{\color{jirkasblue}#1}}}
+
+
+
+\provideboolean{ifWeb}
 \setboolean{ifWeb}{false}
 \ifdvi{\setboolean{ifWeb}{true}}\fi
 \opt{Web}{\setboolean{ifWeb}{true}}
 
 \ifthenelse{\boolean{ifWeb}}{\usepackage{grfext}
-\PrependGraphicsExtensions*{.svg,.jpg,.JPG,.png,.PNG,.pdf,.PDF}
+\PrependGraphicsExtensions*{.svg,.SFG,.jpg,.JPG,.png,.PNG,.pdf,.PDF}
 }{}
 
-%\opt{JournalFormatting}{\renewcommand{\footnote}{\endnote}\RequirePackage[noheads,nolists,tablesfirst,nomarkers]{endfloat}\renewcommand{\efloatseparator}{\mbox{}}}
 
 \opt{EndFloats}{\RequirePackage[noheads,nolists,tablesfirst,nomarkers]{endfloat}\renewcommand{\efloatseparator}{\mbox{}}}
 
@@ -36,12 +57,10 @@
 Dissecting Saving Dynamics: Measuring Wealth, Precautionary, and Credit Effects
 \end{verbatimwrite}
 
-% \title{Dissecting Saving Dynamics: \\ \Large \medskip Measuring Wealth, Precautionary, and Credit Effects \\ \phantom{\tiny{.}} }
-\title{Dissecting Saving Dynamics: Measuring Wealth, Precautionary, and Credit Effects  }
+\title{Dissecting Saving Dynamics:  Measuring Wealth, Precautionary, and Credit Effects  }
 
 \medskip\medskip
 
-%\newcommand{\forceSpace}{\ifdvi {\tiny .} \fi} % For html version, kludge to force a space to be inserted
 \author{
 {Christopher Carroll\tiny{~}}\authNum \\ {\small JHU}
 \and
@@ -50,604 +69,602 @@ Dissecting Saving Dynamics: Measuring Wealth, Precautionary, and Credit Effects
 {Martin Sommer\tiny{~}}\authNum \\ {\small IMF}
 }
 
-\date{January 25, 2019}
+\date{April 29, 2019}
 
 \maketitle
 
-% \aspublished{\phantom{\tiny{.}}}
 
-%\maketitleWithForcedDate{February 17, 2013} %\boldred{Preliminary Draft}}
-% CDC: 2013-01-30: AppendixSeverance provides derivation of formulae when severance payment exists
-% CDC: 2013-02-17: AppendixSeverance updated to correct minor discrepancy with code
 \keywords{Consumption, Saving, Wealth, Credit, Uncertainty}
 \jelclass{E21, E32}
 
 
 \begin{abstract}\ifthenelse{\boolean{ifWeb}}{\Large \hypertarget{abstract}{}}{}
-  We argue that the U.S.\
-  personal saving rate's long stability (1960s--1980s), subsequent
-  steady decline (1980s--2007), and recent substantial rise
-  (2008--2011) can be interpreted using a parsimonious `buffer stock'
-  model of consumption in the presence of labor income uncertainty and
-  credit constraints. In the model, saving depends upon the gap
-  between `target' and actual wealth, with the target determined by
-  credit conditions and uncertainty.  An estimated structural version
-  of the model suggests that increased credit availability accounts
-  for most of the long-term saving decline, while fluctuations in
-  wealth and uncertainty capture the bulk of the business-cycle
-  variation.
+We show that an estimated tractable `buffer stock saving' model can match the 30-year decline in the U.S.\ saving rate leading up to 2007, the sharp increase during the Great Recession, and much of the intervening business cycle variation.  Saving depends on the gap between `target' and actual wealth, with the target determined by measured credit availability and measured uncertainty.  Following financial deregulation starting in the late 1970s, expanding credit supply explains the trend decline in saving, while fluctuations in wealth and consumer-survey unemployment expectations capture the business-cycle variation, including the sharp rise during the Great Recession.
 \ifthenelse{\boolean{ifWeb}}{\Large}{}
 \end{abstract}
 
 \parbox{\textwidth}{
 \begin{center}
 \begin{tabbing}
-\texttt{Archive:~} \= \= \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving.pdf} \kill \\  % This line establishes the locations of the tabs, but is not printed because of the \kill directive
+\texttt{Archive:~} \= \= \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving.pdf} \kill \\  
 \texttt{~~~~Web:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving/} \\
 \texttt{~~~~PDF:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving.pdf} \\
-\texttt{~~~Repo:~} \> \> \url{https://github.com/llorracc/cssUSSaving} \\
-%\texttt{~BibTeX:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving-Self.bib} \\
 \texttt{~Slides:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving-Slides.pdf} \\
-%\texttt{Archive:~} \> \> \url{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving.zip} \\
-\texttt{~~~Code:~} \> \> \href{http://econ.jhu.edu/people/ccarroll/papers/cssUSSaving/Code/Mathematica-ReadMe.txt}{\texttt{BufferStockTheory-Mathematica-Code}} \\
+\texttt{~~~Repo:~} \> \> \url{https://github.com/llorracc/cssUSSaving} \\
 \texttt{~~~~~~~~~} \> \> {\it (Contains data and estimation software producing paper's results)}
 \end{tabbing}
 \end{center}
 }
 
 \begin{authorsinfo}
-\name{Carroll: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, Wyman Hall 590,
-Johns Hopkins University, Baltimore, MD 21218, \url{http://econ.jhu.edu/people/ccarroll/}, and National Bureau of Economic Research.}
+\name{Carroll: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 
+Johns Hopkins University, %Baltimore, MD 21218,
+\url{http://econ.jhu.edu/people/ccarroll/}, and National Bureau of Economic Research.}
 \name{Slacalek: \href{mailto:jiri.slacalek@ecb.europa.eu}{\texttt{jiri.slacalek@ecb.europa.eu}}, European Central Bank, Frankfurt am Main, Germany, \url{http://www.slacalek.com/}. }
 \name{Sommer: \href{mailto:msommer@imf.org}{\texttt{msommer@imf.org}}, International Monetary Fund, Washington, DC, \url{http://martinsommeronline.googlepages.com/}.}
 \end{authorsinfo}
 
-\thanks{We thank Andra Buca, Kerstin Holzheu, Geoffrey Keim, and Joanna S{\l}awatyniec for excellent research assistance, and John Duca, Karen Dynan, Robert Gordon, Bob Hall, Mathias Hoffmann, Charles Kramer, David Laibson, Mar\'\i a Luengo-Prado, Bartosz Ma\'ckowiak, John Muellbauer, Valerie Ramey, Ricardo Reis, David Robinson, Damiano Sandri, Jonathan Wright and seminar audiences at the Bank of England, CERGE--EI Prague, the ECB, the Goethe University Frankfurt, the 2011 NBER Summer Institute, and the 2012 San Francisco Fed conference on ``Structural and Cyclical Elements in Macroeconomics'' for insightful comments. We are grateful to Abdul Abiad, John Duca, John Muellbauer, and Anthony Murphy for sharing their datasets. The views presented in this paper are those of the authors, and should not be attributed to the International Monetary Fund, its Executive Board, or management, or to the European Central Bank.}
+\thanks{We thank Andra Buca, Kerstin Holzheu, Geoffrey Keim, Jakub Ryb\'ak, Camilla Sacca and Joanna S{\l}awatyniec for excellent research assistance, and Ricardo Reis, John Duca, Karen Dynan, Robert Gordon, Bob Hall, Mathias Hoffmann, Charles Kramer, David Laibson, Mar\'\i a Luengo-Prado, Bartosz Ma\'ckowiak, John Muellbauer, Valerie Ramey, David Robinson, Damiano Sandri and Jonathan Wright for insightful comments. We are grateful to Abdul Abiad, John Duca, John Muellbauer and Anthony Murphy for sharing their data. The views presented in this paper are those of the authors, and should not be attributed to the International Monetary Fund, its Executive Board, or management, or to the European Central Bank.}
 
 \titlepagefinish
 
+
 \setcounter{page}{1}
 
+\hypertarget{PRSintro}{}
 \begin{figure}
-\caption{Personal Saving Rate in 2007--2011 and Previous Recessions}
-%\begin{center}
-\label{fSRrec}
-\includegraphics{\econtexRoot/Figures/saving}
-% \end{center}
+\caption{US Personal Saving Rate (`PSR')}
+\label{fig:PSR}
+\includegraphics[width=.5\textwidth, height=6.5cm]{\econtexRoot/Figures/fPSR-actual}
+\includegraphics[width=.5\textwidth, height=6.5cm]{\econtexRoot/Figures/saving}
 
-\footnotesize Notes: The saving rate is expressed as a percent of disposable income. The figure shows the deviation from its value at the start of recession (in percentage points). Historical Range includes all recessions after 1960q1 (when quarterly data become available).
-
-\tiny Sources: U.S.\ Department of Commerce, Bureau of Economic Analysis.
+\footnotesize Notes: The left panel shows the personal saving rate, 1966q1--2015q4. The right panel shows the deviation of the saving rate from its value at the start of recessions (in percentage points), over a historical range that includes all recessions after 1960q1. Source: BEA.
 \end{figure}
 
+
+
 \section{Introduction}
- 
 
-The remarkable rise in personal saving during the Great Recession has sparked fresh interest in the determinants of saving decisions.  In the United States, the increase in household saving since 2007 was generally sharper than after any other postwar recession (see Figure~\ref{fSRrec}), and the personal saving rate has remained well above its pre-crisis value for the past five years.\footnote{We focus on the U.S.\ because of its central role in triggering the global economic crisis, and because of the rich existing literature studying U.S.\ data; but the U.K., Ireland, and many other countries also saw substantial increases in personal saving rates.  See~\cite{mosPSinGR} for systematic international evidence.}  While the saving rise partly reflected a decline in spending on durable goods, spending on nondurables and services was also unprecedentedly weak.\footnote{Complex issues of measurement, such as the appropriate treatment of durables, the proper role and measurement of defined benefit pension plan status, the extent to which households pierce the corporate veil, and many others, make analysis of the personal saving rate as measured by the National Income and Product Accounts a problematic enterprise.  Since there are few satisfactory solutions to any of these problems, our approach is to ignore them all, following a long tradition in (some of) the literature.  See \cite{kmitchSaving}, \cite{prSaving}, and \cite{CBOSaving} for detailed discussion of these and other measurement issues.}
+The start of the Great Recession marked a striking break in the behavior of the US personal saving rate. After gradually declining over the previous 30 years, the saving rate doubled during the recession  (Figure~\ref{fig:PSR}(a)), and even 5 years later, exceeded its pre-crisis level by some 4 percentage points (Figure~\ref{fig:PSR}(b)).  Surprising weakness of consumption growth (relative to income growth) was  a key element in explanations of why, year after year, the recovery was weaker than forecasters expected.  The ``secular stagnation'' hypothesis of \cite{summersSecStagReuters,summersSecStagAER}, \cite{krugmanSecStagNYT,krugmanSecStagCEPR}, \cite{gordonSecStag} and others is the most provocative interpretation, but even secular stagnation skeptics have acknowledged that surprisingly weak consumption growth played a role in the anemic recovery (\cite{hhhwSecStagNo}).
 
-\cite{carroll:brookings} invoked precautionary motives to explain the tendency of saving to increase during recessions, showing that an older modeling tradition\footnote{See \cite{davis&palumbo:wealtheffects} for an exposition, estimation, and review.}  emphasizing the role of ``wealth effects'' did not capture cyclical dynamics adequately, particularly for the first of the `postmodern'\footnote{\cite{krugmanPostmodern} seems to have coined the term `postmodern' to capture the change in the pattern of business cycle dynamics dating from the 1990--91 recession (particularly the slowness of employment to recover compared to output).  But the pattern has been noted by many other macroeconomists.} recessions in 1990--91 when wealth changed little but both saving and unemployment expectations rose markedly.
+Standard consumption models incorporate several mechanisms that interact with income dynamics to generate the saving rate; the channels that have received the most attention include `wealth effects,' the availability of credit, and precautionary motives.\footnote{The literature is large; see among many others the analyses of \cite{carroll:brookings} on precautionary saving during recessions, \cite{cos11}, \cite{mrsBalance}, \cite{BergerEtAl:HPandC} and others on wealth effects, and \cite{mue07} and \cite{parker_nberma_spendthrift} on credit availability and financial liberalization. Some work (e.g., \cite{hall:slump}, \cite{gkLiq}, \cite{glLiq}) has argued (though without much attempt at quantification) that a
+sudden sharp reversal of the credit-loosening trend played a large role in the recent saving rise.
+Finally, a series of recent papers investigates the role of housing for the dynamics of consumption  (e.g., \cite{justPrimTamb:CredSupplyAndHouseBoom}, \cite{huoRRfinFrictionsGR}, \cite{garrigaHedlund}, \cite{kmv:houseBoomBust} and \cite{goreaMidriganLiqConstraints}), but this work focusses on the dynamics during the global financial crisis (rather than also covering `normal' recessions over the last several decades, as we do). \label{foot:PSRlit}}  But we are not aware of any work that has systematically attempted to quantify the relative importance of these channels using the full (secular and cyclical) variation in the available historical data.  Our contribution is to use a simple structural model of saving to construct such a quantitative decomposition.  Specifically, we estimate a tractable `buffer stock saving' model (an extended version of \cite{ctDiscrete}) with explicit and transparent roles for the three factors emphasized above (the wealth, credit, and precautionary channels). The model's key intuition is that, in the presence of income uncertainty, optimizing households have a target ratio of wealth to permanent income that depends on the usual theoretical considerations (risk aversion, time preference, etc.) and on two features that have been harder to incorporate into analytical models: The degree of labor income uncertainty and the availability of credit.
 
-A largely separate literature has addressed another longstanding puzzle: The steady decline in the U.S.\ personal saving rate,
-from over 10 percent of disposable income in the early 1980s to a mere
-1 percent in the mid-2000s;\footnote{We should note here that personal saving rates tend to be one of the
-most heavily revised data series in the NIPA accounts, and that substantial revisions can occur even many years after the BEA's ``first final'' estimates are made (\cite{nsSavingRevisions}, \cite{consumerGEP}); the revisions are systematically upward-biased, and often as much as 1--2 percent, so it would not be surprising if some years from now the saving decline in the 2000s appears to be smaller than in the data used here.  It seems very unlikely, however, that either the broad trends or the business-cycle frequency movements will be revised greatly; past revisions have tended to be at medium frequencies, and not at either the very low or very high frequencies that tend to provide most of our identification.}$^{,}$\footnote{
-Although NIPA accounting
-  conventions impart an inflation-related bias to the measurement of
-  personal saving, the downward trend in saving remains obvious even
-  in an inflation-adjusted measure of the saving rate.} here, a
-prominent theme has been the role of financial liberalization in
-making it easier for households to borrow.\footnote{See
-\cite{parker_nberma_spendthrift} for a comprehensive
-analysis; see \cite{admmmCredit} for comparative evidence from the U.S.,
-  the U.K., and Japan emphasizing the role of credit conditions in determining saving in all three countries.} Some very recent work (\cite{glLiq}, \cite{gkLiq}, \cite{hall:slump})
-has argued (though without much attempt at quantification; see however~\cite{hallQuantifying} for such an attempt) that a
-sudden sharp reversal of this credit-loosening trend played a large
-role in the recent saving rise.\footnote{A new paper by \cite{challe&ragot:precautionaryS}
-calibrates a quantitative model with aggregate and idiosyncratic
-uncertainty and time-varying precautionary saving, and documents
-that the model can produce a plausible response of consumption to
-aggregate shocks.
-\\
-\cite{alanCrossleyLow:rainyDay} simulate a model with idiosyncratic uncertainty and find that the rise of the saving rate in the recessions is driven by increase in uncertainty rather than tightening of credit.
+The structural model is able to capture the bulk of the variation in the saving rate over the historical period for which the necessary data are available---with a fit better than 0.90 in the $R^2$ sense. We find a statistically significant and economically important role for all three explanatory variables. The trend decline in saving between the mid-1970s and 2007 is explained by the continual easing of credit availability during the extended period of gradual financial deregulation that began in the Carter administration (see \cite{wooleyDeregulation} for the history) and extended to the brink of the Great Recession. Our measure of credit supply (based on the Fed's Survey of Senior Loan Officers) shows a substantial tightening during the Great Recession, the first sustained curtailment since the 1970s; but according to the model's estimates, a larger contributor to the sharp increase in the saving rate during the Great Recession was the collapse in household wealth, with an increased precautionary motive (proxied by a measure of consumers' unemployment expectations) also playing a substantial role.\footnote{We treat the three driving variables as exogenous inputs into our partial equilibrium model.  This is unsatisfying, because all three variables are to some degree endogenous to deeper forces; in particular, the collapse in asset prices in the Great Recession is presumably at least partly attributable to the increase in uncertainty and perhaps to the credit tightening.  If there were anything approaching a consensus about the appropriate way to endogenize asset prices (of stocks and, more recently, of housing) we would have preferred to do so, but no such consensus has emerged (see, e.g., the work we refer to in footnotes~\ref{foot:PSRlit} and~\ref{foot_housingLit} for an overview). In this choice, we follow many papers (including \cite{landvoigt:rfs} and recently \cite{krusell:usWealthDistr}), who model asset returns as exogenous (on exogeneity of asset prices see also our discussion in section~\ref{ssAltModels}).
+\hypertarget{Exogeneity}{}
 }
 
-This paper aims to quantify these three channels, both over the long
-span of historical experience and for the period since the beginning
-of the Great Recession.
+The rest of the paper is organized as follows. Section~\ref{ssTractableBS} presents the structural model and its mechanics. Section~\ref{DataAndMeasurement} briefly describes the main data; section~\ref{sStructuralEstimation} presents the estimates of the model and the empirical decomposition of the saving rate. Section~\ref{sReducedFormRegressions} compares our framework to the key competing frameworks for thinking about the saving rate; section~\ref{conclusions} concludes.
 
-To fix ideas, the paper begins by presenting (in
-section~\ref{ssTractableBS}) a tractable `buffer stock' saving model
-with explicit and transparent roles for each of the influences
-emphasized above (the precautionary, wealth, and credit channels).
-The model's key intuition is that, in the presence of income
-uncertainty, optimizing households have a target wealth ratio that
-depends on the usual theoretical considerations (risk aversion, time
-preference, expected income growth, etc), and on two features
-that have been harder to incorporate into analytical models: The degree
-of labor income uncertainty and the availability of credit.  Our model
-yields a tractable analytical solution that can be used to calibrate
-how much saving should go up in response to an increase in
-uncertainty, or a negative shock to wealth, or a tightening of
-liquidity constraints.
-
-We highlight one particularly interesting implication of the model: In response to a permanent worsening in economic circumstances (such as a permanent increase in unemployment risk), consumption initially `overshoots' its ultimate permanent adjustment.  This reflects the fact that, when the target level of wealth rises, not only is a higher level of steady-state saving needed to maintain a higher target level of wealth, an immediate {\it further} boost to saving is necessary to move from the current (inadequate) level of wealth up to the new (higher) target.  An interesting implication is that if the economy suffers from adjustment costs (as macroeconomic models strongly suggest), an optimizing government might wish to counteract the component of the consumption decline that reflects `overshooting.'  In an economy rendered non-Ricardian by liquidity constraints and/or uncertainty, this provides a potential rationale for countercyclical fiscal policy, either targeted at households or to boost components of aggregate demand other than household spending in order to offset the temporary downward overshooting of consumption.
-
-After section~\ref{DataAndMeasurement}'s discussion of data and measurement issues, section~\ref{sReducedFormRegressions} presents a reduced-form empirical model, motivated by the theory, that attempts to measure the relative importance of each of these three effects (precautionary, wealth, and credit) for the U.S.\ personal saving rate.  An OLS analysis of the personal saving rate finds a statistically significant and economically important role for all three explanatory variables.  The model's estimated coefficients imply that the largest contributor to the decline in consumption during the Great Recession was the collapse in household wealth, with the increase in precautionary saving also making a substantial contribution; the role of measured changes in credit availability is estimated to have played a substantially smaller (though not negligible) role.
-
-Section~\ref{sStructuralEstimation} constructs a more explicit relationship between the theoretical model and the empirical results, by making a direct identification between the model's parameters (like unemployment risk) and the corresponding empirical objects (like households' unemployment expectations constructed using the Thomson Reuters/University of Michigan's Surveys of Consumers).  We show that the structural model fits the data essentially as well as the reduced form model, but with the usual advantage of structural models that it is possible to use the estimated model to provide a disciplined investigation of quantitative theoretical issues such as whether there is an interaction between the precautionary motive and credit constraints.  (We find some evidence that there is).
-
-\begin{comment}
-Of course, \cite{keynes:generaltheory} famously argued that an
-important cause of the Great Depression was a self-destructive
-increase in saving that he memorably stigmatized as reflecting a
-`paradox of thrift.'  While NIPA data are not available from before
-the Great Depression, there seems to be little doubt that such a
-saving rise did occur; but despite an insightful discussion of a
-number of plausible explanations for the saving rise, Keynes did not
-attempt to quantify the relative or absolute importance of those
-explanations.
-\end{comment}
-
-
+\hypertarget{ssTractableBS}{}
 
 \section{Theory: Target Wealth and Credit Conditions} \label{ssTractableBS}
 
-\cite{ctDiscrete} (henceforth CT) provide a tractable framework for
-analyzing the impact of nonfinancial uncertainty (proxied by a measure
-of unemployment risk), on optimal household saving.  \cite{cjSOE} show
-that the lessons from the individual's problem, solved below, carry
-over with little modification to the characterization of the behavior
-of aggregate variables in a small open economy.  A satisfactory
-closed-economy general equilibrium analysis remains elusive (though
-see \cite{challe&ragot:precautionaryS} for a valiant effort.)  Such an
-analysis would be useful because a crucial question is the extent to
-which each of the influences we measure is an ``impulse'' versus the
-extent to which it is a ``propagation mechanism'' or a consequence of
-deeper unmeasured forces.  (In the Great Recession, the collapse in
-consumer confidence seems to have preceded the credit tightening; the
-wealth decline began before either of the other two variables moved,
-but its sharpest contractions came after both other variables had
-deteriorated sharply).  In the absence of a satisfactory framework
-that identifies answers to these questions, we propose that our
-simple structural model at least provides a framework for organizing and
-thinking about the issues.
+Here we introduce the model that we will later estimate, a simple representative-consumer buffer-stock saving model derived from \cite{ctDiscrete} (henceforth CT).  We extend the CT model to incorporate unemployment insurance, which gives the model a mechanism to capture changes in credit availability (because borrowing is assumed to be limited by the minimum possible income available to repay it).
 
-The consumer maximizes the discounted sum of utility from an intertemporally separable CRRA utility function $\util(\bullet)=\bullet^{1-\CRRA}/(1-\CRRA)$ subject to the dynamic budget constraint:
-$$
-m_{t+1}=(m_t-c_t)\Rfree+\ell_{t+1}\Wage_{t+1}\xi_{t+1},
-$$
-where next period's market resources $m_{t+1}$ are the sum of
-current market resources net of consumption $c_t$, augmented by the
-(constant) interest factor $\Rfree=1+\rfree$, and with the addition of
-labor income. The level of labor income is determined by the
-individual's productivity $\ell$ (lower case letters designate
-individual-level variables), the (upper-case) aggregate wage $\Wage_{t+1}$ (per
-unit of productivity) and a zero--one indicator of the consumer's
-employment status $\xi$.
+\subsection{Essentials of the Tractable Model}
 
-The assumption that makes the model tractable is that unemployment risk takes a particularly stark form: Employed consumers face a constant probability $\mho$ of becoming unemployed, and, once unemployed, the consumer can never become employed again.\footnote{Of course, if a starting population of such consumers were not refreshed by an inflow of new employed consumers, the population unemployment rate would asymptote to 100 percent.  This problem can easily be addressed by introducing explicit demographics
-  (which do not affect the optimization problem of the employed): Each
-  period new employed consumers are born and a fraction of existing
-  households dies, as in \cite{cjSOE}.  Because
-  demographic effects are very gradual, the implications of the more
-  complicated model are well captured by the simpler model presented
-  here that ignores demographics and the behavior of the unemployed
-  population.} Under these assumptions, CT derive a formula for the steady-state target $\check{\mRat}$ that depends on unemployment risk $\mho$, the
-interest rate $\rfree$, the growth rate of wages $\Delta \Wage$,
-relative risk aversion $\CRRA$, and the discount factor $\Discount$:%
-\footnote{  Specifically, the steady-state target wealth can be approximated as
-$$
-\check{\mRat}=1+\frac{1}{\pat_r(\hat{p}_\gamma/\mho)-\pat_\gamma},
-$$
-where $\pat_r=\log\big((\Rfree\Discount)^{1/\CRRA}\big)\big/\Rfree$,
-$\pat_\gamma=\log\big((\Rfree\Discount)^{1/\CRRA}\big)\big/\Gamma$,
-$\hat{\pat}_\gamma=\pat_\gamma(1+\pat_\gamma\omega/\mho)$, $\Gamma=(1+\Delta
-\Wage)/(1-\mho)$ and $\omega=(\CRRA-1)/2$.  } \be
-\check{\mRat}=f(\mathop{\mho}_{(+)},\mathop{\rfree}_{(+)},\mathop{\Delta
-  \Wage}_{(-)},\mathop{\CRRA}_{(+)},\mathop{\Discount}_{(+)}). \label{mTargetNonlin}
-\ee Target $\mRat$ increases with unemployment risk, because in
-response to higher uncertainty, consumers choose to build up a larger
-precautionary buffer of wealth to protect their spending.  (The increase in $\mho$ is a pure increase in risk (a mean-preserving spread in human wealth) because
-  productivity is assumed to grow by the factor $1/(1-\mho)$ each
-  period, $\ell_{t+1}=\ell_t/(1-\mho)$ (see \cite{ctDiscrete}, p.\ 6)).
-  A higher interest rate increases the rewards to holding wealth and thus increases the amount held. Faster income growth translates into a lower wealth target because households who anticipate higher future income consume more now in anticipation of their future prosperity (the `human wealth effect'). Finally, risk aversion and the discount factor have effects on target wealth that are qualitatively similar to the effects of uncertainty and the interest rate, respectively. While the unemployment risk in \cite{ctDiscrete} is of a simple form, the key mechanisms at work are the same as those in more sophisticated setups with a realistic specification of uninsurable risks (building on the work of \cite{bewleyPIH}, \cite{skinner_jme88}, \cite{zeldes_qje89}, \cite{deaton_ecta91}, \cite{carroll:brookings}, \cite{carroll_bufferStockSaving_qje97} and many others).
+Under most specifications of uncertainty, Constant Relative Risk Aversion utility interacts with uncertainty in ways that rule out any transparent analytical formulation of the forces at work.
 
-\begin{comment}
-  In our empirical framework, we do not intend to identify the
-  slowly-moving deep parameters such as risk aversion or the discount
-  rate. Instead, we aim to estimate the dynamics of the target wealth
-  with respect to risk, interest rates, and expected income growth:
-  \be \check{\mRat}_t=m_0+\delta_\sigma\sigma^{2*}_{t-1}+\delta_r
-  \check{\rfree}_{t-1}+\delta_y \Delta
-  \PGro_{t-1}+\eta^m_t,\label{mStar} \ee where $\sigma^{2*}$ denotes
-  uncertainty, $\check{\rfree}$ is the ex ante real interest rate and
-  $\Delta \PGro$ denotes expected income growth. All four starred
-  variables are assumed to be unobserved---target wealth is a
-  theoretical construct, while the available measure of uncertainty,
-  ex ante real interest rates and expected income do not perfectly
-  match their (starred) theoretical counterparts.%
-  \footnote{    To keep the estimation tractable, we impose a linearity of the
-    model and normality of disturbances. While neither holds in
-    reality, our estimation approach (which also allows for
-    measurement error) yields plausible results and seems to capture
-    the key properties of the data well. Ideally, we would like to
-    take the estimation one step further by solving, simulating and
-    estimating a realistic non-linear model of consumption choice
-    under easing credit constraints and uncertainty about the relevant
-    variables (including income growth, interest rates and asset
-    prices). However, given the current state of knowledge, this is a
-    daunting task, well beyond the scope of this paper.  }
-\end{comment}
+The assumption that makes the CT model tractable despite its use of CRRA utility is that unemployment risk takes a particularly stark form: Employed consumers face a constant probability $\mho$ of becoming unemployed, and, once unemployed, can never become employed again.  The sense in which the model is tractable is that there is a closed form solution for the level of target wealth, and the full consumption function (though numerical) can be derived almost instantaneously from a simple difference equation.  %\footnote{While the unemployment risk in \cite{ctDiscrete} is of a simple form, the key mechanisms at work are the same as those in more sophisticated setups with a realistic specification of uninsurable risks (building on the work of %\cite{bewley:pih}, %\cite{skinner_jme88}, \cite{zeldes_qje89}, \cite{deaton_ecta91}, %\cite{carroll:brookings}, \cite{carroll_bufferStockSaving_qje97} and 
 
-Figure~\ref{fig:PhaseDiag} shows the phase diagram for the CT model.
-The consumption function is indicated by the thick solid locus, which is the
-saddle path that leads to the steady state at which the ratios of
-both consumption and market resources to income ($c$ and $m$) are constant.\footnote{For a detailed
-intuitive exposition of the model, see \\
-\url{http://econ.jhu.edu/people/ccarroll/public/lecturenotes/consumption/tractablebufferstock/}.}
+CT show that for the special case of logarithmic utility, the target `market resources' ratio for an employed consumer (roughly, spendable wealth; details below) is:
+\begin{eqnarray}
+  \mTarg^{e}
+  & \approx &
+  1 + \left(\frac{1}{(\pGro-\rfree)+\timeRate(1+(\pGro+\timeRate-\rfree)/\urate)}\right),
+\label{eq:mTargetLogCase}
+\end{eqnarray}
+where $\pGro$ is the growth rate of labor income, $\rfree$ is the interest rate and $\timeRate=-\log \DiscFac$ is the time preference rate.
 
-\hypertarget{PhaseDiag}{}
-\begin{figure}
-\caption{Consumption Function (Stable Arm of Phase Diagram)}\label{fig:PhaseDiag}
-\includegraphics{\econtexRoot/Figures/TractableBufferStockPhaseDiag}
+A ``Growth Impatience Condition'' guarantees that the expression $(\pGro+\timeRate-\rfree)$ in the denominator is strictly positive.  Using this fact, the equation has intuitive implications:  Target wealth is higher (the consumer saves more) when
+\begin{itemize}
+\item The consumer is more patient  (the time preference rate $\timeRate$ is lower)
+  \item Unemployment risk $\mho$ is higher (inducing a stronger precautionary motive)
+\item (Discounted) future income is lower (that is, $\pGro-\rfree$ is smaller)
+  \end{itemize}
 
-\tiny Source: Calculations by the authors using the CT  model; code generating figure is in online archive
-\end{figure}
+  %Large literatures have examined the separate and the joint effects of $\rfree$ and $\pGro$, and have consistently failed to find robust and reproducible results about the relationship between these variables and the saving rate that hold in the short and long run.  Our model does not have much new to say on that subject, so we will follow \cite{cmModel} and many subsequent papers in assuming constant $\rfree$ and $\pGro$.
 
-This consumption function can be used directly to analyze the consequences of an exogenous shock
-to wealth of the kind contemplated in the old ``wealth effects'' literature, or in the AEA Presidential Address of \cite{hall:slump}.\footnote{Like that literature,
-we take the wealth shock to be exogenous.  It is clear from the prior
-literature starting with \cite{merton:restat} and \cite{samuelson:portfolio} that not much would change if a risky return were incorporated and the wealth shock were interpreted as a particularly bad realization
-of the stochastic return on assets.  The much more difficult problem of constructing a plausible general equilibrium theory
-of endogenous asset pricing that could justify the observed wealth shocks has not yet been satisfactorily solved, which is why we follow~\cite{hall:slump} in treating wealth shocks at the beginning of the Great Recession as exogenous.}  The consequences of a pure shock to wealth are depicted in figure~\ref{fig:WealthShock} and are straightforward: Consumption declines upon impact, to a level below the value that would leave $\mE$ constant (the leftmost red dot); because consumption is below income, $\mE$ (and thus $\cE$) rises over time back toward the original target (the sequence of dots).
+  \hypertarget{Determinants-of-Target-Wealth}{}
 
-\hypertarget{PhaseDiag}{}
-\begin{figure}
-%\begin{center}
-\caption{A Wealth Shock}\label{fig:WealthShock}
-\includegraphics{\econtexRoot/Figures/WealthShock}
+\subsection{Determinants of Target Wealth} \label{ssCfunction}
 
-\tiny Source: Calculations by the authors using the CT  model; code generating figure is in online archive
-%\end{center}
-\end{figure}
+Our only modification to the CT model is addition of an `unemployment insurance' (UI) system that relaxes the natural borrowing constraint. %\footnote{For the derivations, see online appendix~\ref{apdxUIa}.}
+ In the CT model, the necessity of arriving in the unemployment state with some minimal positive level of assets (to prevent zero consumption) induces a `natural borrowing constraint.'  The introduction of UI benefits shifts the consumption function of an employed consumer to the left because households with little market resources are willing to borrow, knowing that they will not starve even if they become unemployed. Consumers will limit their indebtedness, however, to an amount small enough to guarantee that consumption will remain strictly positive even when unemployed (the `natural borrowing constraint' shifts).%\footnote{We could easily add a tighter `artificial' liquidity constraint, imposed exogenously by the financial system, that would prevent the consumers from borrowing as much as the natural borrowing constraint permits.  But \cite{carroll:atheoryjep} shows that the effects of tightening an artificial constraint are qualitatively and quantitatively similar to the effects of tightening the natural borrowing constraint. %We describe the extension of the CT model for the unemployment insurance in an online appendix.
+ 
 
-CT's model deliberately omitted explicit liquidity constraints in order to highlight the point that uncertainty induces concavity of the consumption function (that is, a higher marginal propensity to consume for people with low levels of wealth) even in the absence of constraints (for a general proof of this proposition, see \cite{carroll&kimball:concavity}).  Indeed, because the employed consumer is always at risk of a transition into the unemployed state where income will be zero, the `natural borrowing constraint' in this model prevents the consumer from ever choosing to go into debt, because an indebted unemployed consumer with zero income might be forced to consume zero or a negative amount (incurring negative infinity utility) in order to satisfy the budget constraint.
-
-We make only one modification to the CT model for the purpose at hand: We introduce an `unemployment insurance' system that guarantees a positive level of income for unemployed households.  In the presence of such insurance, households with low levels of market resources will be willing to borrow because they will not starve even if they become unemployed.  This change induces a leftward shift in the consumption function by an amount corresponding to the present discounted value of the unemployment benefit.  The consumer will limit his indebtedness, however, to an amount small enough to guarantee that consumption will remain strictly positive even when unemployed (this requirement defines the `natural borrowing constraint' in this model).
-
-We could easily add a tighter `artificial' liquidity constraint, imposed exogenously by the financial system, that would prevent the consumer from borrowing as much as the natural borrowing constraint permits.  But \cite{carroll:atheoryjep} shows that the effects of tightening an artificial constraint are qualitatively and quantitatively similar to the effects of tightening the natural borrowing constraint; while we do not doubt that artificial borrowing constraints exist and are important, we do not incorporate them into our framework since we can capture their consequences by manipulating the natural borrowing constraint that is already an essential element of the model.  Indeed, using this strategy, our empirical estimates below will interpret the process of financial liberalization which began in the U.S.\ in the early 1980s and arguably continued until the eve of the Great Recession as the major explanation for the long downtrend in the saving rate.
-
-Figure~\ref{fig:PhaseDiagramDebtLimRise} shows that the model reproduces the standard result from the existing literature (see, e.g., \cite{carroll:atheoryjep}, \cite{mue07}, \cite{glLiq}, \cite{hall:slump}): Relaxation of the borrowing constraint (from an initial position of 0.\ in which no borrowing occurs, to a new value in which the natural borrowing limit is $\underline{h}$ implying minimum net worth of $-\underline{h}$) leads to an immediate increase in consumption for a given level of resources.  But over time, the higher spending causes the consumer's level of wealth to decline, forcing a corresponding gradual decline in consumption until wealth eventually settles at its new, lower target level.  (For vivid illustration, parameter values for this figure were chosen such that
-the new target level of wealth is negative; that is, the consumer would be in debt, in equilibrium).
-
-\hypertarget{PhaseDiagramDebtLimRise}{}
-\begin{figure}
-%\begin{center}
-\caption{Relaxation of a Natural Borrowing Constraint from 0 to $\underline{h}$}
-\includegraphics{\econtexRoot/Figures/PhaseDiagramDebtLimRisePlot}
-\label{fig:PhaseDiagramDebtLimRise}
-
-\tiny Source: Calculations by the authors using the CT  model; code generating figure is in the paper's online archive
-%\end{center}
-\end{figure}
-
-Rather than presenting another phase diagram analysis, we
-illustrate our next experiment by showing the dynamics of the
-saving rate rather than the level of consumption over time.  (Since
-both saving and consumption are strictly monotonic functions of $\mE$,
-there is a mathematical equivalence between the two ways of presenting
-the results).
-
-% Figure depicts this relationship, illustrating the usual conclusion that saving declines with resources because the intensity of the precautionary motive lessens as wealth rises.
-Figure~\ref{fig:savRateAfterMhoRisePlot} shows the consequences of a
-permanent increase in unemployment risk $\urate$: An immediate jump in
-the saving rate, followed by a gradual decline toward a new
-equilibrium rate that is higher than the original one.
-
-
-\hypertarget{savRateAfterMhoRisePlot}{}
-\begin{figure}
-%\begin{center}
-\caption{Dynamics of the Saving Rate after an Increase in Unemployment Risk}
-\includegraphics{\econtexRoot/Figures/savRateAfterMhoRisePlot}
-\label{fig:savRateAfterMhoRisePlot}
-
-\tiny Source: Calculations by the authors using the CT model; code generating figure is in the paper's online archive
-%\end{center}
-\end{figure}
-
-Qualitatively, the effects of an increase in risk are essentially the opposite
-of a credit loosening: In response to a human-wealth-preserving spread in unemployment risk, the level of
-consumption falls sharply as consumers begin the process of
-accumulation toward a higher target wealth ratio.\footnote{The model
-  is specified in such a way that an increase in the parameter
-  $\urate$ that we are calling the `unemployment risk' here actually
-  induces an offsetting increase in the expected mean level of income
-  (an increase in $\urate$ is a mean-preserving spread in the relevant
-  sense); the spending of a consumer with certainty-equivalent
-  preferences therefore would not change in response to a change in
-  $\urate$, so we can attribute all of the increase in the saving rate
-  depicted in the figure to the precautionary motive.}  The figure illustrates the `overshooting' proposition mentioned in the introduction: All of the initial increase in saving reflects a drop in consumption (by construction, the mean-preserving spread in unemployment risk leaves current income unchanged), and consumption recovers only gradually toward its ultimately higher target.  For a long time, the saving rate remains above either its pre-shock level or its new target.
-
-
-Economists' instinct (developed in complete-markets and
-perfect-foresight models) is that privately optimal behavior also
-usually has a plausible claim to reflect a socially efficient
-outcome.  This is emphatically {\it not} the case for movements in
-precautionary saving against idiosyncratic risk in models with imperfect capital markets.  It has
-long been known that such precautionary saving generates socially `excessive'
-saving (see, e.g., \cite{aiyagari:opttax}).  So the presumption from
-economic theory is that the increase in the precautionary motive
-following an increase in uninsurable risk is socially inefficient.
-The inefficiency would be even greater if we were to add to our model
-a production sector like the one that has become standard in DSGE
-models in which there are costs of adjustment to the amount of
-aggregate investment (e.g., \cite{cee:habits}).
-
-While the implications for optimal fiscal policy are beyond the scope
-of our analysis, it is clear that a number of policies could either
-mitigate the consumption decline (e.g., an increase in social
-insurance) or replace the corresponding deficiency in aggregate demand
-(e.g., by an increase in government spending).  We leave further
-exploration of these ideas to later work, or other authors.
-
-\begin{comment}
-\hypertarget{}{}
-\begin{figure}
-%\begin{center}
-\caption{Increase in Unemployment Risk}\label{fig:cBeforeAndAfteruRise}
-\includegraphics{\econtexRoot/Figures/cBeforeAndAfteruRise}
-%\end{center}
-\end{figure}
-\end{comment}
-
-One objection to the model might be that its extreme assumption about
-the nature of unemployment risk (once unemployed, the consumer can
-never become reemployed) calls into question its practical usefulness
-except as a convenient stylized treatment of the logic of
-precautionary saving.  Our view is that such a criticism would be
-misplaced, for several reasons.  First, when unemployment risk is set
-to zero, the model collapses to the standard Ramsey model that has
-been a workhorse for much of macroeconomic analysis for the past 40
-years (see~\cite{ctDiscrete} for details).  It seems perverse to
-criticize the model for moving at least a step in the direction of
-realism by introducing a precautionary motive into that framework.  We
-have more sympathy with the view that the model's failure to
-incorporate heterogeneity across types of consumers (e.g., borrowers
-versus savers) misses something important (for evidence,
-see~\cite{dynan_debtOverhang}, \cite{mrsBalance}, and papers cited
-therein).  But this paper's authors have been active participants in
-the literature that builds far more realistic models of precautionary
-saving, and our considered judgment is that in the present context the
-virtues of transparency and simplicity outweigh the cost in realism;
-and given the model's success in matching empirical saving dynamics,
-it is difficult to see how explicit incorporation of heterogeneity
-could improve its fit very much quantitatively.  Models are metaphors,
-not high-definition photographs, and if a certain flexibility of
-interpretation is granted to use a simple model that has most of the
-right parts, more progress can sometimes be made than by building a
-state-of-the-art Titanic.
-
-In sum, the model emphasizes three factors that affect saving and that might vary substantially over time.  First, because the precautionary motive diminishes as wealth rises, the saving rate is a declining function of market resources $m_{t}$.  Second, since an expansion in the availability of credit reduces the target level of wealth, looser credit conditions (designated $\CEA_t$, for reasons articulated below) lead to lower saving.  Finally, higher unemployment risk $\mho_t$ results in greater saving for precautionary reasons.
-
-The framework thus suggests that if proxies for these variables can be
-found, a reduced-form regression for the saving rate $s_t$
+ The budget constraint depends on the consumer's employment status. %JS0415 I want to signal in the first sentence that the paragraph is about the budget constraint
+  We denote  with lower-case $m$ and $c$ the levels of market resources $M$ (market wealth plus current income) and consumption $C$ normalized by the corresponding period's pretax labor income $\ell\,\Wage$ (the product of individual labor productivity $\ell$ and the aggregate wage $\Wage$); $\ell\,\Wage$ grows by $\PGro=1+\pGro$ per period.  Next period's market resources ratio $m_{t+1}$ is the sum of current market resources $m_{t}$ net of consumption $c_t$, augmented by the (growth-adjusted) interest factor $\Rfree/\PGro$ and income. For the employed consumer (normalized) after-tax labor income is $1-\TaxUI$, while for the unemployed consumer the unemployment benefit is $\Severance$ (both expressed as a fraction labor income). The unemployment benefit $\Severance$ is financed on a pay-as-you-go basis by a lump sum tax $\TaxUI$.  Under these assumptions the (normalized) dynamic budget constraint is:
 \begin{equation}
-s_t = \gamma_0+\gamma_m m_t+
-\gamma_{\CEA} \CEA_t+ \gamma_\mho \mho_t + \gamma' X_t +
-\varepsilon_t \label{eqSavingReg}
-\end{equation}
-should satisfy the following conditions:
-\be \gamma_m<0,\qquad \gamma_{\CEA}<0,\qquad \gamma_\mho>0, \ee where $\CEA_t$ denotes the ``Credit Easing
-Accumulated'' index, a measure of credit supply (described in detail below), and the vector $X_t$
-collects other drivers of saving that are outside the scope of the
-model, such as demographics, corporate and government saving, etc.  We estimate regressions of the form
-\eqref{eqSavingReg} in section~\ref{sReducedFormRegressions} below.
+    m_{t+1}=\left\{
+    \begin{array}{ll}
+    (m_{t}-c_t)\Rfree/\PGro+\Severance & \mbox{with prob. }\phantom{1-~}\urate \quad \text{          (unemployed in $t+1$)}\\
+    (m_{t}-c_t)\Rfree/\PGro+1-\TaxUI  & \mbox{with prob. }1-\urate           \quad \text{\phantom{un}(employed in $t+1$)}
+    \end{array}
+  \right. \label{eq:dbc}
+\end{equation} %\medskip
 
-To economists steeped in the wisdom of Irving \cite{fisher:interestTheory}, according to whom the consumption path is determined by lifetime resources independently of the income path (`Fisherian separation holds'), equation~\eqref{eqSavingReg} may seem like a throwback to the bad old days of nonstructural Keynesian estimation of the kind that fell into disrepute after spectacular failures in the 1970s.  Below, however, we will show that, at least under our assumptions, a reduced form estimation of such an equation can in principle yield estimates of ``structural'' parameters like the time preference rate.  (An important part of the reason this exercise is not implausible is that, with the exception of a few easily identified episodes, the time path of personal income is not very far from a random walk with drift, justifying the identification of actual aggregate personal income with `permanent income' in a Friedmanian sense).\footnote{More precisely, an empirical decomposition of NIPA personal disposable income into permanent and transitory components (in which income consists of unobserved random walk with drift and white noise) assigns almost all variation in (measured) income to its permanent component, so that a ratio to actual income will coincide almost perfectly with a ratio to estimated `permanent' income. This is not surprising because, as is well-known (and also documented in Appendix~2), it is difficult to reject the proposition that almost all shocks to the level of aggregate income are permanent; autocorrelation functions and partial autocorrelation functions indicate that log-level of disposable income is close to a random walk; see our further discussion in Appendix~2.}
-
-\section{Data and Measurement Issues} \label{DataAndMeasurement}
-
-Before presenting estimation results we introduce our dataset.  Because our empirical measure of credit conditions begins in 1966q2, our analysis begins at that date and extends (at the present writing) through 2011q1.\footnote{Most time series were downloaded from Haver
-  Analytics, and were originally compiled by the Bureau of Economic
-  Analysis, the Bureau of Labor Statistics or the Federal Reserve.}$^{,}$\footnote{We are reluctant to use more recent data because personal saving rate statistics are subject to particularly large revisions until the data have been subjected to at least one annual revision (\cite{consumerGEP}; \cite{nsSavingRevisions}).} The saving rate is from the BEA's National Income and Product Accounts and is expressed as a percentage of disposable income.%
-\footnote{  As a robustness check, we have also re-estimated our models with
-  alternative measures of saving: Gross household saving as a fraction of disposable income, gross and net private saving as a fraction of GDP, inflation-adjusted personal saving rate and two measures of saving from the Flow of Funds (with/without consumer durables). The inflation-adjusted saving rate deducts from saving the erosion in the value of money-denominated assets due to inflation. The Flow of Funds (FoF) calculates saving as the sum of the net acquisition of financial assets and
-  tangible assets minus the net increase in liabilities. Because this
-  FoF-based measure is substantially more volatile, the fit of the
-  model is worse than for the NIPA-based PSR. However, the main
-  messages of the paper remain unchanged.  }$^{,}$\footnote{Many reasonable objections
-can be made to this, or any other, specific measure of the personal saving rate, including
-the treatment of durable goods, the treatment of capital gains and losses, and so on.  While
-some defense of the NIPA measure could be made in response to many of these challenges, such
-defenses would take us too far afield, and we refer the reader to the extensive discussions
-of these measurement issues that date at least back to \cite{friedmanATheory}.}
-
-
-\hypertarget{fwyRat}{}
-\begin{figure}
-\caption{Net Worth--Disposable Income Ratio}
-%\begin{center}
-\label{fwyRat}
-\includegraphics{\econtexRoot/Figures/fwyRat}
-%\end{center}
-
-
-\footnotesize
-Notes: Shading---NBER recessions.\\[0mm]
-\tiny Sources: Federal Reserve, Flow of Funds Accounts of the United States, \url{http://www.federalreserve.gov/releases/z1/}.
-\end{figure}
-
-Market resources $m_t$ are measured as 1 plus the ratio of household net worth to disposable income, in line with the model (Figure~\ref{fwyRat}).\footnote{This variable is lagged by one quarter to account for the fact that data on net worth are reported as the end-of-period values.}  Our measure of credit supply conditions, which we call the Credit Easing Accumulated index ($\CEA$, see Figure~\ref{fCEA}), is constructed in the spirit of \cite{mue07} and \cite{ducaEtAl10_creditArch} using the question on consumer installment loans from the Federal Reserve's Senior Loan Officer Opinion Survey (SLOOS) on Bank Lending Practices (see also \cite{fernandezMuellbauer06} and \cite{hall:slump}).  The question asks about banks' willingness to make consumer installment loans now as opposed to three months ago (we use this index because it is available since 1966; other measures of credit availability, such as for mortgage lending, move closely with the index on consumer installment loans over the sample period when both are available). To calculate a proxy for the \emph{level} of credit conditions, the scores from the survey were accumulated, weighting the responses by the debt--income ratio to account for the increasing trend in that variable.%
-\footnote{  As in \cite{mue07}, we use the question on consumer installment
-  loans rather than mortgages because the latter is only available
-  starting in 1990q2 and the question changed in 2007q2.
-  Our CEA index differs from \cite{mue07}'s Credit Conditions Index in that Muellbauer accumulates raw answers, not weighting them by the debt--income ratio.
+Generalizing  formula \eqref{eq:mTargetLogCase} for relative risk aversion $\CRRA > 1$ and allowing for UI benefits~$\Severance$, the employed consumer's target market resources ratio $\mTarg^{e}$ can be written as a function characterized by:\footnote{%
+  Specifically, in online appendix~\ref{apdxUIa} we show that the steady-state target wealth is:
+$$
+\mTarg^{e}=\frac{(\eta+1)(1-\urate\Severance)-\eta\Severance}{\eta+1-\Rfree/\PGro},
+$$
+where $\eta=\MPC^u\Pi\Rfree/\PGro$, $\Pi=\Big(\frac{\PGro^\CRRA(\Rfree\DiscFac)^{-1}-(1-\urate)}{\urate}\Big)^{1/\CRRA}$ and $\MPC^u$ is the (constant) marginal propensity to consume out of total wealth for the unemployed consumer. The relationship holds under our estimated parameter values; some of these relationships do not hold for all parameter values.
 }
-  (The index is normalized between 0 and 1 to make the interpretation of regression coefficients straightforward.)
+\begin{equation}
+\mTarg^{e}=f\big(\mathop{\mho}_{(+)},\mathop{\CEA(\Severance)}_{(-)},\mathop{\Rfree}_{(+)},\mathop{\PGro}_{(-)},\mathop{\CRRA}_{(+)},\mathop{\DiscFac}_{(+)},\dots\big). \label{mTargetNonlin}
+\end{equation}
+The target wealth $\mTarg^{e}$ increases with unemployment risk $\mho$, as consumers build up a larger precautionary buffer of savings. %\footnote{The increase in $\mho$ is a pure increase in risk (a mean-preserving spread in human wealth) because we assume that labor productivity $\ell$ grows at the rate $1/(1-\mho)$ (which in turn implies that labor income grows at the rate $\PGro=\WGro/(1-\urate)$, where $\WGro$ is the growth rate of the wage $\Wage$).}
+An easing of credit conditions (which we denote as `$\CEA$')---an increase in the $\CEA$ index (modelled as an increase in $\Severance$)---allows households to borrow more and thus reduces the need to accumulate wealth for consumption smoothing. A higher interest rate $\Rfree$ increases the rewards to holding wealth and thus increases the amount held. Faster expected growth of labor income $\PGro$ translates into a lower wealth target because optimists consume more now in anticipation of their future prosperity (the `human wealth effect'). Increasing risk aversion $\CRRA$ raises target wealth in a way that is qualitatively similar to the effects of an increase in uncertainty.  And of course, making the consumer more patient (increasing $\DiscFac$) increases target wealth.\footnote{Our final modeling assumption is that we can capture most of the variation in the saving rate by considering the behavior of an economy populated by a single `employed' agent (who is always afraid of becoming unemployed but never does).  (\cite{cjSOE} show that the simulated behavior of an economy populated by a continuum of agents who draw unemployment shocks as specified in the model -- so that at any given time there is a population of employed and of unemployed consumers -- is very well represented by the behavior of the `representative employed consumer' we use here).
+}
 
-  \hypertarget{fCEA}{}
-  \begin{figure}
-\caption{The Credit Easing Accumulated (CEA) Index}
-%\begin{center}
-\label{fCEA}
-\includegraphics{\econtexRoot/Figures/fCEA}
-%\end{center}
-
-\footnotesize
-Notes: Shading---NBER recessions.\\[0mm]
-\tiny Sources: Federal Reserve, accumulated scores from the question on change in the banks' willingness to provide consumer installment loans from the Senior Loan Officer Opinion Survey on Bank Lending Practices, \url{http://www.federalreserve.gov/boarddocs/snloansurvey/}.
-\end{figure}
-
-The CEA index is taken to measure the availability/supply of credit to a typical household through factors other than the level of interest rates---for example, through loan--value and loan--income ratios, availability of mortgage equity withdrawal and mortgage refinancing. The broad trends in the \CEA\ index correlate strongly with measures financial reforms of \cite{abiadEtAl_FinReforms}, and measures of banking deregulation of \cite{demyanykEtAl_JoF07_deregulation} (see panel A of their Figure 1, p.\ 2786 and Appendix~1).%
-\footnote{  \cite{ducaEtAl_EJ11_housePrices} document an increasing trend in loan--value ratios for first-time home buyers (in data from the American Housing Survey, 1979--2007), an indicator which is arguably to some extent affected by fluctuations in demand.  } In addition, they seem to reflect well the key developments of the U.S.\ financial market institutions as described in \cite{mp02}, \cite{dynanEtAl_jme06}, \cite{gw07}, \cite{chDebt}, and \cite{admmmCredit}, among others, which we summarize as follows: Until the early 1980s, the U.S.\ consumer lending markets were heavily regulated and segmented. After the phaseout of interest rate controls beginning in the early 1980s, the markets became more competitive, spurring financial innovations that led to greater access to credit. Technological progress leading to new financial instruments and better credit screening methods, a greater role of nonbanking financial institutions, and the increased use of securitization all contributed to the dramatic rise in credit availability from the early 1980s until the onset of the Great Recession in 2007. The subsequent significant drop in the \CEA\ index was associated with the funding difficulties and de-leveraging of financial institutions. As a caveat, it is important to acknowledge that \CEA\ might to some degree be influenced by developments from the demand rather than the supply side of the credit market.  But whatever its flaws in this regard, indexes of this sort seem to be gaining increasing acceptance as the best available measures of credit supply (as distinguished from credit demand).\footnote{We have verified that our results do not materially change when we use the credit conditions index of \cite{ducaEtAl10_creditArch}, which differs from our \CEA\ in that \citeauthor{ducaEtAl10_creditArch} explicitly remove identifiable effects of interest rates and the macroeconomic outlook from the SLOOS data using regression techniques.  Since the results are similar using both measures, our interpretation is that our measure is at least not merely
-capturing the most obvious cyclical components of credit demand. As reported below, including in Appendix~1, our results also do not change when we use the Financial Liberalization Index of \cite{abiadEtAl_FinReforms}---which is based on the readings of financial laws and regulations---as an instrument for CEA.}
-
-\hypertarget{mhoUnem}{}
-\begin{figure}
-\caption{Unemployment Risk $\Ex_t u_{t+4}$ and Unemployment Rate (Percent)}
-%\begin{center}
-\label{fMho}
-\includegraphics{\econtexRoot/Figures/mhoUnem}
-%\end{center}
-
-\footnotesize
-Legend: Unemployment rate: Thin black line, Unemployment risk $\Ex_t u_{t+4}$: Thick red/grey line. Shading---NBER recessions.\\[0mm]
-\tiny Sources: Thomson Reuters/University of Michigan Surveys of Consumers, \url{http://www.sca.isr.umich.edu/main.php}, Bureau of Labor Statistics.
-\end{figure}
+\subsection{The Three Channels: A Graphical Exposition} \label{ss3channels}
 
 
-We measure a proxy $\Ex_t u_{t+4}$ for unemployment risk $\mho_t$ using re-scaled answers to the question about the expected change in unemployment in the Thomson Reuters/University of Michigan Surveys of Consumers.%
-\footnote{The relevant question is: ``How about people out of work during the coming 12 months---do you think that there will be more unemployment than now, about the same, or less?''}
-In particular, we estimate $\Ex_t u_{t+4}$ using fitted values $\Delta_4 \hat{u}_{t+4}$ from the regression of the four-quarter-ahead change in unemployment rate $\Delta_4 u_{t+4}\equiv u_{t+4}-u_t$ on the answer in the survey, summarized with a balance statistic $\Uexp^{BS}_t$:
+\hypertarget{PhaseDiag}{}
+
+\begin{sidewaysfigure}	\caption{Consumption/Saving Dynamics in a Simple Buffer Stock Model}
+	\centering
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+    %\addtocounter{figure}{-1}
+		{ \includegraphics[width=0.49\textheight]{\econtexRoot/Figures/TractableBufferStockPhaseDiag}}
+		\caption{Consumption Function (Stable Arm of Phase Diagram)}		\label{fig:PhaseDiag}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{ \includegraphics[width=0.49\textheight]{\econtexRoot/Figures/WealthShock}}
+		\caption{A Wealth Shock}\label{fig:WealthShock}
+	\end{subfigure} \\
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{ \includegraphics[width=0.49\textheight]{\econtexRoot/Figures/PhaseDiagramDebtLimRisePlot}}
+		\caption{Relaxation of Natural Borrowing Constraint from 0 to $\underline{h}$}	\label{fig:PhaseDiagramDebtLimRise}	
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{ \includegraphics[width=0.49\textheight]{\econtexRoot/Figures/savRateAfterMhoRisePlot}}
+		\caption{Saving After an Increase in Uncertainty $\urate$} \label{fig:savRateAfterMhoRisePlot}
+\end{subfigure}
+\end{sidewaysfigure}
+
+
+Figure~\ref{fig:PhaseDiag} shows the phase diagram for the CT model.  The (concave) consumption function is indicated by the thick solid locus, which is the saddle path that leads to the steady state (at which  both consumption and market resources, $c$ and $m$, are constant).  Because the precautionary motive diminishes as wealth rises, the model says the saving rate is a declining function of market resources, an implication of consumption concavity. %And, since an expansion in the availability of credit reduces the target level of wealth (and permits an immediate boost to consumption), looser credit conditions lead to lower steady-state saving (and an even greater decline in the saving rate immediately after the credit expansion).
+
+This consumption function can be used directly to analyze the effects of the three channels affecting the saving rate.  For a consumer who starts with market resources equal to the target, $\mRat_{t}=\mTarg^{e}$, the consequences of a pure negative shock to wealth, depicted in Figure~\ref{fig:WealthShock}, are straightforward: Consumption declines upon impact, to a level below the value that would leave $m$ constant (the leftmost red dot); because consumption is below permanent income, $m$ (and thus $c$) rises over time back toward the original target (the sequence of dots).
+
+From an initial borrowing limit of 0 that requires wealth to be positive ($m$ must be strictly greater than $c$), an expansion of unemployment benefits results in a more generous natural borrowing limit $\underline{h}$ (implying minimum net worth of $-\underline{h}<0$) and leads to an immediate increase in consumption for a given level of resources (Figure~\ref{fig:PhaseDiagramDebtLimRise}).  But over time, the higher spending causes the consumer's level of wealth to decline, forcing a corresponding gradual decline in consumption until wealth eventually settles at its new, lower target level.\footnote{Our setup thus reproduces the standard result from the literature on the effects of borrowing constraints; see, e.g., \cite{carroll:atheoryjep}, \cite{mue07}, \cite{glLiq} and \cite{hall:slump}.}
+
+Figure~\ref{fig:savRateAfterMhoRisePlot} shows the consequences of a permanent increase in unemployment risk $\urate$ for the dynamics of the personal saving rate (`PSR' henceforth), rather than the level of consumption (as shown before).  Qualitatively, the effects of a human-wealth-preserving spread in risk are essentially the opposite of a credit loosening: On impact, the PSR jumps upward, overshooting the new target $\check{s}'$ (cf. \cite{dornbuschOvershooting}), followed by a gradual decline toward $\check{s}'$ (which is higher than the original $\check{s}$). This nonmonotonic adjustment of saving to shocks reflects the fact that, when the target level of wealth rises, not only is a higher level of steady-state saving needed to maintain a higher target level of wealth, an immediate \textit{further} boost to saving is necessary to move from the current (inadequate) level of wealth up to the new (higher) target.
+
+\hypertarget{ssAltModels}{}\hypertarget{Comparison-with-Alternative-Frameworks}{}
+
+\subsection{Comparison to Alternative `Structural' Models} \label{ssAltModels}
+
+
+\begin{verbatimwrite}{./Highlighted/Comparison-with-Alternative-Frameworks.tex}
+
+We use this simple, partial-equilibrium framework (instead of a richer but less tractable HA-GE model) because our goal is to estimate a unified structural saving model whose ``deep'' parameters are jointly identified using both business-cycle-frequency fluctuations AND long-term trends.  Both cyclical and secular changes in the saving rate have been large, and a model that matched one set of facts (secular, or cyclical) but had strongly counterfactual implications for the other would not be a satisfying description of history.
+
+We are not aware of prior papers that attempt this.  Essentially all of the ``structural'' literature has focused on cyclical dynamics, using one of two frameworks:
+\begin{enumerate}
+\item Complex Heterogeneous Agent New Keynesian models (HANK) with serious treatments of uncertainty
+    \item Simple spender--saver Two-Agent New Keynesian models (TANK)
+\end{enumerate}
+
+
+
+\hypertarget{HA-Model-Too-Hard-Right-Now}{}
+\hypertarget{HA-Models-Not-Used-Yet-For-Forecasting}{}
+For the first class of models, the last decade or so has seen impressive progress in the degree of realism achievable in the treatment of uncertainty, liquidity constraints, household structure, and other first-order elements of households' microeconomic environment. A flourishing literature today 
+explores the implications of these complexities for many questions; see \cite{kmpHandbook} for a survey.
+However, at the current state of the art, estimating such a model would be a considerable challenge, as estimation is generally several orders of magnitude more computationally demanding than simulating a calibrated version (which is what the existing literature has done).  Furthermore, rich microfounded models have usually been optimized for the specialized purposes of examining in great depth a single question (such as the mechanisms of transmission of monetary policy, \cite{kmvHANK}) rather than, as we are attempting, to address a number of different causal mechanisms, over different time horizons, simultaneously.  Finally, even if such a rich HA-GE model could be estimated, it is not clear that the extra microeconomic realism would be worth the cost in transparency and tractability.
+
+Indeed, in advocating the use of TANK models, \cite{dgTANK} argue that the simplicity and transparency of models with only two agents more than make up for their lack of fidelity to microeconomic facts.  This point is illustrated by the fact that central banks and other entities that require a theoretical model regularly use TANK models as practical tools for real-time macroeconomic analysis and forecasting. However, a major drawback of the TANK models is that they allow no role for uncertainty either as an impulse or a propagation mechanism, despite the large literature in recent years that has argued the uncertainty is a core element of business cycle dynamics (see, e.g., cf \cite{bfjstUncertain}).
+
+Our  model occupies a middle ground. There is only a single agent (making it simpler in that respect even than the TANK models), but the consumption function is nonlinear (making it harder to analyze analytically).  This nonlinearity brings a major benefit, though, in providing a way to accommodate two mechanisms that do not meaningfully exist in TANK models: Uncertainty and credit constraints.  Furthermore, like a TANK model, its parameters can be straightforwardly estimated to match targeted macroeconomic facts (in our case, the saving rate).
+
+\hypertarget{Our-Model-Has-Been-Used-In-Other-Countries}{}
+Likely because of its tractability and simplicity, our model (as introduced in a draft version of this paper) has been found useful as a tool to understand saving dynamics in a number of countries in addition to the US. The model has been used explicitly to forecast consumption and the saving rate at the Bank of England (\cite{BoE_forecasting}).  \cite{modyEtAl_precSaving} use a version of it to motivate an empirical exercise which concludes that labor income uncertainty contributed by at least two fifths to the increase in the saving rate in advanced economies during the Great Recession. \cite{Trichet_JacksonHoleSpeech} argues (referring to our model) that the precautionary motive contributed to the high saving rate in advanced economies after 2008.
+
+\begin{comment} %
+  One particularly stringent kind of ``out of sample'' testing of a model is to see whether it is useful in understanding the same issues in countries other than the one whose data the model originally was estimated on.  We have added \href{http://www.econ2.jhu.edu/people/ccarroll/papers/cssUSSaving/#Used-In-Other-Countries}{a paragraph} reporting on the extent to which our model has proven useful to the Bank of England, the ECB, and the IMF in explaining broad developments in in the post-2008 world.
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+JS0406: Here is the original text
+
+
+\begin{verbatimwrite}{./Highlighted/Comparison-with-Alternative-Frameworks.tex}
+  Existing work in the consumption/saving literature (including the papers cited in footnote~\ref{foot:PSRlit}) has typically either been theoretical/calibrated (rather than structural and estimated to match aggregate data) or reduced-form (rather than structural).  Furthermore, both structural and reduced-form literatures have mostly focused on business-cycle-frequency movements (e.g., by detrending the data using an HP filter), without any constraint that those dynamics be reconciled with longer-term trends (there are a few exceptions, e.g.\ \cite{parker_nberma_spendthrift} and work by Muellbauer and coauthors cited below).
+
+Our goal has been to estimate a unified structural saving model whose ``deep'' parameters are jointly identified using both business-cycle-frequency fluctuations AND long-term trends, since both cyclical and secular changes in the saving rate have been large.
+
+We are not aware of prior papers that attempt this.
+
+The tractability of our structural model has been instrumental in enabling us to pursue this goal.  But our model's tractability comes at the cost of making stylized assumptions, most notably about the nature of unemployment risk.  The last decade or so has seen impressive progress in the degree of realism achievable in the treatment of uncertainty, liquidity constraints, household structure, and other detailed elements of households' microeconomic environment, and a flourishing literature today (in which two of the paper's coauthors are active participants) explores the implications of these complexities for many questions.  (See \cite{kmpHandbook} for a survey of this literature.)
+
+\hypertarget{HA-Models-Not-Used-Yet-For-Forecasting}{}
+
+Such models have not yet proven to be useful as practical tools for real-time macroeconomic analysis and forecasting, perhaps because they are unwieldy and both computationally and conceptually difficult.  At this writing, we know of no central bank or similar entity that has constructed a full-blown Heterogeneous Agent model for real-time forecasting and policy purposes.  The farthest most such entities have gone is to employ Two Agent New Keynesian (TANK) models.
+
+\hypertarget{Our-Model-Has-Been-Used-In-Other-Countries}{}
+
+In contrast, because of its tractability and simplicity, our model (as introduced in a draft version of this paper) has been found useful as a tool to understand saving dynamics in a number of countries in addition to the US. The model has been used explicitly to forecast consumption and the saving rate at the Bank of England (\cite{BoE_forecasting}).  At the IMF, \cite{modyEtAl_precSaving} use a version of it to motivate an empirical exercise which concludes that labor income uncertainty contributed by at least two fifths to the increase in the saving rate in advanced economies during the Great Recession. \cite{Trichet_JacksonHoleSpeech} argues (referring to our model) that the precautionary motive contributed to the high saving rate in advanced economies after 2008.
+
+
+Given the recent success in using richer models for examining other macroeconomic questions, and given that our core economic mechanisms (precautionary, wealth, and credit effects) are present in such models, it seems likely that similar conclusions could be obtained if we were able to estimate such a model in a way similar to our estimation of the tractable model.
+
+\hypertarget{HA-Model-Too-Hard-Right-Now}{}
+
+But at the current state of the art, doing so would be a considerable challenge.  Estimation of a model is generally several orders of magnitude more computationally demanding than simulating a calibrated version (which is what the existing literature has done).  Furthermore, rich microfounded models have until now usually been optimized for the specialized purposes of examining a single question (such as the mechanisms of transmission of monetary policy, \cite{kmvHANK}) in great depth rather than, as we are attempting, to address a number of different causal mechanisms, over different time horizons, simultaneously.  One reason for choosing a simpler model is in order to pursue a more complex objective.
+
+Furthermore, even if such a model could be estimated, it is not clear that the extra microeconomic realism would be worth the cost in transparency and tractability.  \cite{dgTANK} argue that simplicity and transparency are paramount virtues in a macroeconomic model, and we are sympathetic to that principle.  But another virtue of a model is matching important facts, and a major drawback of the TANK models they advocate is that such models allow no role for uncertainty either as an impulse or a propagation mechanism, despite the large literature in recent years that has argued the uncertainty is a core element of business cycle dynamics (see, e.g., cf \cite{bfjstUncertain}).
+
+
+
+
+When a novel approach to a question is proposed, it is almost always best to illustrate the technique with the simplest possible framework, rather than the richest possible framework, so that the essentials of the methodological contribution are easier to absorb.  It will always be possible for subsequent researchers to see whether the results obtained using a simple model hold up when the model is made more realistic.
+\end{comment}
+
+
+\hypertarget{Why-We-Do-Not-Endogenize-Asset-Prices}{}
+
+\subsubsection{Why We Do Not Endogenize Asset Prices}{}
+
+Arguably a deeper problem, both with our paper and with those cited above, is the choice to take as exogenous some of the variation that we would most urgently like to understand.  In particular, our model's finding that a `wealth effect' explains much of the increase in saving in the Great Recession begs the question of what caused the asset price movements that underlie the wealth effect (in stocks, housing and bonds). If, as seems likely, an important driver of asset prices is the degree of uncertainty (cf.\ \cite{bexUncertaintyAssetPrices}, \cite{drechslerUncertainty}), then our method will substantially underestimate the cyclical importance of uncertainty, attributing part of uncertainty's true effect to developments (asset prices; credit) that are themselves consequences of uncertainty.
+
+A vast literature has attempted to model asset pricing in general equilibrium.  While some progress has been made in understanding the cross-sectional heterogeneity of asset holdings (cf.\ \cite{gmAssetPricing}), for our purposes what is needed is a model that can capture the cyclical and secular time series of returns.  %If the aggregate time series asset pricing literature had found a consensus model that worked well, we would certainly have needed to incorporate some version of that consensus in our model.
+The extent to which no consensus exists is highlighted by the diversity of the recent literature that has sought to endogenize the precipitous decline of net worth and house prices during the Great Recession.  In this attempt, different authors have built into their models a number of alternative mechanisms, including the presence of a exogenous but rare Great-Depression-like state, exogenous shocks to expectations, or endogenous changes in illiquidity of housing.\footnote{In more detail, building on the literature on consumption disaster risk, \cite{glover:intergenRedistr} adopted a setup in which the aggregate shock includes a Great-Depression-like state. Related work attempted to capture the dynamics of house prices during the last boom and (deep) bust. For example, \cite{kmv:houseBoomBust} show that changes in beliefs about future housing demand can match the volatile dynamics of house prices and house price--rent ratios; but invoking unobservable changes in opinions about the future demand for assets is only a small step from explicitly assuming that asset prices are exogenous. \cite{garrigaHedlund} argue that an endogenous decline in housing liquidity (induced by directed search to buy houses) amplifies recessions by contracting credit and depressing consumption.  The debate on the role of beliefs about house prices, changes in credit supply or mortgage market arrangements includes important contributions of \cite{favilukis:housing}, \cite{kmv:houseBoomBust}, \cite{justPrimTamb:CredSupplyAndHouseBoom}, and \cite{garrigaHedlund}. \label{foot_housingLit}}  The existence of this literature suggests that no single model of asset pricing is adequate both for ``normal'' times and for the Great Recession; more broadly, it seems fair to say that no single asset pricing model has come to be viewed as robustly applicable to most times and places, or for both high-frequency cyclical and low-frequency secular movements in asset prices.  If we were to incorporate any non-consensus model of asset pricing (and, at this point, \textit{all} asset-pricing models are non-consensus models), the paper would inevitably (and correctly) judged to be more about the performance of that asset pricing model than anything else.\footnote{Essentially the same points could be made about our choice to take credit supply as exogenous.  Again, to the extent that movements in credit supply are caused by movements in uncertainty, our estimates may seriously underestimate the contribution of uncertainty to business cycle fluctuations.}
+
+
+The exogeneity assumptions bring us to a final reason for using our tractable model, which is that a central purpose of this paper has been to bring to light the existence of some surprisingly simple empirical relationships between the saving rate and our three explanatory variables.  The construction of an elaborate model that required many pages to set up and explain, and many more pages to estimate, might have drawn attention away from the simplicity of the empirical foundations of the paper, in which the key results are evident even in the reduced form estimates.  Our penultimate section \ref{sReducedFormRegressions} examines the empirical performance of our model in comparison with a number of alternatives (including the reduced form model) and argues that our structural model has advantages over any of them.
+\end{verbatimwrite}
+\input{./Highlighted/Comparison-with-Alternative-Frameworks.tex}
+
+\section{Data and Measurement Issues} \label{DataAndMeasurement} \hypertarget{DataAndMeasurement}{}
+
+This section describes how we measure our key variables (shown in Figure~\ref{fig:data}).
+
+The saving rate is from the BEA's National Income and Product Accounts and is expressed as a percentage of disposable income.
+
+Using the Federal Reserve's Financial Accounts, if we define wealth Balances as $B_{t+1}=(M_{t}-C_{t})\Rfree(1-\tau)$, we can obtain spendable resources by adding disposable income $(1-\tau)\ell_{t+1}\Wage_{t+1}$.  Normalizing by disposable income yields a ratio of market resources to disposable income $m_t$ measured as 1 plus the ratio of household net worth to disposable income (Figure~\ref{fwyRat}).\footnote{Our simple model does not distinguish between the role of various wealth components and does not specifically look into the role of housing wealth as distinct from other kinds of wealth. While in a reduced form approach it would be straightforward to separately estimate the role of housing and financial wealth (as many papers estimating the wealth effects on consumption have done), it would be much more challenging to estimate a structural model with portfolio choice and illiquid housing.}
+
+
+\hypertarget{fig:MainDataSeries}{}
+\begin{sidewaysfigure}	\caption{Key Data Series} \label{fig:data}
+	\centering
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{\includegraphics[width=0.49\textheight]{\econtexRoot/Figures/fwyRat}}
+		\caption{Net Worth--Disposable Income Ratio}	\label{fwyRat}	
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{\includegraphics[width=0.49\textheight]{\econtexRoot/Figures/fCEA}}
+		\caption{The Credit Easing Accumulated (CEA) Index}\label{fCEA}
+	\end{subfigure} \\
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{\includegraphics[width=0.49\textheight]{\econtexRoot/Figures/mhoUnem}}
+		\caption{Unemployment Risk $\Ex_t u_{t+4}$ and Unemployment Rate}\label{fMho}
+	\end{subfigure}
+\end{sidewaysfigure}
+
+Our measure of credit availability, which we call the `Credit Easing Accumulated' index ($\CEA$; Figure~\ref{fCEA}) is adapted from work by John Muellbauer and various coauthors (\cite{mue07}, \cite{ducaEtAl10_creditArch} and \cite{admmmCredit}; for a related approach, see \cite{hall:slump}).  It is constructed using a question from the Federal Reserve's Senior Loan Officer Opinion Survey (SLOOS) on Bank Lending Practices. The question asks about banks' willingness to make consumer installment loans now as opposed to three months ago. To calculate a proxy for the \emph{level} of credit conditions, the scores from the survey were accumulated, weighting the responses by the contemporaneous debt-to-income ratio to account for the increasing trend in that variable, and normalizing the result to range between 0 and 1 to make the interpretation of regression coefficients straightforward.  We use the question on installment loans because it is available since 1966; other measures of credit availability, such as for mortgage lending, move closely with the index on consumer installment loans over the sample period when both are available until 2008.  While the two indices diverge in the Great Recession and afterward, this corresponds to the period when there was a massive shift of mortgage origination from banks (the respondents to the SLOOS) to government sponsored entities (Fannie Mae, Freddie Mac, and others).  That shift brings into question the continued relevance of the direct SLOOS index of mortgage lending conditions.  There was no similar profound institutional change in the market for installment lending, which is one reason it might reasonably be interpreted as a consistent indicator of the overall credit environment (given its high correlation with other credit supply indices in the period before the Great Recession).
+
+The CEA index is taken to measure the availability/supply of credit to a typical household as it is affected by factors other than the level of interest rates---for example, through constraints on loan-to-value or loan-to-income ratios, availability of mortgage equity withdrawal and mortgage refinancing. The broad trends in the \CEA\ index seem to reflect well the key developments of the US financial market institutions, which we summarize as follows: Until financial deregulation began in the late 1970s, consumer lending markets were heavily regulated and segmented. After the phaseout of interest rate controls beginning in the early 1980s, the markets became more competitive, spurring financial innovations that led to greater access to credit. Technological progress leading to new financial instruments and better credit screening methods (\cite{pjInfo}), a greater role of nonbanking financial institutions, and the increased use of securitization all contributed to the dramatic rise in credit availability from the early 1980s until the onset of the Great Recession in 2007, at which point a subtantial drop in the \CEA\ index was associated with the funding difficulties and de-leveraging of financial institutions.\footnote{As a caveat, it is important to acknowledge that \CEA\ might to some degree be influenced by developments from the demand rather than the supply side of the credit market.  But whatever its flaws in this regard, indexes of this sort seem to be gaining increasing acceptance as the best available measures of credit supply (as distinguished from credit demand).\\
+  The \CEA\ index correlates strongly with measures financial reforms of \cite{abiadEtAl_FinReforms}, and measures of banking deregulation of \cite{demyanykEtAl_JoF07_deregulation} (see panel~A of their Figure~1, p.\ 2786 and Appendix~1).   }
+
+We measure a proxy $\Ex_t u_{t+4}$ for unemployment risk $\mho_t$ using re-scaled answers to the question about the expected change in unemployment in the Thomson Reuters/University of Michigan Surveys of Consumers. %
+ In particular, we estimate $\Ex_t u_{t+4}$ using fitted values $\Delta_4 \hat{u}_{t+4}$ from the regression of the four-quarter-ahead change in unemployment rate $\Delta_4 u_{t+4}\equiv u_{t+4}-u_t$ on the answer in the survey, summarized with the balance statistic $\Uexp^{BS}_t$:
 \begin{eqnarray*}
 \Delta_4 u_{t+4} &=& \alpha_0+\alpha_1\Uexp^{BS}_t+\varepsilon_{t+4},\\
 \Ex_t u_{t+4}&=&u_t+ \Delta_4 \hat{u}_{t+4}.
 \end{eqnarray*}
+The coefficient $\alpha_{1}$ is highly statistically significant, indicating that households do have substantial information about the direction of future changes in the unemployment rate.  As expected, our $\Ex_{t} u_{t+4}$ series is strongly correlated with unemployment rate and predicts its dynamics (Figure~\ref{fMho}).%
 
-The coefficient $\alpha_{1}$ is highly statistically significant (indicating that households do have substantial information about the direction of future changes in the unemployment rate).  Our $\Ex_{t} u_{t+4}$ series, which---as expected---is strongly correlated with unemployment rate and indeed precedes its dynamics, is shown in Figure~\ref{fMho}.%
-\footnote{We have checked that the conclusions of our analysis essentially do not change if we replaced $\Ex_{t} u_{t+4}$ with the raw unemployment series $u_t$, but we use the former series below because it is closer to the `true' perceived labor income risk.
+\hypertarget{Why-to-2011}{}
+\begin{verbatimwrite}{./Highlighted/Why-to-2011.tex}
+Data for our empirical measure of credit conditions are available starting 1966q2, and the data we use in estimation cover that date to 2011q4.
+
+We do not use data after 2011 for several reasons. First, personal saving rate statistics are subject to large revisions until some five years  after the first data release (after the BEA receives much higher quality personal income data from the IRS).  To quote \cite{nsSavingRevisions}: ``[M]uch of the initial variation in the personal saving rate across time was meaningless noise.''\footnote{In addition, there were substantial gyrations in the saving rate in 2012 due to a tax-related anomaly (in late 2012 income was boosted by accelerated and special dividend payments and by accelerated bonus payments in anticipation of changes in individual income tax rates in 2013).} As  their paper documents, it is not uncommon for the saving rate to be revised by 3--5 percent of disposable income after several benchmark revisions.
+
+
+Second, our index of credit availability is increasingly questionable after 2011 because of the apparent divergence in credit conditions for installment and mortgage loans: Various sources (including the Mortgage Credit Availability Index of the Mortgage Bankers' Association; see also \cite{bhutta_mortgageDebt}) document continued tight credit conditions after 2011.  If, as this work suggests, mortgage credit remained tighter than indicated by our installment loans index after 2012, that could explain part of the continued high saving rate in the post-2012 period, which would be mispredicted by a mismeasured credit conditions index.  Alternatively, saving attitudes may have changed after the Great Recession due to the substantial shock of the Great Recession, perhaps because of ``scarring'' effects  (see, e.g., \cite{malmendierSheng}, \cite{jstLeveragedBubbles}, \cite{hallQuantifying}); for evidence that financial crises have much longer-lasting effects than usual business cycle fluctuations, see \cite{rrAftermath}.  All of these are reasons to worry about data from the post-Great-Recession period.
+\end{verbatimwrite}
+\input{./Highlighted/Why-to-2011.tex}
+
+\section{Structural Estimation} \label{sStructuralEstimation}
+
+This section estimates the structural model of section~\ref{ssTractableBS} by minimizing the distance between the saving rate implied by the model and its empirical counterpart. %The nonlinear least squares (NLLS) procedure employed here has some advantages over the reduced-form regressions. Besides arguably being more immune to endogeneity and suitable for estimating structural parameters (such as the discount factor), it imposes on the data a structure that makes the parameter values easier to interpret. As Figure~\ref{fig:PhaseDiag} documents, the structural model also explicitly justifies and disciplines non-linearities, which can be important especially during turbulent times, when the shocks are large enough to move the system far from its steady state.
+
+\hypertarget{Estimation-Procedure}{}
+\subsection{Estimation Procedure}
+
+In more detail, the structural estimation proceeds as follows. We assume that households observe exogenous movements in unemployment risk $\mho$ and credit availability $\underline{h}$,\footnote{We assume that consumers consider the shocks to $\mho$ and $\underline{h}$ to be permanent.  This assumption is necessary for us to be able to use our tractable model.  While indefensible as a literal proposition (presumably nobody believes the unemployment rate will remain forever where it is today), the high serial correlation of these variables means that the assumption may not be too objectionable.} and that there are simple mappings from our credit availability index $\CEA_{t}$ to the location of the consumers' borrowing constraint $\underline{h}_{t}$ and from measured unemployment expectations $\Ex_{t}u_{t+4}$ to $\mho_{t}$:\footnote{We have also considered a model in which the CEA equation contains an intercept, $\underline{h}(\CEA_{t}) = \bar{\theta}_h+\theta_\CEA \CEA_{t}$. In such model $\bar{\theta}_h$ is estimated to be insignificant and close to 0.  Because that model is close to multi-colinear, we are excluding the intercept from the CEA equation. }
+\begin{eqnarray}
+ \underline{h}_{t} = \underline{h}(\CEA_{t}) & = & \theta_\CEA \CEA_{t}, \nonumber \\
+\mho_{t}= \mho(\Ex_{t}u_{t+4}) & = & \bar{\theta}_\mho+\theta_u \Ex_{t}u_{t+4}. \label{unempEq}
+\end{eqnarray}
+
+Collecting the parameters $\Theta=\{\DiscFac,\theta_\CEA,\bar{\theta}_\mho,\theta_u\}$, and the time-$t$ observable variables as $z_{t} = \{\mRat_{t},\CEA_{t},\Ex_{t}u_{t+4}\}$, the model implies a ``saving rate function'' $\sFunc(z_{t};\Theta)$ which we aim to compare to the saving rates observed in the data, $s_t^{\text{meas}}$. Our objective is therefore to find the parameter vector $\hat{\Theta}$ that minimizes the distance between actual saving rates and those implied by the model:
+\begin{equation}
+  \hat{\Theta}=\argmin \frac{1}{T}\sum_{t=1}^T\big(s_{t}^{\text{meas}}-\sFunc(z_{t}; \Theta)\big)^2. \label{minDist}
+\end{equation}
+
+Minimization of \eqref{minDist} is a non-linear least squares problem for which the standard asymptotic results apply. The estimates have the asymptotic normal distribution:
+$$
+T^{1/2}(\hat{\Theta}-\Theta)\rightarrow_d \mathscr{N}\Big(0, \sigma^2\times\big(\lim_{T\rightarrow\infty} \Ex (\textbf{F}'\textbf{F}/T)\big)^{-1}\Big),
+$$
+where the variance matrix can consistently be estimated with
+$$
+\hat\sigma^2\times\big( \hat{\textbf{F}}'\hat{\textbf{F}}\big/ T \big)^{-1}
+$$
+for $\hat\sigma^2=\frac{1}{T}\sum_{t=1}^T\big(s_{t}^{\text{meas}}-\sFunc(z_{t}; \hat{\Theta})\big)^2$ and the $T\times4$ gradient matrix of the saving rate function $\hat{\textbf{F}}=\nabla_{\Theta'}\sFunc(z_{t}; \hat{\Theta})$ evaluated at $\hat{\Theta}$ (which is calculated numerically).%
+
+\subsection{Estimates and the Model Fit}
+
+Table~\ref{tStructEst} presents the estimation results. The calibrated parameters --- the quarterly real interest rate $\rfree=0.04/4$, quarterly wage growth $\Delta\Wage=0.01/4$ and the coefficient of relative risk aversion $\CRRA=2$ --- take on standard values and meet (together with the estimated discount factor $\DiscFac$) the conditions sufficient for the problem to have a well-defined solution (see \cite{ctDiscrete}).
+
+The estimated quarterly discount factor $\DiscFac=1-0.0065=0.9935$, or $0.974$ at an annual frequency, lies in the standard range.  As for the horizontal shift in the consumption function $\underline{h}_t$ driven by credit availability, the estimates of the scaling factor ${\theta}_\CEA$ implies that $\underline{h}_t$ varies between $0$ and $8.89/4\approx 2.2$, implying that financial deregulation resulted at its peak in an availability of credit in 2007 that was greater than credit availability at the beginning of our sample in 1966 by an amount equal to about 220 percent of annual income (for an average household)---not an unreasonable figure given the rule of thumb that homebuyers can afford a house costing between two and three times their annual income.  %
+
+The estimated intensity of perceived unemployment risk reflects that fact that the risk in our setup is purely permanent: the estimated risk $\mho_t$ ranges between $1.25\times10^{-4}$ and $1.5\times10^{-4}$ per quarter. The peak magnitude of $\mho_t$ (of $1.5\times10^{-4}$) implies that over the life cycle of 50 years or 200 quarters, the workers face a probability of roughly 3 percent to become (permanently) unemployed. Given the average aggregate unemployment rate of roughly 6 percent in our sample and given that much of this risk is in reality transitory, the estimated scaling of $\mho_t$ seems broadly plausible.
+
+
+The quantitative interpretation of the coefficients in the model is not straightforward, but can be summarized by calculating  that a 30 percent increase in uncertainty (not out of line for a recession) results in a roughly 3 percentage point increase in the saving rate.  A way to judge the plausibility of this prediction is to consider a 30 percent increase in uncertainty in a microeconomically richer model; we have done so using the model of \cite{cstwMPC}, and have found that that model predicts a similar increase in the saving rate as a consequence of a 30 percent increase in its most important measure of uncertainty (the variance of permanent shocks).
+
+\begin{figure}	\caption{The Structural Estimation: Main Results} 
+	\centering
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+    \addtocounter{figure}{-1}
+		{\includegraphics[width=0.475\textheight]{./Figures/fPSR_StructFit}}
+		\caption{Actual and Fitted Saving Rate}		\label{fPSR_StructFit}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{\includegraphics[width=0.475\textheight]{./Figures/fPSR_StructDecomp}}
+		\caption{Decomposition of Fitted Saving Rate}\label{fPSR_StructDecomp}
+	\end{subfigure}
+\end{figure}
+
+
+\subsection{What Drives the Saving Rate? A Decomposition}
+
+Time-variation in the fitted saving rate arises as a result of movements in its three time-varying determinants: uncertainty, wealth, and credit conditions; Figure~\ref{fPSR_StructDecomp}. To gauge the relative importance of the three variables, we sequentially switch off the channels by setting the series equal to their sample means. For example, the difference between the fitted series  (red/grey line) and the fitted series excluding uncertainty (black line) should be interpreted as the effect of \emph{time variation} in unemployment risk $\mho$ rather than the \emph{total amount} of saving attributable to uncertainty.
+
+The main takeaway from these figures is that the CEA is essential in capturing the trend decline in the PSR between the 1980s and the early 2000s. The wealth fluctuations contribute to a good fit of the model at the business-cycle frequencies, and the cyclical fluctuations in uncertainty magnify the increases in the PSR during recessions.
+
+\hypertarget{The-MPC}{}
+
+The model (black circled line in Figure~\ref{fPSR_StructDecomp}) ascribes roughly 3 percentage points of the increase in the saving rate during the Great Recession to the drop in net worth, which amounted to roughly 200~percent of disposable income (Figure~\ref{fwyRat}), implying a marginal propensity consume out of wealth of $3/200=0.015$. This value is on the low end of the range produced by existing representative agent models, though models that incorporate habit formation can generate MPC's well below 1 percent.
+
+Our model does not incorporate transitory shocks to income, but because market resources $\mRat$ are wealth plus income, the model could be interpreted as suggesting an MPC out of transitory income that would be near the same low number as the MPC out of wealth, very far from the micro estimates, which \cite{cstwMPC} characterize as usually falling between 0.2 and 0.7.
+
+We believe that heterogeneity is essential to explain this discrepancy.  In a model like that of \cite{cstwMPC}, wealth shocks mostly hit wealthy people -- who have low MPC's; and income shocks (like stimulus checks) hit the whole population, which includes many low-wealth people who have high MPC's.  If this is the right explanation, an RA model (ours included) is by its fundamental nature incapable of reconciling the conflict. In addition, a substantial proportion of shocks to net worth are driven by housing wealth, for which evidence suggests that the MPC is likely lower than for liquid assets (including increases from income tax rebates; for a compelling quasi-natural experiment on the size of housing wealth effects, see \cite{ktvHousingWealthEffect}).
+
+Combining all three channels, the model implies an increase in the saving rate of about 5 percentage points between 2007 and 2010  (red line in Figure~\ref{fPSR_StructDecomp})---not far from the actual change.  Our model's comparatively low MPC out of wealth but substantial roles for the other two channels suggests that much of what has been interpreted as pure ``wealth effects'' in the prior literature may actually have reflected precautionary or credit availability effects that are correlated with wealth (a finding in line with much of the household-level evidence, including \cite{hurstStafford}, \cite{cooper_housingCollateral}, \cite{asWealthEffect}  and others, who stress the role of credit availability and collateral constraints).
+
+
+\hypertarget{sReducedFormRegressions}{}
+
+\section{Empirical Evaluation of Alternative Models} \label{sReducedFormRegressions}
+
+Here we argue that our model has advantages over the chief alternatives that can be readily evaluated.
+
+\hypertarget{Quadratic-Utility}{}
+
+\subsection{Quadratic Utility} \label{sec:Quadratic}
+
+Since \cite{hallRandomWalk}, an optimizing model with quadratic utility has been an influential benchmark to model aggregate consumption dynamics (both literally and, effectively, in linearized DSGE models). The key distinction from our theoretical model in section~\ref{ssTractableBS} is that, in contrast to CRRA utility, under quadratic utility uncertainty has no effect on consumption dynamics; quadratic-utility households do not engage in precautionary saving and do not have a wealth target (other than the current level of wealth).
+
+The model without uncertainty turns out to be distinctly inferior to our buffer stock saving model.  We have already seen above in Table~\ref{tStructEst} that the intercept $\bar{\theta}_\mho$ and the sensitivity to uncertainty $\theta_u$ enter very significantly the  unemployment risk equation \eqref{unempEq} of the structural model.  This evidence is confirmed in a reduced form linear regression estimation, where business-cycle variation in labor market uncertainty is strongly related to the PSR, both on its own and controlling for other variables (columns~1 and~3 of Table~\ref{tRFall}, respectively). The results imply that a~1~percentage point increase in expected unemployment rate increases the saving rate by roughly 0.2--0.6 percentage points.\footnote{We have also considered other measures of uncertainty, such as financial market or economic policy uncertainty (\cite{bbdUncertainty}), but our measure of labor market uncertainty, which is much more closely tied to a rigorous theory, also turns out to work better as a determinant of personal saving.}
+
+These results confirm a large body of complementary evidence on how uncertainty affects aggregate consumption and saving going back to 1990s). Recently, the evidence based on household-level data has shown that uncertainty is also important for macroeconomic outcomes (\cite{bfjstUncertain}, \cite{kv_microMacro} and many others). These findings, mostly based on `normal' (shallow) recessions,  were further strengthened during the Great Recession when (according to \cite{kmpHandbook} and the references in footnote~\ref{foot_housingLit}) uncertainty amplified the drop in house prices, employment and consumption.
+
+
+\hypertarget{Demographics-and-Saving}{}
+\subsection{Demographics and Saving} \label{DemSav}
+
+\hypertarget{fig:AddDataSeries}{}
+\begin{sidewaysfigure}		\caption{Additional Data Series: Demographics, Government Saving and Inequality} \label{fig:addVars}
+	\centering
+	\begin{subfigure}[t]{0.49\textheight}
+	%\addtocounter{figure}{-1}	
+    \centering
+		{\includegraphics[width=0.475\textheight]{\econtexRoot/Figures/sharePop65plus}}
+		\caption{Share of Population Above 65 Years (Old-Age Dependency Ratio)}		\label{f65+}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{\includegraphics[width=0.475\textheight]{\econtexRoot/Figures/govSavingShare}}
+		\caption{Government and Corporate Saving (as Fraction of GDP)} \label{fgovSav}
+	\end{subfigure} \\
+	\begin{subfigure}[t]{0.49\textheight}
+		\centering
+		{\includegraphics[width=0.475\textheight]{\econtexRoot/Figures/topIncomeShare}}
+		\caption{Share of Top 1 Percent, Income and Wealth} \label{fTopShare}
+	\end{subfigure}
+\end{sidewaysfigure}
+
+
+
+A long tradition of work, stemming from the seminal work of \cite{mb54}, examines the implications of demographic change for saving using calibrations and simulations of various life-cycle models (usually in an OLG setup). 
+Overall, this strand of work has concluded that at the higher frequencies (e.g., annual) demographic changes do not substantially affect changes in saving because they are both small and very slow-moving (\cite{scWhySavSoLow}, \citet{parker_nberma_spendthrift} and many others).
+
+If demographic trends could provide a compelling explanation for the long-term decline in the saving rate leading up to 2007, that might constitute a plausible alternative to our story based on increased credit availability in the era of financial deregulation.  But \cite{auerbachKotlikoffDemographicsAndSaving} and related papers argued persuasively in the early 1990s that the first-order implication of demographics was that there should be a sustained \textit{rise} in the saving rate for many years until the baby boom generation hit its peak earnings years around 2000--2005, and a declining saving rate thereafter.  This is precisely the opposite of the actual pattern (the baby boom generation began exiting the ``high-saving'' phase of life and entering the supposedly ``low-saving'' retirement phase during exactly the interval when the saving rate stopped declining and then rose).
+
+\hypertarget{Kotlikoff}{}
+This point is roughly captured in Figure~\ref{f65+} which plots the old-age dependency ratio, which began rising faster around 2010 when large numbers of baby boomers began reaching retirement age.
+In Table~\ref{tRFall}, column~2 we estimate that the coefficient on the old-age dependency ratio is negative, which would suggest that the increase in the share of people older than 65~years should have \emph{reduced} the saving rate, so the correlations go the wrong way for a demographic story (confirming the large prior literature after \cite{auerbachKotlikoffDemographicsAndSaving} that failed to find meaningful demographic effects).\footnote{For China a separate strand of work (e.g., \cite{curtisEtAl} and \cite{imrohroglu_China}) uses a newer generation of these models to investigate the implications of demographic change.  This work typically argues that demographic change did substantially contribute to the massive increase in saving (from around 5 percent in the 1970s to more than 25 percent in the 2010s).  On the other hand, the importance of population aging in cross-country studies of household saving (for example, \cite{bloomEtAl_JME07} and \cite{bosworthChodorowReich07}) appears to be largely driven by the experience of Japan and Korea---countries well ahead of the United States in the population aging process.
 }
 
+\hypertarget{Reduced-Form-vs-Structural-Models-of-Saving}{}
 
-\section{Reduced-Form Saving Regressions } \label{sReducedFormRegressions}
+\subsection{Reduced-Form vs Structural Models of Saving}
 
-Before proceeding to structural estimation of the model of
-section~\ref{ssTractableBS} we investigate a simple reduced-form
-benchmark:
-\be
-s_t=\gamma_1+\gamma_m m_t +\gamma_{\CEA}\CEA_t+\gamma_{Eu}\Ex_t u_{t+4}+\gamma_t\,t+\gamma'X_t+\varepsilon_t. \label{srOLS}
-\ee Such a specification can be readily estimated using OLS or IV
-estimators, and at a minimum can be interpreted as summarizing basic
+We now ask to what extent the main features of the structural model of section~\ref{ssTractableBS} can be summarized in a simple reduced-form linear regression:
+\begin{equation}
+s_t=\gamma_1+\gamma_m m_t +\gamma_{\CEA}\CEA_t+\gamma_{Eu}\Ex_t u_{t+4}+\varepsilon_t. \label{srOLS}
+\end{equation}
+This specification can be readily estimated using OLS estimators (Table~\ref{tRFall}, column~3) and, at a minimum, can be interpreted as summarizing basic
 stylized facts about the data.
+
+We have mentioned (in section~\ref{sec:Quadratic}) that the estimates of the ``Baseline'' model \eqref{srOLS} are significant and explain more than 90 percent of variation in the saving rate. As expected from the structural model, the point estimates indicate a strong negative correlation of saving with net wealth and credit conditions, and a positive correlation with unemployment risk.
+
+The coefficient on the Credit Easing Accumulated index is highly statistically significant with a $t$-statistic of more than 14. (Of course, this $t$-statistic should be taken with a several grains of salt given the obvious trends in both variables, and the cautionary literature about regressions of trends on trends; but aside from demographics (which go the wrong way), there are no other variables that are core constituents of standard saving models that have had powerful trends like this, so the case for spurious correlation is weaker than it sometimes is).  The point estimate of $\gamma _{\CEA}$ implies that increased access to credit over the sample period until the Great Recession reduced the PSR by about 8 percentage points of disposable income. In the aftermath of the Recession, the \CEA\ index declined between 2007 and 2010 by roughly \input{./Tables/results/dCEA.tex} as credit supply tightened, contributing roughly \input{./Tables/results/CEATimesdCEA.tex} percentage point to the increase in the saving rate.  Finally, once the three variables are included jointly, the time trend ceases to be significant (column~4).
+
+Given how well the baseline linear reduced-form model captures the saving rate, one might wonder what value is added by construction of the structural model we proposed earlier.  A first point to make here is that when we simulate the estimated version of our model and perform linear regressions on the corresponding generated data, the result is very close to being linear (the $R^{2}$ is 0.974).  Essentially, therefore, the difference between the two approaches is that the OLS regression puts no restrictions at all on the linear relationships between the variables, while the structural estimation puts stringent requirements that those linear relationships be tightly constrained to the small subset of nearly linear relationships that is a good approximation to the structural theory.  The fact that the $R^{2}$ from the structural estimation is essentially the same as for the unrestricted model (both of them round to $0.91$) was by no means inevitable and indicates that the structure imposed by the model does no violence to the data.%\footnote{The Mincer--Zarnowitz horse race between the models puts weight of 0.72 on the structural model.}
+
+\hypertarget{Why-Estimate-a-Structural-Model}{}
+
+\subsubsection{Why Estimate a Structural Model When OLS Works Fine?}
+
+Because structural estimation restricts empirical relationships to those that are compatible with a theory, structural models by their intrinsic nature fit the data worse than an unrestricted data-fitting exercise; the advantages of structural modeling (articulated below) can nevertheless make such estimation worth the sacrifice in data-fitting ability.  In the case at hand, however, the structural model fits the data nearly as well as an unrestricted OLS regression.  Thus, in our context, the case for structural modeling is stronger than in the usual case where there is a significant penalty in data-fitting ability.
+
+Some of the advantages of having a structural model are:
+\begin{itemize}
+\item If the structure imposed is one that has considerable backing from other contexts or kinds of data, it is less likely that the fit of the model to the data is spurious (in the sense of failing to capture any reliable or causal economic relationship).
+\item The structural model can provide insights that could not be obtained from the reduced form model.  For example, the ``overshooting'' result implied by the structural model might have important consequences for business cycle dynamics even if the fit of the structure that embodies those dynamics is statistically inferior to the reduced form fit.
+  \item The structural model has implications for ways to test the ideas using data other than those on which it was estimated.  In this case, for example, the structural model would suggest that it would be useful to look at regional or local data in which the endogeneity of aggregate asset prices and credit conditions could be controlled for by looking at differences in unemployment expectations and saving responses across regions in an aggregate economy where most of the movements in the other explanatory variables are not region-specific.
+  \end{itemize}
+
+\subsection{Further Robustness Checks}
+
+Columns 5 and 6 of Table~\ref{tRFall} summarize the correlations of the personal saving rate with two variables that some theories suggest might be related to it: government saving (Figure~\ref{fgovSav}) and income inequality (Figure~\ref{fTopShare}).
+
+Column~5 reports that there is indeed a negative correlation between government and personal saving, though the size of the coefficient, $-0.15$, implies only a modest crowding out. More than a support for the Ricardian equivalence---the hypothesis that households observing higher government saving should save less themselves (as they should expect lower taxes in the future)---the finding seems to reflect reverse causality between private and public saving, the fact that during recessions government saving falls (e.g., due to higher outlays on unemployment insurance), while personal saving rises for precautionary reasons (see work of \cite{elmendorfMankiw} and many others).
+
+
+Finally,  in column~6 we evaluate whether  growing income inequality (shown in Figure~\ref{fTopShare})
+ has resulted in an increase in the aggregate saving rate: Microeconomic evidence
+ points to high personal saving rates among the higher-permanent-income households
+ (\cite{carroll:richsave}; \cite{dszRichSave}), whose share on total income has been rising.  Having experimented with numerous measures of the top shares of \cite{Piketty_Saez2003}, we find little evidence of a substantial and statistically significant correlation between saving and income inequality.
+
+\begin{comment}
+
+ However, the econometric evidence is mixed.
+ We have experimented with numerous income inequality series of \cite{Piketty_Saez2003} (updated through 2010)
+ in our regressions: we included income shares of the top 10, 5, 1, 0.5, and 0.1 percent of the income distribution,
+ either with or without capital gains. None of these 10 series were statistically significant in the full 1960--2010
+ sample; one of the estimated specifications is reported in Table~\ref{tOLS}. Some of the inequality measures
+ were statistically significant in a shorter, 1980--2010, sample. In this specific sub-sample (results not reported here),
+ the coefficients on credit conditions and net wealth remained highly statistically significant, although the coefficient
+ on credit conditions tended to be more negative than in the baseline specification. The coefficient on unemployment expectations
+ became insignificant, which is also natural since income inequality fluctuates over the business cycle.
+
+
+
+\jbemph{Possibly mention  [Rising Inequality, Ricardian Equivalence, \dots? ]}\\
+Mention also the irrelevance of the Ricardian equivalence? ie recently all saving went up, household, corporate and government.
+
+Ricardian equivalence: Households observing higher government saving should save less themselves (as they should expect lower taxes in the future)
+
+We have known at least since \citet{parker_nberma_spendthrift}'s section~2 REq doesn't matter (for personal saving).  And nothing has changed since then; possibly add a chart with gov saving as fraction of GDP.
+\end{comment}
+
+
+
+\section{Conclusions} \label{conclusions}
+
+We show that a simple representative-consumer model of buffer stock saving can match most of the time-series variation in the aggregate US personal saving rate over the past 50 years. In the model, saving depends on the gap between the `target' and actual wealth, with the target determined by credit availability and uncertainty.
+
+We estimate that these three factors---credit availability, shocks to household wealth, and movements in income uncertainty proxied by unemployment risk---have all been important in driving the saving rate. In particular, the relentless expansion of credit supply between the early-1980s and 2007 (likely largely reflecting financial innovation and liberalization), along with higher asset values and consequent increases in net wealth (possibly also partly attributable to the credit boom) encouraged households to save less out of their disposable income. At the same time, the fluctuations in wealth and labor income uncertainty, for instance during and after the burst of the information technology and credit bubbles of 2001 and 2007, can explain the bulk of business cycle fluctuations in personal saving.
+
+The model we estimate could be extended to analyze the implications of the `overshooting' of saving in response to business-cycle shocks. For example, the model suggests that in a recession an optimizing government might want to counteract the part of the consumption decline that reflects overshooting. In an economy rendered non-Ricardian by liquidity constraints and/or uncertainty, the existence of precautionary saving thus provides a potential rationale for counter-cyclical fiscal policy.
+
+More generally, the simple buffer stock saving model we estimate could provide insights into the current debate about the role household heterogeneity for macroeconomic outcomes.  The model is both easy to solve and provides a setup to meaningfully analyze the effects on uncertainty on the macro-economy.  Consequently, the model could be a useful middle ground between a setup with a realistic but complex description of household heterogeneity (HANK) and a simple two-agent spender--saver setup (TANK) that cannot accommodate roles for credit availability or uncertainty.
+
+\small
+
+\clearpage\pagebreak
+\bibliography{economics,\econtexRoot/cssUSSaving,\econtexRoot/cssUSSaving-Add}
+
+
+\input{./Tables/tStructEst.tex}
+\input{./Tables/tRFtable_all.tex}
+
+\clearpage
+
+
+
+\clearpage{\Large\textbf{
+Supplemental Materials---Not for Publication
+}}
+\clearpage
+\appendix
+
+
+\input{./LaTeX/AppendixSeveranceBody.tex}
+
+\section{Comparison of Alternative Measures of Credit Availability}
+
+
+\hypertarget{fCreditAvailability}{}
+\begin{figure}
+\caption{Alternative Measures of Credit Availability \label{fCreditAvailability}}
+\includegraphics{\econtexRoot/Figures/fCreditAvailability_compare}
+
+\footnotesize
+Legend: Debt--disposable income ratio: Thin black line, CEA index: Thick red/grey line, the \cite{abiadEtAl_FinReforms} Index of Financial Liberalization: Dashed black line. Shading---NBER recessions.\\[0mm]
+\tiny Sources: Federal Reserve, accumulated scores from the question on change in the banks' willingness to provide consumer installment loans from the Senior Loan Officer Opinion Survey on Bank Lending Practices, \url{http://www.federalreserve.gov/boarddocs/snloansurvey/}; \cite{abiadEtAl_FinReforms}; Flow of Funds, Board of Governors of the Federal Reserve System.
+\end{figure}
+
+Figure~\ref{fCreditAvailability} compares three measures of credit availability: our baseline CEA index, the Index of Financial Liberalization constructed by \cite{abiadEtAl_FinReforms} for a number of countries including the United States, and the ratio of household liabilities to disposable income.
+
+The \citeauthor{abiadEtAl_FinReforms} index is a mixture of indicators of financial development: credit controls and reserve requirements, aggregate credit ceilings, interest rate liberalization, banking sector entry, capital account transactions, development of securities markets and banking sector supervision. The correlation coefficient between this measure and CEA is about 90 percent.
+
+For comparison, the figure also includes the ratio of liabilities to disposable income (from the Flow of Funds), which is however determined influenced by the interaction between credit supply and demand.
+
+\clearpage
+
+\section{Reduced Form Regressions with Saving Rate Generated by the Structural Model}
+
+\input{./Tables/tRFtable_all_model.tex}
+
+
+
+
+
+
+
+
+
+
+\clearpage
+\jbemph{Additional Pieces of Text---To Be Deleted (Eventually)}
 
 \hypertarget{fOLS-fit-time-compare}{}
 \begin{figure}
 \caption{The Fit of the Baseline Model and the Time Trend---Actual and Fitted PSR (Percent of Disposable Income)}
-%\begin{center}
 \label{fOLS_fit_time_compare}
 \includegraphics{\econtexRoot/Figures/fOLS_fit_time_compare}
-%\end{center}
 
-\footnotesize 
+\footnotesize
 Legend: Actual PSR: Thin black line, Baseline model: Thick red/grey line, Time trend: Dashed black line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
 \end{figure}
 
-\subsection{Baseline Estimates}
 
- Table~\ref{tOLSprelim} reports the estimated coefficients from
- several variations on equation \eqref{srOLS}.  The
- first four columns show univariate specifications in which the
- saving rate is in turn regressed on each of the three determinants
- analyzed above: wealth, credit conditions, and unemployment risk. In each specification
- we include the time trend to investigate how much each regressor
- contributes to explaining the PSR beyond the portion that can be captured mechanically
- by a linear time effect.   The three coefficients have the signs predicted
- by the model of section~\ref{ssTractableBS} and are statistically
- significant. Univariate regressions capture up to 85
- percent of variation in
- saving.%\footnote{Because the first four models only include 1--2 explanatory variables, adjusted $R^2$ and plain $R^2$ practically coincide. }
-
- But the univariate models on their own do not adequately describe the
- dynamics of the PSR. As the model labeled ``All 3'' in the fifth column shows, the
- three key variables of interest---wealth, credit
- conditions, and unemployment risk---jointly explain roughly 90 percent of the variation in
- the saving rate over the past five decades. As expected, the point
- estimates again indicate a strong negative correlation between saving
- and net wealth and credit conditions and a positive correlation with
- unemployment risk. Interestingly, once the three variables are
- included jointly, the time trend ceases to be significant, which is
- in line with the fact that the three models in columns 2--4 have
- higher $\bar{R}^2$ than the univariate model with the time trend
- only.%
- \footnote{   Estimating univariate saving regressions without the time trend
-   results in higher $\bar{R}^2$ for wealth and the credit
-   conditions---0.72 and 0.80, respectively---than for the ``time''
-   model in column one (0.70). (Because unemployment risk is not
-   trending, it captures relatively little variation in saving on its
-   own (about 10 percent) but is important \emph{in addition} to the
-   two other factors, as illustrated in columns 4 and 5.)  }
-
- A more parsimonious version of the model without the time trend reported in column
- 6 (Baseline)---as also suggested by the model in
- section~\ref{ssTractableBS}---neatly summarizes the key features of
- the saving rate.  The estimated coefficient on net wealth implies the
- (direct) long-run marginal propensity to consume of about 1.2 cents out
- of a dollar of (total) wealth. The value is low compared
- to much of the literature, which typically estimates a marginal
- propensity to consume out of wealth (MPCW) of about 3--7 cents
- without explicitly accounting for credit conditions.%
- \footnote{   See, for example, \cite{skinner96_sideshow},
-   \cite{ludvigsonSteindel_99}, \cite{llTrendCycle}, \cite{cqs05}, and
-   \cite{cos11}. See \citet{mue07} and \cite{ducaEtAl10_creditArch}
-   for a model which includes a measure of credit conditions in the
-   consumption function.  } However, a univariate model regressing
- the PSR just on net wealth (not reported here), implies an MPCW of
- 4.3 percent.  These results suggest that much of what has been interpreted as pure ``wealth effects'' in the prior literature may actually have reflected precautionary or credit availability effects that are correlated with wealth.
-
-The coefficient on the Credit Easing Accumulated index is highly
-statistically significant with a $t$ statistic
-of
-\input{./Tables/results/CEAtstat_base.tex}. The point estimate of $\gamma _{\CEA}$ implies that increased
-access to credit over the sample period until the Great Recession
-reduced the PSR by about 6 percentage points of disposable income. In
-the aftermath of the Recession, the \CEA\ index declined between 2007 and
-2010 by roughly \input./Tables/results/dCEA.tex
-as credit supply tightened, contributing roughly \input./Tables/results/CEATimesdCEA.tex
- percentage point to the increase in the PSR (see the discussion of Table~\ref{tPred} below for more detail).
-
-Figure~\ref{fOLS_fit_time_compare} further illustrates why we find the
-``baseline'' specification in column 6 more appealing than the more
-atheoretical model with a linear time trend. The trends in saving and
-the \CEA\ are both non-linear, moving consistently with each other
-even within our sample and often persistently departing from the
-linear trend (as indicated by the time-only model's substantially lower
-$\bar{R}^2$).  In addition, it is likely that the time-only model will
-become increasingly problematic as observations beyond our sample
-accumulate, arguably providing additional evidence on a possible structural
-break in the time model during the Great Recession.%
-\footnote{  Reliable PSR data only start in 1959 and document that the downward
-  trend in saving started around 1975, so that our sample is actually
-  quite favorable to the time-only model; it would have considerably more
-difficulty with a sample that included 10 pre-sample years without a discernable
-trend.}
-
-Finally, the last model investigates the joint effect of credit conditions
-and unemployment risk. The structural model of section~\ref{ssTractableBS}
-implies that uncertainty affects saving more strongly when credit
-constraints bind tightly; the model in column 7 (Interact) confirms the prediction with a (borderline) significant negative interaction term between the \CEA\ and unemployment risk.%
-\footnote{  Adding an interaction term between the \CEA\ and wealth results in a
-  borderline significant positive estimate, which is in line with the
-  concavity of the consumption function, show in
-  Figure~\ref{fig:PhaseDiag}.  }
-
-\subsection{Robustness Checks}
 
 Table~\ref{tOLS} presents a second battery of specification checks of
 the baseline model shown again for reference as the first `model.'  The second model (Uncertainty) investigates the effects of adding to the baseline regression an
 alternative proxy for uncertainty: the
-\cite{bloomFloetottoJaimovich_rubc} index of macroeconomic and
+\cite{bfjstUncertain} index of macroeconomic and
 financial uncertainty.%
 \footnote{See \cite{baker_policyUncertainty} for related work measuring \emph{economic policy} uncertainty.
 }
@@ -657,7 +674,7 @@ unchanged, suggesting that our baseline uncertainty measure is more
 appropriate for our purposes (which makes sense, as personal saving is
 conducted by persons, whose uncertainty is likely better captured by
 our measure of labor income uncertainty than by the
-\cite{bloomFloetottoJaimovich_rubc} measure of firm-level shocks).
+\cite{bfjstUncertain} measure of firm-level shocks).
 
 The third model (Lagged $s_{t-1}$) explores the implications of adding lagged saving to the list of regressors.  Often in empirical
 macroeconomics, the addition of the lagged dependent variable is unjustified by the underlying theory, but nevertheless is required
@@ -673,60 +690,13 @@ The fourth model (Debt) explores the role of the debt--income ratio. The variabl
 \hypertarget{fFullControls}{}
 \begin{figure}
 \caption{The Fit of the Baseline Model and the Model with Full Controls (of Table~\ref{tOLS})---Actual and Fitted PSR (Percent of Disposable Income)}
-%\begin{center}
 \label{fFullControls}
 \includegraphics{\econtexRoot/Figures/fFullControls}
-%\end{center}
 
 \footnotesize
 Legend: Actual PSR: Thin black line, Baseline model: Thick red/grey line, Model with full control variables: Dashed black line. Shading---NBER recessions.\\[0mm]
 \tiny Sources: Bureau of Economic Analysis, authors' calculations.
 \end{figure}
-%\small
-%Notes: Shading---NBER recessions.\\[0mm]
-
-
-The fifth model (Multiple Controls) controls for the effects of several other potential determinants of
-household saving: expected real interest rates, expected income
-growth, and government and corporate saving (both measured as a
-percent of GDP).%
-\footnote{  Expected real interest rates and expected income growth are
-  constructed using data from the Survey of Professional Forecasters
-  of the Philadelphia Fed.} Some of these factors are statistically
-significant, but all are inconsequential in economic
-terms. A plot of fitted values in Figure~\ref{fFullControls} makes it clear that while these
-additional factors were potentially important during specific episodes
-(especially in the early 1980s), they have on average had only a
-limited impact on U.S.\ household saving. The negative coefficient on
-corporate saving is consistent with the proposition that households
-may `pierce the corporate veil' to some
-extent\footnote{Regressions with total private saving as a dependent
-  variable yield qualitatively similar results as our baseline
-  estimates in Table~\ref{tOLSprelim}.  } but there is no evidence for
-any interaction between personal and government saving.  One
-interpretation of this is that `Ricardian' effects that some prior
-researchers have claimed to find might instead reflect reverse
-causality: Recessions cause government saving to decline at the same
-time that personal saving increases (high unemployment, falling
-wealth, restricted credit) but for reasons independent of the Ricardian
-logic (reduced tax revenues and increased spending on automatic
-stabilizers, e.g.).  Since we are controlling directly for the variables
-(wealth, unemployment risk, credit availability) that were (in this
-interpretation) proxied by government saving, we no longer find any effect
-of government saving on personal saving.
-
-The sixth model (Income Inequality) explores the idea that growing income inequality
- has resulted in an increase in the aggregate saving rate, to the extent that microeconomic evidence
- points to high personal saving rates among the higher-permanent-income households
- (\cite{carroll:richsave}; \cite{dszRichSave}). However, the econometric evidence is mixed.
- We have experimented with numerous income inequality series of \cite{Piketty_Saez2003} (updated through 2010)
- in our regressions: we included income shares of the top 10, 5, 1, 0.5, and 0.1 percent of the income distribution,
- either with or without capital gains. None of these 10 series were statistically significant in the full 1960--2010
- sample; one of the estimated specifications is reported in Table~\ref{tOLS}. Some of the inequality measures
- were statistically significant in a shorter, 1980--2010, sample. In this specific sub-sample (results not reported here),
- the coefficients on credit conditions and net wealth remained highly statistically significant, although the coefficient
- on credit conditions tended to be more negative than in the baseline specification. The coefficient on unemployment expectations
- became insignificant, which is also natural since income inequality fluctuates over the business cycle.
 
 The seventh model (DB Pensions) examines whether the shift from defined benefit to defined contribution pension plans
  may also have had a measurable effect on the aggregate saving rate. Aggregate data on the size of defined-benefits pension
@@ -755,36 +725,13 @@ the lags of net wealth, unemployment risk and---crucially---the Financial Libera
 The FLI is an alternative measure of credit conditions constructed using the records about legal and regulatory changes in the banking sector. The index intends to capture exogenous changes in credit conditions. While it is a rough approximation as it reflects only the most important events (see also Figure~\ref{fCreditAvailability} in Appendix~1), the profile of the FLI matches well that of the CEA. The
 estimated coefficients remain broadly unchanged compared with the baseline specification.
 
-We have also estimated specifications with other potential determinants of saving, whose
-detailed results we do not report here. As in
-\citet{parker_nberma_spendthrift}, variables capturing demographic trends such as the
-old-age dependency ratio were insignificant in our regressions. The
-importance of population aging in cross--country studies of household
-saving (for example, \cite{bloomEtAl_JME07} and
-\cite{bosworthChodorowReich07}) appears to be largely driven by the
-experience of Japan and Korea---countries well ahead of the United
-States in the population aging process.
 
 \subsection{Sub-Sample Stability}
 
-When the model is estimated only using the post-1980 data in Table~\ref{tOLS_subSample}
-(Post-1980), its fit measured by the $\bar{R}^2$ actually
-improves, in contrast with many other economic relationships,  % (e.g., the Phillips curve; \cite{stockWatson_pieHarderForecast_jmcb07} and \cite{stockWatson_pcFore},
- whose goodness-of-fit deteriorated in the past 20 years.
- The F test does not reject the proposition that the regression coefficients have remained stable over the sample period. Allowing for a structural break at the start of the Great Recession in 2007q4 (column `Pre-2008') does not affect much the baseline estimates. (The estimated values of the post-2007 interaction dummies and their standard errors are of course not particularly meaningful because the relevant sub-sample only consists of 13 observations.)
+When the model is estimated only using the post-1980 data in Table~\ref{tOLS_subSample} (Post-1980), its fit measured by the $\bar{R}^2$ actually improves, in contrast with many other economic relationships, 
+whose goodness-of-fit deteriorated in the past 20 years.  The F test does not reject the proposition that the regression coefficients have remained stable over the sample period. Allowing for a structural break at the start of the Great Recession in 2007q4 (column `Pre-2008') does not much affect the baseline estimates. (The estimated values of the post-2007 interaction dummies and their standard errors are of course not particularly meaningful because the relevant sub-sample only consists of 13 observations.)
 
-To address the potential criticism that saving rate regressions are
-difficult to interpret because aggregate income shocks reflect a mix
-of transitory and persistent factors, we have also re-estimated our
-regressions with alternative measures of disposable income (see
-Appendix 2) which exclude a range of identifiable temporary shocks
-such as fiscal stimulus and extreme weather. There was little
-econometric evidence that transitory movements in aggregate disposable
-income are substantial and our econometric results basically did not
-change.\footnote{Interestingly, an auxiliary regression of income
-  growth on the lagged saving rate in the spirit of \cite{cam87}
-  yields statistically insignificant slope when post-1985 data are
-  included (see Table~\ref{tCampbell87} in Appendix~2).  }
+To anticipate the potential criticism that saving rate regressions are difficult to interpret because aggregate income shocks reflect a mix of transitory and persistent factors, we have also re-estimated our regressions with alternative measures of disposable income (see Appendix 2) which exclude a range of identifiable temporary shocks such as fiscal stimulus and extreme weather. There was little econometric evidence that transitory movements in aggregate disposable income are substantial and our econometric results basically did not change.
 
 \subsection{Saving Rate Decompositions}
 
@@ -807,249 +754,17 @@ financial sector continues improving, the saving rate is likely to remain high s
 long as uncertainty remains high and household wealth remains impaired
 (compared, at least, to its previous heights).
 
-\section{Structural Estimation} \label{sStructuralEstimation}
-
-This section estimates the structural model of section~\ref{ssTractableBS} by minimizing the distance between the data on saving implied by the model and the corresponding empirical data. The nonlinear least squares (NLLS) procedure employed here has some advantages over the reduced-form regressions. Besides arguably being more immune to endogeneity and suitable for estimating structural parameters (such as the discount factor), it imposes on the data a structure that makes the parameter values easier to interpret. As Figure~\ref{fig:PhaseDiag} documents, the structural model also explicitly justifies and disciplines non-linearities, which can be important especially during turbulent times, when the shocks are large enough to move the system far from its steady state.
-
-\subsection{Estimation Procedure}
-
-We assume households instantaneously observe exogenous movements in
-three variables: wealth shocks $\mRat$, unemployment risk $\mho$ and
-credit supply conditions $\CEA$, and that they consider the shocks to
-$\mho$ and $\CEA$ to be permanent, and do not expect the shocks to
-wealth to be reversed.\footnote{The assumption that households
-  believe the shocks to be permanent is necessary for us to be able to
-  use the tractable model we described earlier in the paper.  While
-  indefensible as a literal proposition (presumably nobody believes
-  the unemployment rate will remain high forever), the high serial
-  correlation of these variables means that the assumption may not be
-  too objectionable.  In any case, a model that incorporated more
-  realistic descriptions of these processes would be much less
-  transparent and might not be computationally feasible with present
-  technology.} Given these observables, consumers
-re-optimize their consumption--saving choice in each period. Collecting the parameters in vector
-$\Theta$ and denoting the target wealth $\check{\mRat}_t(\cdot)$ and
-the corresponding wealth gap $\mRat_t-\check{\mRat}_t$, the model
-implies a series of saving rates $s_t^{\text{theor}}(\Theta;
-m_t-\check{\mRat}_t)$, which we match to those observed in the data,
-$s_t^{\text{meas}}$. Our estimates of $\hat{\Theta}$ thus solve the
-following problem: \be \hat{\Theta}=\argmin
-\sum_{t=1}^T\bigg(s_{t}^{\text{meas}}-s_t^{\text{theor}}\Big(\Theta;
-\mRat_t-\check{\mRat}\big(\underline{h}(\CEA_t),\mho(\Ex_tu_{t+4})\big)\Big)\bigg)^2, \label{minDist}
-\ee where the target wealth $\check{\mRat}$ depends on the credit
-conditions and unemployment risk as described in
-section~\ref{ssTractableBS}. In our baseline specification, the
-parameter vector $\Theta$ consists of the discount factor $\Discount$
-and the scaling constants for credit conditions and unemployment risk:
-\begin{eqnarray}
-\Theta&=&\{\Discount,\bar{\theta}_h,\theta_\CEA,\bar{\theta}_\mho,\theta_u\},\\
-\underline{h}_t&=&\bar{\theta}_h+\theta_\CEA \CEA_t, \\
-\mho_t&=&\bar{\theta}_\mho+\theta_u \Ex_tu_{t+4}.
-\end{eqnarray}
-The re-scaling ensures that the unitless measure of credit conditions is re-normalized as a fraction of disposable income and that the expected unemployment rate is transformed into the model-compatible equivalent of \emph{permanent} risk. The model implies that $\theta_\CEA>0$ and $\theta_u>0$.
-
-Minimization \eqref{minDist} is a non-linear least squares problem for which the standard asymptotic results apply. Standard errors for the estimated parameters are calculated using the delta method as follows.%
-\footnote{To construct the objective function (which we then minimize over $\Theta$) we need to solve the consumer's optimization for each quarter. Because the calculation is computationally demanding, we cannot apply bootstrap to calculate standard errors. (The Shapiro--Wilk test does not reject normality of residuals.)
-}
-Define the scores $q_t(\Theta)=\big(s_{t}^{\text{meas}}-s_t^{\text{theor}}(\Theta)\big)\frac{\partial s_t^{\text{theor}}(\Theta)}{\partial \Theta'}$ and the $5\times5$ matrices $E=\var\big(q_t(\Theta)\big)$ and $D=\Ex\frac{\partial q_t(\Theta)}{\partial \Theta'}$. The estimates have the asymptotic distribution:
-$$
-T^{1/2}(\hat{\Theta}-\Theta)\rightarrow_d \mathscr{N}(0, D^{-1}ED'^{-1}).
-$$
-Because the saving function $s_t^{\text{theor}}(\Theta)$ is not available in the closed form, we calculate its partial derivatives numerically.
-
-\subsection{Results}
-
-Table~\ref{tStructEst} summarizes the calibration and estimation results. The calibrated parameters---real interest rate $\rfree=0.04/4$, wage growth $\Delta\Wage=0.01/4$ and the coefficient of relative risk aversion $\CRRA=2$ take on their standard quarterly values and meet (together with the discount factor $\Discount$) the conditions sufficient for the problem to be well-defined.
-
-The estimated discount factor $\Discount=1-0.0064=0.9936$, or $0.975$ at annual frequency, lies in the standard range.
-Figure~\ref{tMbar} shows the estimated horizontal shift in the consumption function $\underline{h}_t$. The estimates of the scaling factors $\bar{\theta}_h$ and ${\theta}_\CEA$ imply that $\underline{h}_t$ varies between $0.88/4\approx0.2$ and $(0.88+5.25/4)\approx1.5$, implying that financial deregulation resulted at its peak in an availability of credit in 2007 that was greater than credit availability at the beginning of our sample in 1966 by an amount equal to about 130\%\ of annual income---not an unreasonable figure (note that this figure should not be compared with the aggregate debt ratio, which peaked at around 135 percent of disposable income, but with the total amount of net wealth which is substantially higher).
-Figure~\ref{tMhoRescaled} shows the estimated quarterly intensity of perceived permanent unemployment risk.
-
-
-\hypertarget{fCEA-est}{}
-\begin{figure}
-\caption{Extent of Credit Constraints $\underline{h}_t$ (Fraction of Quarterly Disposable Income) \label{tMbar}}
-%\begin{center}
-\includegraphics{\econtexRoot/Figures/fCEA_est}
-%\end{center}
-
-\footnotesize
-Notes: Shading---NBER recessions.\\[0mm]
-\tiny Sources: Federal Reserve, accumulated scores from the question on change in the banks' willingness to provide consumer installment loans from the Senior Loan Officer Opinion Survey on Bank Lending Practices, \url{http://www.federalreserve.gov/boarddocs/snloansurvey/}, authors' calculations.
-\end{figure}
-
-\hypertarget{tMhoRescaled}{}
-\begin{figure}
-\caption{Per Quarter Permanent Unemployment Risk $\mho_t$  \label{tMhoRescaled}}
-%\begin{center}
-\includegraphics{\econtexRoot/Figures/fMho_est}
-%\end{center}
-
-\footnotesize
-Notes: Shading---NBER recessions.\\[0mm]
-\tiny Sources: Thomson Reuters/University of Michigan Surveys of Consumers, \url{http://www.sca.isr.umich.edu/main.php}, Bureau of Labor Statistics, authors' calculations.
-\end{figure}
-
-\begin{comment} % CDC: I think this is more confusing than illuminating, so have removed it.  We're already showing the consumption function in the phase diagrams, and everybody knows that (a) consumption is lower in the presence of a precautionary motive; (b) it's concave; and (c) without the precautionary motive it's linear
-Figure~\ref{fEstCfunction} shows the estimated consumption function of section~\ref{ssTractableBS} and its linear counterpart, which governs the spending of a consumer with perfect foresight. The vertical distance between the two functions gives the extent of precautionary saving, which is quite substantial. For example, for the wealth--disposable income ratio of 20 (the sample mean)
-% Jirka: Note: mean labor/disposable income ratio in our sample = 0.625
-precautionary saving makes up roughly 11 percent of disposable income.
-% Chris: Please decide if we want to keep the 11 percent in the paper (if it's not confusing to the reader).
-
-\hypertarget{fEstCfunction}{}
-\begin{figure}
-\caption{Estimated Consumption Functions Under Uncertainty and Under Perfect Foresight \label{fEstCfunction}}
-%\begin{center}
-\includegraphics{\econtexRoot/Figures/fEstCfunction}
-%\end{center}
-
-\footnotesize
-Legend: Perfect Foresight Consumption Function: Thin black line, Consumption Function Under Uncertainty: Thick red/grey line.\\
-The two consumption functions are calibrated using parameters from the top panel of Table~\ref{tStructEst}. The concave consumption function also assumes that  $\underline{h}=0$ and uncertainty is at its sample mean $\mho=\bar{\mho}_t=6.8\times10^{-5}$.
-\\[0mm]
-\end{figure}
-\end{comment}
-
-%Figure~\ref{fPrecSav} shows that precautionary saving (calculated as the vertical distance between the consumption function under uncertainty and under perfect foresight) is counter-cyclical. Both the (pro-cyclical) shocks to wealth and by the counter-cyclical labor market risk $\mho_t$ contribute to the counter-cyclicality of precautionary saving.
-
-%\begin{figure}
-%\caption{Precautionary Saving over the Business Cycle \label{fPrecSav}}
-%\begin{center}
-%\includegraphics{\econtexRoot/Figures/fPrecSav}
-%\end{center}
-%\small
-%Legend: Actual PSR: Thin black line, Precautionary Saving: Thick red/grey line. Shading---NBER recessions.\\[0mm]
-%Sources: Bureau of Economic Analysis, authors' calculations.\\[0mm]
-%\end{figure}
-
-Figure~\ref{fPSR_StructFit} shows the fit of the structural model. In terms of $\bar{R}^2$ (Table~\ref{tStructEst}), the model captures more than 80 percent of variation in the saving rate, doing only slightly worse than our baseline reduced-form model (whose $\bar{R}^2$ is roughly 0.9). The Mincer--Zarnowitz horse race between the models puts weight of 0.72 on the structural model. % (although the high standard error on the coefficient signals the high correlation between the two model-implied saving rates).
-
-\hypertarget{fPSRStructFit}{}
-\begin{figure}
-\caption{Fit of the Structural Model---Actual and Fitted PSR (Percent of Disposable Income) \label{fPSR_StructFit}}
-%\begin{center}
-\includegraphics{\econtexRoot/Figures/fPSR_StructFit}
-%\end{center}
-
-\footnotesize
-Legend: Actual PSR: Thin black line, Structural model: Thick red/grey line. Shading---NBER recessions.\\[0mm]
-\tiny Sources: Bureau of Economic Analysis, authors' calculations.
-\end{figure}
-
-In principle, time variation in the fitted saving rate arises as a result of movements in its three time-varying determinants: uncertainty, wealth, and credit conditions, see Figure~\ref{fPSR_StructDecomp}. To gauge the relative importance of the three main explanatory variables, we sequentially switch off the uncertainty and credit supply channels by setting the values of these series equal to their sample means. Note that the difference between the fitted series  (red/grey line) and the fitted series excluding uncertainty (black line) should be interpreted as the effect of \emph{time variation} in unemployment risk $\mho$ rather than the \emph{total amount} of saving attributable to uncertainty. The main takeaway from the Figure is that the CEA is essential in capturing the trend decline in the PSR between the 1980s and the early 2000s. The wealth fluctuations contribute to a good fit of the model at the business-cycle frequencies, and the principal role of cyclical fluctuations in uncertainty is to magnify the increases in the PSR during recessions.
-
-\hypertarget{fPSRStructDecomp}{}
-\begin{figure}
-\caption{Decomposition of Fitted PSR  (Percent of Disposable Income) \label{fPSR_StructDecomp}}
-%\begin{center}
-\includegraphics{\econtexRoot/Figures/fPSR_StructDecomp}
-
-\footnotesize
-Notes: Shading---NBER recessions.\\[0mm]
-\tiny Sources: Bureau of Economic Analysis, authors' calculations.
-\end{figure}
-
-Table~\ref{tOLSprelim_model} replicates the estimates of Table~\ref{tOLSprelim} for the artificial saving series generated by the estimated structural model. The coefficient estimates closely mirror those obtained from actual data which means that the structural model captures well the key features of the saving data. Unsurprisingly, the standard errors are somewhat smaller than those in Table~\ref{tOLSprelim} and the $\bar{R}^2$s are higher because the process of generating artificial data by the model eliminates much of the noise present in the actual PSR data.
-
-
-
-\section{Conclusions}
-
-We find evidence that credit availability, shocks to household wealth, and movements in income uncertainty proxied by unemployment risk have all been important factors in driving U.S.\ household saving over the past 45 years. In particular, the relentless expansion of credit supply between the early-1980s and 2007 (likely largely reflecting financial innovation and liberalization), along with higher asset values and consequent increases in net wealth (possibly also partly attributable to the credit boom) encouraged households to save less out of their disposable income. At the same time, the fluctuations in net wealth and labor income uncertainty, for instance during and after the burst of the information technology and credit bubbles of 2001 and 2007, can explain the bulk of business cycle fluctuations in personal saving.
-
-We also find that other determinants of saving suggested by various literatures (e.g.,
-fiscal deficits, demographics, income expectations) either work
-through the key factors above, are of second-order importance, or
-matter only during particular episodes. These findings are broadly in
-line with the complementary household-level evidence reported in
-\cite{dynanKohn07_indebtedness},
-\cite{moorePalumbo_financesOfUShouseholds},
-\cite{brickerEtAl_storm}, \cite{mianRaoSufi_hhBalanceSheets} and \cite{petevEtAl_cAndGreatRecession}.%
-\footnote{  \cite{dynanKohn07_indebtedness} find that data from the Federal
-  Reserve's Survey of Consumer Finances (SCF) and the Michigan Survey
-  of Consumer Sentiment show too little variation in the measures of
-  impatience, risk aversion, expected income, interest rates and
-  demographics to adequately explain the household indebtedness. In
-  contrast, they argue that house prices and financial innovation have
-  been important drivers of
-  indebtedness. \cite{moorePalumbo_financesOfUShouseholds} document
-  that the drop in consumer spending during the Great Recession was
-  accompanied by significant erosions of home and corporate equity
-  held by households. Using SCF data, \cite{brickerEtAl_storm}
-  document higher desired precautionary saving among most families
-  during the Great Recession.  \cite{mianRaoSufi_hhBalanceSheets} use county- and zip-code-level data
-  to document that the recent decline in consumption was much stronger in high leverage counties with large house prices declines.
-  \cite{petevEtAl_cAndGreatRecession} discuss the following factors
-  behind the observed changes in consumption during the Great Recession: the wealth effect, an increase in uncertainty and the credit crunch.
-  \cite{dynan_debtOverhang} finds that highly indebted households cut spending more strongly that their less-indebted counterparts despite
-  experiencing smaller declines in net worth.
-  }
-
-There can be little doubt that factors aside from those which are the primary focus in our model have had some effect on U.S.\ saving dynamics over our sample
-period.  For example, \cite{ssModeration} show a substantial decline in the size of both transitory and permanent shocks to income over the past 40 years;
- this should have led to a decline in precautionary saving that is probably not fully captured by the fact that our measure
- of unemployment risk is only somewhat lower in the latter than in the earlier part of our sample.  Despite our extensive robustness checks reported
- in Table~\ref{tOLS}, factors such as the shift from defined benefit to defined contribution pension plans, changing rates of taxation,
- or the large increase in income inequality that has taken place since the mid-1970s might have played a more important role than suggested
- by our regressions due to difficult-to-tackle measurement issues. Real progress on such questions will likely require the use of good ``natural experiments'' in a microeconomic setting.
-
-Finally, it is worth keeping in mind that our econometric evidence is based on historical data and, going
-forward, factors such as rapidly rising federal debt or the retirement
-of baby-boomers could yet lead to new structural shifts in household
-saving. But our results suggest that the personal saving rate in the
-pre-crisis period was artificially low because of the bubble in
-housing prices and the corresponding easy availability of credit.
-Neither of these factors are likely to return soon, and since
-consensus forecasts suggest that the unemployment rate may
-remain elevated for a long time, there seems to be little prospect
-that the personal saving rate could return to its low pre-crisis value
-anytime in the foreseeable future.
-
-% More research is needed in the future to understand the determinants of credit conditions and the linkages between credit conditions and asset prices.
-
-%Other variables beside credit availability and the wealth gap contribute to the dynamics of the saving rate only a little or not at all. While we know from theoretical models that expected interest rate, expected income growth, demographics, or government savings can have large effect on the PSR, these variables have varied either too little or not consistently enough to be able to capture the movements in the PSR.
-
-
-\small
-
-%\input{\econtexBibMake}
-\bibliography{economics,\econtexRoot/cssUSSaving,\econtexRoot/cssUSSaving-Add}
-
-
-\clearpage
-\section*{Appendix 1: Comparison of Alternative Measures of Credit Availability}
-
-
-\hypertarget{fCreditAvailability}{}
-\begin{figure}
-\caption{Alternative Measures of Credit Availability \label{fCreditAvailability}}
-%\begin{center}
-\includegraphics{\econtexRoot/Figures/fCreditAvailability_compare}
-%\end{center}
-
-\footnotesize
-Legend: Debt--disposable income ratio: Thin black line, CEA index: Thick red/grey line, the \cite{abiadEtAl_FinReforms} Index of Financial Liberalization: Dashed black line. Shading---NBER recessions.\\[0mm]
-\tiny Sources: Federal Reserve, accumulated scores from the question on change in the banks' willingness to provide consumer installment loans from the Senior Loan Officer Opinion Survey on Bank Lending Practices, \url{http://www.federalreserve.gov/boarddocs/snloansurvey/}; \cite{abiadEtAl_FinReforms}; Flow of Funds, Board of Governors of the Federal Reserve System.
-\end{figure}
-
-
-Figure~\ref{fCreditAvailability} compares three measures of credit availability: our baseline CEA index, the Index of Financial Liberalization constructed by \cite{abiadEtAl_FinReforms} for a number of countries including the United States, and the ratio of household liabilities to disposable income.
-
-The \citeauthor{abiadEtAl_FinReforms} index is a mixture of indicators of financial development: credit controls and reserve requirements, aggregate credit ceilings, interest rate liberalization, banking sector entry, capital account transactions, development of securities markets and banking sector supervision. The correlation coefficient between this measure and CEA is about 90 percent.
-
-For comparison, the figure also includes the ratio of liabilities to disposable income (from the Flow of Funds), which is however determined influenced by the interaction between credit supply and demand.
 
 
 
 
-\section*{Appendix 2: Stochastic Properties of Aggregate Disposable Income}
+\section{Appendix 2: Stochastic Properties of Aggregate Disposable Income}
 
-\subsection*{Measurement of Disposable Income}
+\subsection{Measurement of Disposable Income}
 
 \hypertarget{fDispIncG}{}
 \begin{figure}
 \caption{Growth of Real Disposable Income (Percent) \label{fDispIncG}}
-%\begin{center}
 \includegraphics{\econtexRoot/Figures/fDispIncG}
 
 \footnotesize
@@ -1060,9 +775,7 @@ Legend: BEA disposable income: Thick red/grey line,  ``Less cleaned'' disposable
 \hypertarget{fPSRcompare}{}
 \begin{figure}
 \caption{Personal Saving Rate (Percent of Disposable Income) \label{fPSRcompare}}
-%\begin{center}
 \includegraphics{\econtexRoot/Figures/fPSRcompare}
-%\end{center}
 
 \footnotesize
 Legend: BEA personal saving rate: Thick red/grey line, PSR calculated with the ``less cleaned'' income series: Thin black line, PSR calculated with the ``more cleaned'' income series: Dashed black line. Shading---NBER recessions.\\[0mm]
@@ -1082,31 +795,96 @@ The ``less cleaned'' disposable income series removes from published data the co
 
 
 
-\subsection*{Stochastic Properties of Disposable Income and Saving for a Rainy Day}
+\subsection{Stochastic Properties of Disposable Income and Saving for a Rainy Day}
 
 The classic paper by \cite{cam87} derived that the permanent income hypothesis implies that saving is negatively  related to future expected income growth.  This appendix investigates the univariate stochastic properties of disposable income and the relationship between saving and income, or the lack of it, in Tables~\ref{tUnivarYPSR} and \ref{tCampbell87}, respectively.
 
 Table~\ref{tUnivarYPSR} documents that all three disposable income series are statistically indistinguishable from a random walk. This means that (changes in) the series are unpredictable using their own lags. In particular, for the income series in log-level, the first autocorrelations are very close to 1 and the augmented Dickey--Fuller test does not reject the null of a unit root. In contrast, for income \emph{growth}, the first and other autocorrelations are zero, as also documented by the p values of the Box--Ljung Q statistic, and the ADF test (of course) strongly rejects  a unit root.
 
 Table~\ref{tCampbell87} reports the estimates of $\alpha_1$ the sensitivity of the saving rate to future income growth:
-\be
+\begin{equation}
 s_t=\alpha_0+\alpha_1 \Delta y_{t+1}+ \varepsilon_t, \label{cambellRainyDayReg}
-\ee
+\end{equation}
 which is motivated by \cite{cam87}, who derives that under the permanent income hypothesis the coefficient $\alpha_1$ is negative, as households save more when they are pessimistic about future income growth.
 
 Overall, the estimates suggest that coefficient $\alpha_1$ is statistically insignificant and small, especially when the full sample, 1966q2--2011q1, is used and when income growth $\Delta y_{t+2}$ enters the regression \eqref{cambellRainyDayReg}, which might be justified because of time aggregation issues. While there is some evidence of a negative coefficient in the pre-1985 sample (which overlaps with the sample 1953q2--1984q4 considered by \cite{cam87}), the relationship seems to break down in the past 20 years.
 
-\input{./LaTeX/AppendixSeveranceBody.tex}
 
 \newpage
 
-\input{./Tables/tOLS_prelim_time.tex}
-\input{./Tables/tOLS02.tex}
 \input{./Tables/tOLS_subSample.tex}
 \input{./Tables/tPred.tex}
-\input{./Tables/tStructEst.tex}
+
+\input{./Tables/tOLS_prelim_time.tex}
 \input{./Tables/tOLS_prelim_time_model.tex}
 \input{./Tables/tUnivarYPSR.tex}
 \input{./Tables/tCampbell87.tex}
+\input{./Tables/tOLS02.tex}
+
+
+\clearpage\newpage\pagebreak
+
+\hypertarget{Alternative-Formulations}{}
+\section{Alternative Formulations}
+
+There are a number of alternative ways to formulate our model so that the link between the OLS regressions and the model estimation can be simplified.
+
+\subsection{Linearizing around $\mTarg^{e}$}
+
+One way to simplify our model further would be to express the saving rate as a function of the difference between the actual and the target level of wealth:
+\begin{eqnarray}
+  \nabla_{t} & = & \mRat_{t} - \mTarg^{e}_{t}(z_{t};\Theta)
+\end{eqnarray}
+and to write the saving rate function in terms of $\nabla$:
+\begin{eqnarray}
+  \varsigma(\nabla_{t},z_{t};\Theta) & = & \sFunc(z_{t};\Theta)
+\end{eqnarray}
+
+Writing the derivative of $\varsigma$ with respect to $\nabla$ as
+\begin{eqnarray}
+  \varsigma^{\nabla}(\nabla_{t},z_{t};\Theta) & = & \left(\frac{\partial \varsigma(\nabla_{t},z_{t};\Theta)}{\partial \nabla}\right),
+\end{eqnarray}
+this has the virtue that, if $\varsigma$ is approximately linear in $\nabla$, we can rewrite it as
+\begin{eqnarray}
+  \varsigma(\nabla \mRat_{t},z_{t};\Theta) & \approx & \varsigma(\bar{\nabla},z_{t};\Theta) + (\nabla_{t} - \bar{\nabla})\varsigma^{\nabla}(\bar{\nabla},z_{t};\Theta)
+\end{eqnarray}
+which gives us an alternative way to estimate the model:
+\begin{equation}
+  \hat{\Theta}=\argmin \frac{1}{T}\sum_{t=1}^T\bigg(s_{t}^{\text{meas}}-\left(\varsigma(\bar{\nabla},z_{t};\Theta)+(\nabla_{t} - \bar{\nabla})\varsigma^{\nabla}(\bar{\nabla},z_{t};\Theta)\right)  \bigg)^2, \label{minDistvarsigma}
+\end{equation}
+which has the (considerable) virtue of being linear in $(\nabla_{t}-\bar{\nabla})$.  In principle the coefficient $\varsigma^{\nabla}(\bar{\nabla},z_{t};\Theta)$ could vary over time as a function of $z_{t}$ but in practice it seems likely to vary only a small amount.
+
+
+\subsection{Linearizing Around All the $z_{t}$'s}
+
+Alternatively, suppose that, for a given $\Theta$, the saving rate function is approximately linear in each of the $z_{t}$'s; write this compactly as
+\begin{eqnarray}
+  \sFunc(z_{t};\Theta) & \approx & \sFunc(\bar{z};\Theta)+(z_{t}-\bar{z})\left(\frac{d \sFunc(z;\Theta)}{d z}\right)
+\end{eqnarray}
+where the terms involving $z$ are understood to be vectors of length 3.
+
+Then the model effectively becomes linear.  If we write the OLS regression as
+
+\begin{eqnarray}
+  s_{t} & = & \psi_{0} + \psi_{1} \CEA_{t} + \psi_{2} \Ex_{t}[u_{t+4}] + \psi_{3} \mRat_{t} + \epsilon_{t}
+\end{eqnarray}
+with a corresponding result in simulations of the theoretical model
+\begin{eqnarray}
+  \sFunc(z_{t};\Theta) & = & \phi_{0} + \phi_{1} \CEA_{t} + \phi_{2} \Ex_{t}[u_{t+4}] + \phi_{3} \mRat_{t} + \epsilon_{t}
+\end{eqnarray}
+then the search for $\Theta$ is approximately a search for the configuration of $\Theta$ elements so that $\phi$ is as close as possible to $\psi$.  If $\psi$ were linear in each of the elements of $\Theta$ we would have an underidentified system (there are 5 elements in $\Theta$ but only four equations to match), so there would be an infinity of combinations of $\Theta$ that all could fit the OLS results exactly.  We are not quite in that situation since the model is not perfectly linear, but it's pretty close.
+
+\subsection{Linearizing differently}
+
+Suppose that for any given choice of $\DiscFac$, the saving function can be well approximated linearly.  Specifically, designating the mean value of a time-varying variable by an overbar and the \textit{difference} between its actual value and its mean value by a hat, consider the approximation
+\begin{eqnarray}
+  \sFunc(\mRat,\mho,\underline{h})  & \approx & \sFunc(\bar{\mRat},\bar{\mho},\bar{\underline{h}})+\hat{\mRat} \sFunc^{\mRat}+\hat{\mho} \sFunc^{\mho}+\hat{\underline{h}}\sFunc^{\underline{h}}
+\end{eqnarray}
+
+Our search for $\Theta$ can then be thought of as a two-step process:
+\begin{enumerate}
+\item For any given value of $\DiscFac$, find the values of the four other elements of $\Theta$ such that this equation fits the data as well as possible
+  \item Search over values of $\DiscFac$ for the one which, contingent on finding the best choices of other elements of $\Theta$, fits the data as well as possible.
+\end{enumerate}
 
 \end{document}

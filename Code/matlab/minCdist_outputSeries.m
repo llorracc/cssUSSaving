@@ -7,6 +7,7 @@ scaleFac0_CEA=thetaVec(3);
 scaleFac1_CEA=thetaVec(4);
 thetaBase=thetaVec(5);
 
+
 wyRatSeries=data(:,1);
 mhoSeries=data(:,2);
 CEAseries=data(:,3);
@@ -58,4 +59,6 @@ mRescaled=mRescaledFull(2,:)';
 cDist=sum((cRescaled-actualC).^2);
 
 figure; plot([cRescaled actualC]); legend('Simulated C','Actual C')
+
+%keyboard;
 

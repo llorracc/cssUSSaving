@@ -1,4 +1,9 @@
 \input{./econtexRoot.tex}\input{\econtexRoot/econtexPaths.tex}\documentclass[pdflatex]{beamer}
+\begin{document}\bibliographystyle{\econtexBibStyle}
+hi
+\end{document}
+
+
 \usepackage{natbib,amsmath,amssymb,rotating,subfigure}
 \usepackage{colortbl}
 \usepackage{moreverb}
@@ -15,6 +20,7 @@
 \setboolean{SFFed2014}{true}
 % \setboolean{SFFed2014}{false}
 \newcommand{\ifSFFed}{\ifthenelse{\boolean{SFFed2014}}}
+
 
 \mode<presentation>
 {
@@ -78,6 +84,7 @@
 % \newcommand{\tblhdr}{\rule{0pt}{4mm}}
 % \newcommand{\fs}{\scriptsize}
 
+
 \title[Dissecting Saving Dynamics]{\textbf{Dissecting Saving Dynamics\\ \large{Measuring Credit, Wealth and Precautionary Effects}}}
 \ifSFFed{\title[Unemployment Uncertainty]{\textbf{\it Labor Income} Uncertainty \\ and the Macroeconomy}}{}
 
@@ -132,7 +139,6 @@
 %   \beamerdefaultoverlayspecification{<+->}
 
 %   ***********************************************************************************************
-\begin{document}\bibliographystyle{\econtexBibStyle}
 
 \begin{frame}
   \titlepage

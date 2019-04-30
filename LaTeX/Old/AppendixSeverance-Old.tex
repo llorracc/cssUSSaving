@@ -1,0 +1,106 @@
+\input{\econtexRoot/\econtexPaths.tex}\documentclass{econtex}
+
+\usepackage{\econtexSetup}\usepackage{\econtexShortcuts}
+
+
+
+\begin{document}
+
+\begin{verbatimwrite}{./AppendixSeveranceBody.tex}
+
+%----------------------------------------------------------------------------------------
+% Appendix 3 shows the derivation of incorporating severance into ctDiscrete framework. -- 1/30/2013
+% It should be put right after the subsection:
+% \subsection*{Stochastic Properties of Disposable Income and Saving for a Rainy Day}
+
+\section*{Appendix 3: Extension of Derivation of Target Wealth to Include Unemployment Insurance}
+
+The model described in \cite{ctDiscrete} assumes that income for
+unemployed/retired households is zero.  A step in the direction of
+realism is to recognize the existence (in most countries) of an
+unemployment insurance system that guarantees some level of income to
+unemployed persons.  The implications of such a system are
+straightforward if we assume that the unemployment insurance benefit
+is a constant proportion of the labor income that would have been
+earned in the first year of unemployment if the person had not become
+unemployed.\footnote{This is notationally slightly simpler than making
+  benefits proportional to the income earned in the last period of
+  employment.}
+
+In the perfect foresight context, receiving a constant payment with
+perfect certainty is equivalent to receiving a lump sum ``severance''
+payment whose value is equal to the PDV of the stream of future UI
+payments.  Thus, for simplicity, we assume
+$\SeverancePayment=\SeveranceRatio\cdot\labor\Wage$, which means
+individuals will receive one-period severance payment $\SeverancePayment$ in the amount of
+a certain ratio $\SeveranceRatio$ to labor income of the period when they first lose their jobs. After that, they will not receive any unemployment
+insurance benefit.
+
+The only modifications of the decision problem are to add
+the severance payment and a corresponding lump-sum tax into the
+dynamic budget constraint (DBC) of employed consumers in
+\cite{ctDiscrete},
+\begin{displaymath}
+    \mLev_{t+1}=\left\{
+    \begin{array}{ll}
+    \bLev_{t+1}+\labor_{t+1}\Wage_{t+1}-\TaxUI_{t+1} & \mbox{w.p. } \urate\\
+    \bLev_{t+1}+\SeverancePayment_{t+1} & \mbox{w.p. }1-\urate,
+    \end{array}
+    \right.
+\end{displaymath}
+where $\mLev$, $\bLev$ and $\labor\Wage$ denote market resources,
+assets and labor income respectively. We let $\TaxUI=\urate\cdot
+\SeverancePayment$ to ensure a balanced budget for the unemployment 
+insurance system.\footnote{Each period, proportion
+  $\urate$ of employed consumers lose their jobs, i.e., the ``exit
+  rate'' in the current labor market is $\urate$.  In order to raise a
+  corresponding amount of revenues, we need to assume that there is a
+  ``birth rate'' of $\urate$ of new employed consumers, which means a
+  same proportion of consumers are entering the labor market each
+  period. Combined with the assumption that $\TaxUI=\urate\times
+  \SeverancePayment$, the severance payment and the severance payment are
+  balanced.} 
+
+Following \cite{ctDiscrete}, we have the following condition derived from the Euler equation,
+\begin{equation}
+  1  = \PGro^{-\CRRA}\Rfree\Discount \left\{(1-\urate)\left(\frac{\cRatE_{t+1}}{\cRatE_{t}}\right)^{-\CRRA}+\urate \left(\frac{\cU_{t+1}}{\cRatE_{t}}\right)^{-\CRRA}\right\},
+\end{equation}
+where nonbold variables represent the bold variables normalized by
+labor income $\labor\Wage$. Superscripts $e$ and $u$ represent the two
+possible states.
+
+To find the $\Delta c^e=0$ and $\Delta m^e=0$ loci, we let
+$c_{t+1}^e=c_t^e\equiv c^e$ and $m_{t+1}^e=m_{t}^e\equiv m^e$. Given
+$c_{t+1}^u=m_{t+1}^u\kappa^u$ ($\kappa^u$ is the MPC of an unemployed
+consumer), combined with the modified DBC above, we have
+\begin{equation*}
+1 = \PGro^{-\CRRA}\Rfree\Discount \left\{(1-\urate)+\urate \left(\frac{\MPCU(\Rnorm(m^e-c^e)+\SeveranceRatio)}{\cRatE}\right)^{-\CRRA}\right\}.
+\end{equation*}
+
+Rearranging terms, the $\Delta c^e=0$ locus can be characterized as
+\begin{equation}
+\overbrace{\left(\frac{\PGro^{\CRRA}(\Rfree\Discount)^{-1}-\erate}{\urate}\right)^{1/\CRRA}}^{\straight}=\left(\frac{c^e}{(\Rnorm(m^e-c^e)+\SeveranceRatio)\MPCU}\right).
+\end{equation}
+
+Given the modified DBC of employed consumers, the $\Delta m^e=0$ locus becomes
+\begin{equation}
+m^e=\Rnorm(m^e-c^e)+(1-\urate\SeveranceRatio).
+\end{equation}
+
+Given the two equations above, we are able to obtain the exact formula for target wealth $\check{m}$, which is the steady state value of $m^e$. Following \cite{ctDiscrete}, define $\eta \equiv \Rnorm \MPCU \straight$. We have
+\begin{eqnarray}
+\frac{\eta\check{m}+\frac{\eta\SeveranceRatio}{\Rnorm}}{\eta+1}&=&(1-\Rnorm^{-1})\check{m}+\frac{1-\urate\SeveranceRatio}{\Rnorm}=\check{c}\nonumber\\
+\left(\frac{1}{\Rnorm}-\frac{1}{\eta+1}\right)\check{m} &=& \frac{1}{\Rnorm}\left(1-\urate\SeveranceRatio-\frac{\eta\SeveranceRatio}{\eta+1}\right)\nonumber\\
+\check{m}&=& \frac{(\eta+1)(1-\urate\SeveranceRatio)-\eta\SeveranceRatio}{\eta+1-\Rnorm}.
+\end{eqnarray}
+
+Clearly, target wealth decreases when the severance payment becomes
+more generous and target wealth can even be negative if we make the
+severance ratio $\SeveranceRatio$ large enough.
+%-----------------------------------------------------------------------------------------
+\end{verbatimwrite}
+\input ./AppendixSeveranceBody.tex
+
+\input{\econtexBibMake}
+
+\end{document}

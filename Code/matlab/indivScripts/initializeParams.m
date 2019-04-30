@@ -9,7 +9,7 @@
 % rhoBase = 1.01;
 % VerboseOutput = 0;
 
-epsilon = 0.01;
+epsilon = 0.5; %0.01
 %mhoBase = 0.05;
 %thetaBase = 0.04;
 %littleRBase = 0.04/4;   %Quarterly numbers

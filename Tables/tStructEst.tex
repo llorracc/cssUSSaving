@@ -1,9 +1,9 @@
 \begin{table}
  \caption{ Calibration and Structural Estimates} \label{tStructEst}
  \begin{center}
- \begin{tabular}{@{}lld{6}@{}}
- \multicolumn{3}{c}{ $s_t^{\text{theor}}=s_t^{\text{theor}}\big(\Theta; \mRat_t-\check{\mRat}(\bar{h}_t,\mho_t)\big)$, } \\
- \multicolumn{3}{c}{ $\bar{h}_t=\bar{\theta}_\h+\theta_{\CEA} \CEA_t$, } \\
+ \begin{tabular}{@{}lld{12}@{}}
+ \multicolumn{3}{c}{ $\text{s}_t=\text{s}\big(\{m_{t},\CEA_{t},\Ex_{t}u_{t+4} \} ; \Theta\big)$, } \\
+ \multicolumn{3}{c}{ $\underline{h}_t=\theta_{\CEA} \CEA_t$, } \\
  \multicolumn{3}{c}{  $\mho_t=\bar{\theta}_\mho+\theta_u \Ex_tu_{t+4}$. } \\
  \toprule
   \multicolumn{1}{l}{Parameter} & \multicolumn{1}{l}{Description} & \multicolumn{1}{c}{Value}  \\
@@ -11,28 +11,26 @@
    \multicolumn{3}{l}{Calibrated Parameters} \\
    $\rfree$ & Interest Rate & \multicolumn{1}{c}{0.04/4} \\
   $\Delta \Wage$ & Wage Growth & \multicolumn{1}{c}{0.01/4} \\
-  $\CRRA$  & Relative Risk Aversion & 2 \\
+  $\CRRA$  & Relative Risk Aversion & \multicolumn{1}{c}{2} \\
  \midrule
-  \multicolumn{3}{l}{Estimated Parameters $\Theta=\{\Discount, \bar{\theta}_h,\theta_{\CEA},\bar{\theta}_\mho,\theta_u\}$}\\
-  $\Discount$ & Discount Rate & 1- 0.0064^{***}  \\
-  & & (0.0016 ) \\
-  $\bar{\theta}_h$ & Scaling of $\CEA_t$ to $\bar{h}_t$ & 0.8751^{}  \\
-  & & (1.6636 ) \\
-  ${\theta}_{\CEA}$ & Scaling of $\CEA_t$ to $\bar{h}_t$ & 5.2504^{**}  \\
-  & & (2.6012 ) \\
-  $\bar{\theta}_\mho$ & Scaling of $\Ex_tu_{t+4}$ to $\mho_t$ & 6.3218 \times{10^{-5}}^{**}  \\
-  & & (3.1300\times{10^{-5}} ) \\
-  ${\theta}_u$ & Scaling of $\Ex_tu_{t+4}$ to $\mho_t$ & 2.6079 \times{10^{-4}}^{}  \\
-  & & (4.7670 \times{10^{-4}} ) \\
+  \multicolumn{3}{l}{Estimated Parameters $\Theta=\{\Discount, \theta_{\CEA},\bar{\theta}_\mho,\theta_u\}$}\\
+  $\Discount$ & Discount Factor & 1- 0.0065^{***}  \\
+  & & (0.0005 ) \\
+  ${\theta}_{\CEA}$ & Scaling of $\CEA_t$ to $\underline{h}_t$ & 8.8943^{***}  \\
+  & & (0.8403 ) \\
+  $\bar{\theta}_\mho$ & Scaling of $\Ex_tu_{t+4}$ to $\mho_t$ & 1.2079 \times{10^{-4}}^{***}  \\
+  & & (0.2757\times{10^{-4}} ) \\
+  ${\theta}_u$ & Scaling of $\Ex_tu_{t+4}$ to $\mho_t$ & 2.6764 \times{10^{-4}}^{***}  \\
+  & & (0.6490 \times{10^{-4}} ) \\
  \midrule
-  $\bar{R}^2$ & &  0.884  \\
-  DW stat & &  1.057  \\
+  $\bar{R}^2$ & &  0.906  \\
+  DW stat & &  0.780  \\
  \midrule
-   & Sample average of $\CEA_t$  & 0.5129  \\
-   & Sample average of $\Ex_tu_{t+4}$  & 0.0618  \\
+   & Sample average of $\CEA_t$  & 0.4289  \\
+   & Sample average of $\Ex_tu_{t+4}$  & 0.0620  \\
   \bottomrule
  \end{tabular}
  \end{center}
-  {\footnotesize Notes: Quarterly calibration. Estimation sample: 1966q2--2011q1. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent.  Standard errors (in parentheses) were calculated with the delta method.  Parameter estimates imply sample averages of   3.57 and 0.000079 for $\bar{h}_t$ and $\mho_t$, respectively. } \\  
-\end{table}
+  {\footnotesize Notes: Quarterly calibration. Estimation sample: 1966q2--2011q4. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent.  Standard errors (in parentheses) were calculated with the delta method.  Parameter estimates imply sample averages of   3.82 and 0.000137 for $\underline{h}_t$ and $\mho_t$, respectively. } \\
+  \end{table}
 

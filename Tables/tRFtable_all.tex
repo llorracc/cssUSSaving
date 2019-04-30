@@ -1,0 +1,37 @@
+
+\begin{table}
+\caption{ Reduced-Form Regressions} \label{tRFall} \small
+\begin{center}
+\begin{tabular}{@{}ld{6}d{6}d{6}d{6}d{6}d{6}@{}}
+\multicolumn{7}{c}{ $s_t=\gamma_0+\gamma_m m_t+\gamma_{\CEA}\CEA_t+ \gamma_{Eu}\Ex_t u_{t+4}+\gamma'X_t+\varepsilon_t$ } \\
+\toprule
+   & & & \multicolumn{2}{c}{Reduced-Form} & \multicolumn{2}{c}{Additional Variables} \\
+  \cmidrule(l){4-5} \cmidrule(l){6-7}
+  Model & \multicolumn{1}{c}{Uncertainty} & \multicolumn{1}{c}{Demographics} & \multicolumn{1}{c}{Baseline} & \multicolumn{1}{c}{Time Trend}& \multicolumn{1}{c}{Gov Sav} & \multicolumn{1}{c}{Ineq} \\
+\midrule
+$\gamma_0$ & 11.750^{ ***}  & 29.504^{ ***}  & 17.157^{ ***}  & 15.535^{ ***}  & 17.588^{ ***}  & 18.553^{ ***}\\
+ & (0.462)  &  (5.257)  &  (1.589)  &  (2.004)  &  (1.589)  & (1.804)\\
+$\gamma_m$   & &-1.596^{ ***}  & -0.894^{ ***}  & -0.618^{ *}  & -0.862^{ ***}  & -1.321^{ ***}\\
+ & & (0.362)  &  (0.261)  &  (0.341)  &  (0.269)  & (0.410)\\
+ $\gamma_{\CEA}$   & & -4.444^{ ***}  & -7.909^{ ***}  &-4.156^{ **}  & -8.149^{ ***}  & -9.545^{ ***}\\
+ & & (1.451)  &  (0.556)  &  (2.098)  &  (0.565)  & (1.249)\\
+$\gamma_{Eu}$  & 0.551^{ ***}  & 0.264^{ ***}  & 0.202^{ ***}  & 0.347^{ ***}  & 0.028^{ }  & 0.181^{ ***}\\
+ & (0.059) & (0.068)  &  (0.064)  &  (0.105)  &  (0.074)  & (0.065)\\
+ $\gamma_{t}$   & -0.055^{ ***}  & & &-0.025^{ }  & & \\
+ &(0.002) & & & (0.015)  &    &  \\
+ $\gamma_\text{old}$   &  & -0.861^{ **} & & & &   \\
+ &    &  (0.365) & & &  &   \\
+ $\gamma_\text{gov sav}$     & & & & &-0.152^{ **}  &  \\
+ &      & & & &(0.063) &  \\
+ $\gamma_\text{inc share}$   &  & & & & &0.190^{ }\\
+ & &   & & & &(0.144)  \\
+\midrule
+ $\bar{R}^2$  & 0.910  &  0.918  & 0.911  &  0.914  &  0.916  & 0.913\\
+ F stat p val  & 0.000 & 0.000  &  0.000  &  0.000 & 0.000 & 0.000\\
+DW stat  & 0.761  & 0.848  & 0.732  &  0.769  & 0.682  & 0.771\\
+\bottomrule
+\end{tabular}
+\end{center}
+\showEstTime{Estimated: 13 Mar 2019, 18:27:56}
+ {\footnotesize Notes: Estimation sample: 1966q2--2011q4. $\{{}^*,{}^{**},{}^{***}\}={}$Statistical significance at $\{10,5,1\}$ percent. Newey--West standard errors, 4 lags.}
+\end{table}

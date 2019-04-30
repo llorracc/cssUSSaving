@@ -1,0 +1,102 @@
+
+We use this simple, partial-equilibrium framework (instead of a richer but less tractable HA-GE model) because our goal is to estimate a unified structural saving model whose ``deep'' parameters are jointly identified using both business-cycle-frequency fluctuations AND long-term trends.  Both cyclical and secular changes in the saving rate have been large, and a model that matched one set of facts (secular, or cyclical) but had strongly counterfactual implications for the other would not be a satisfying description of history.
+
+We are not aware of prior papers that attempt this.  Essentially all of the ``structural'' literature has focused on cyclical dynamics, using one of two frameworks:
+\begin{enumerate}
+\item Complex Heterogeneous Agent New Keynesian models (HANK) with serious treatments of uncertainty
+    \item Simple spender--saver Two-Agent New Keynesian models (TANK)
+\end{enumerate}
+
+
+
+\hypertarget{HA-Model-Too-Hard-Right-Now}{}
+\hypertarget{HA-Models-Not-Used-Yet-For-Forecasting}{}
+For the first class of models, the last decade or so has seen impressive progress in the degree of realism achievable in the treatment of uncertainty, liquidity constraints, household structure, and other first-order elements of households' microeconomic environment. A flourishing literature today % (in which two of the paper's coauthors are active participants)
+%JS0406: Proposing to drop this bracket, so that people don't get irritated.  I guess the editor is in any case already aware we have worked on the area
+explores the implications of these complexities for many questions; see \cite{kmpHandbook} for a survey.
+However, at the current state of the art, estimating such a model would be a considerable challenge, as estimation is generally several orders of magnitude more computationally demanding than simulating a calibrated version (which is what the existing literature has done).  Furthermore, rich microfounded models have usually been optimized for the specialized purposes of examining in great depth a single question (such as the mechanisms of transmission of monetary policy, \cite{kmvHANK}) rather than, as we are attempting, to address a number of different causal mechanisms, over different time horizons, simultaneously.  Finally, even if such a rich HA-GE model could be estimated, it is not clear that the extra microeconomic realism would be worth the cost in transparency and tractability.
+
+Indeed, in advocating the use of TANK models, \cite{dgTANK} argue that the simplicity and transparency of models with only two agents more than make up for their lack of fidelity to microeconomic facts.  This point is illustrated by the fact that central banks and other entities that require a theoretical model regularly use TANK models as practical tools for real-time macroeconomic analysis and forecasting. However, a major drawback of the TANK models is that they allow no role for uncertainty either as an impulse or a propagation mechanism, despite the large literature in recent years that has argued the uncertainty is a core element of business cycle dynamics (see, e.g., cf \cite{bfjstUncertain}).
+
+Our  model occupies a middle ground. There is only a single agent (making it simpler in that respect even than the TANK models), but the consumption function is nonlinear (making it harder to analyze analytically).  This nonlinearity brings a major benefit, though, in providing a way to accommodate two mechanisms that do not meaningfully exist in TANK models: Uncertainty and credit constraints.  Furthermore, like a TANK model, its parameters can be straightforwardly estimated to match targeted macroeconomic facts (in our case, the saving rate).
+
+\hypertarget{Our-Model-Has-Been-Used-In-Other-Countries}{}
+Likely because of its tractability and simplicity, our model (as introduced in a draft version of this paper) has been found useful as a tool to understand saving dynamics in a number of countries in addition to the US. The model has been used explicitly to forecast consumption and the saving rate at the Bank of England (\cite{BoE_forecasting}).  \cite{modyEtAl_precSaving} use a version of it to motivate an empirical exercise which concludes that labor income uncertainty contributed by at least two fifths to the increase in the saving rate in advanced economies during the Great Recession. \cite{Trichet_JacksonHoleSpeech} argues (referring to our model) that the precautionary motive contributed to the high saving rate in advanced economies after 2008.
+
+\begin{comment} %% Something like this to Ricardo
+  One particularly stringent kind of ``out of sample'' testing of a model is to see whether it is useful in understanding the same issues in countries other than the one whose data the model originally was estimated on.  We have added \href{http://www.econ2.jhu.edu/people/ccarroll/papers/cssUSSaving/#Used-In-Other-Countries}{a paragraph} reporting on the extent to which our model has proven useful to the Bank of England, the ECB, and the IMF in explaining broad developments in in the post-2008 world.
+\end{comment}
+
+%Given the recent success in using richer models for examining other macroeconomic questions, and given that our core economic mechanisms (precautionary, wealth, and credit effects) are present in such models, it seems likely that similar conclusions could be obtained if we were able to estimate such a model in a way similar to our estimation of the tractable model.
+
+%But a central weakness in TANK models is their inability to capture any role for uncertainty, either as an impulse or a propagation mechanism for business cycles, despite the large literature following \cite{bfjstUncertain} that has provided empirical evidence that uncertainty may play a key role.
+
+% Models with rich microeconomic environments require the calibration of many auxiliary parameters whose ultimate relationship to their quantitative results is sometimes opaque even to the authors, and even more obscure to readers.  Our story is relatively simple and easily understood using the tractable model, but would have been much harder to explain if buried in a welter of microeconomic complexity.
+
+% In fact, at the existing state of the computational art it was not clear to us that it would have been possible to conduct a structural estimation of the kind we desired using a model with a rich microeconomic structure.  And, even if it had proven possible, it might not have been wise.
+
+%When a novel approach to a question is proposed, it is almost always best to illustrate the technique with the simplest possible framework, rather than the richest possible framework, so that the essentials of the methodological contribution are easier to absorb.  It will always be possible for subsequent researchers to see whether the results obtained using a simple model hold up when the model is made more realistic.
+
+%Instead, existing work in the consumption/saving literature (including the papers cited in footnote~\ref{foot:PSRlit}) has typically either been theoretical/calibrated (rather than structural and estimated to match aggregate data) or reduced-form (rather than structural).  Furthermore, both structural and reduced-form literatures have mostly focused on business-cycle-frequency movements (e.g., by detrending the data using an HP filter), without any constraint that those dynamics be reconciled with longer-term trends (there are a few exceptions, e.g.\ \cite{parker_nberma_spendthrift} and work by Muellbauer and coauthors cited below).
+
+%The tractability of our structural model has been instrumental in enabling us to pursue this goal.  But our model's tractability comes at the cost of making stylized assumptions, most notably about the nature of unemployment risk.
+
+
+
+
+
+\begin{comment}
+JS0406: Here is the original text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{verbatimwrite}{./Highlighted/Comparison-with-Alternative-Frameworks.tex}
+  Existing work in the consumption/saving literature (including the papers cited in footnote~\ref{foot:PSRlit}) has typically either been theoretical/calibrated (rather than structural and estimated to match aggregate data) or reduced-form (rather than structural).  Furthermore, both structural and reduced-form literatures have mostly focused on business-cycle-frequency movements (e.g., by detrending the data using an HP filter), without any constraint that those dynamics be reconciled with longer-term trends (there are a few exceptions, e.g.\ \cite{parker_nberma_spendthrift} and work by Muellbauer and coauthors cited below).
+
+Our goal has been to estimate a unified structural saving model whose ``deep'' parameters are jointly identified using both business-cycle-frequency fluctuations AND long-term trends, since both cyclical and secular changes in the saving rate have been large.
+
+We are not aware of prior papers that attempt this.
+
+The tractability of our structural model has been instrumental in enabling us to pursue this goal.  But our model's tractability comes at the cost of making stylized assumptions, most notably about the nature of unemployment risk.  The last decade or so has seen impressive progress in the degree of realism achievable in the treatment of uncertainty, liquidity constraints, household structure, and other detailed elements of households' microeconomic environment, and a flourishing literature today (in which two of the paper's coauthors are active participants) explores the implications of these complexities for many questions.  (See \cite{kmpHandbook} for a survey of this literature.)
+
+\hypertarget{HA-Models-Not-Used-Yet-For-Forecasting}{}
+
+Such models have not yet proven to be useful as practical tools for real-time macroeconomic analysis and forecasting, perhaps because they are unwieldy and both computationally and conceptually difficult.  At this writing, we know of no central bank or similar entity that has constructed a full-blown Heterogeneous Agent model for real-time forecasting and policy purposes.  The farthest most such entities have gone is to employ Two Agent New Keynesian (TANK) models.
+
+%% JS0330: Added the paragraph below referring to the BoE, IMF and Trichet use of this model %%%
+\hypertarget{Our-Model-Has-Been-Used-In-Other-Countries}{}
+
+In contrast, because of its tractability and simplicity, our model (as introduced in a draft version of this paper) has been found useful as a tool to understand saving dynamics in a number of countries in addition to the US. The model has been used explicitly to forecast consumption and the saving rate at the Bank of England (\cite{BoE_forecasting}).  At the IMF, \cite{modyEtAl_precSaving} use a version of it to motivate an empirical exercise which concludes that labor income uncertainty contributed by at least two fifths to the increase in the saving rate in advanced economies during the Great Recession. \cite{Trichet_JacksonHoleSpeech} argues (referring to our model) that the precautionary motive contributed to the high saving rate in advanced economies after 2008.
+
+
+Given the recent success in using richer models for examining other macroeconomic questions, and given that our core economic mechanisms (precautionary, wealth, and credit effects) are present in such models, it seems likely that similar conclusions could be obtained if we were able to estimate such a model in a way similar to our estimation of the tractable model.
+
+\hypertarget{HA-Model-Too-Hard-Right-Now}{}
+
+But at the current state of the art, doing so would be a considerable challenge.  Estimation of a model is generally several orders of magnitude more computationally demanding than simulating a calibrated version (which is what the existing literature has done).  Furthermore, rich microfounded models have until now usually been optimized for the specialized purposes of examining a single question (such as the mechanisms of transmission of monetary policy, \cite{kmvHANK}) in great depth rather than, as we are attempting, to address a number of different causal mechanisms, over different time horizons, simultaneously.  One reason for choosing a simpler model is in order to pursue a more complex objective.
+
+Furthermore, even if such a model could be estimated, it is not clear that the extra microeconomic realism would be worth the cost in transparency and tractability.  \cite{dgTANK} argue that simplicity and transparency are paramount virtues in a macroeconomic model, and we are sympathetic to that principle.  But another virtue of a model is matching important facts, and a major drawback of the TANK models they advocate is that such models allow no role for uncertainty either as an impulse or a propagation mechanism, despite the large literature in recent years that has argued the uncertainty is a core element of business cycle dynamics (see, e.g., cf \cite{bfjstUncertain}).
+
+%But a central weakness in TANK models is their inability to capture any role for uncertainty, either as an impulse or a propagation mechanism for business cycles, despite the large literature following \cite{bfjstUncertain} that has provided empirical evidence that uncertainty may play a key role.
+
+% Models with rich microeconomic environments require the calibration of many auxiliary parameters whose ultimate relationship to their quantitative results is sometimes opaque even to the authors, and even more obscure to readers.  Our story is relatively simple and easily understood using the tractable model, but would have been much harder to explain if buried in a welter of microeconomic complexity.
+
+% In fact, at the existing state of the computational art it was not clear to us that it would have been possible to conduct a structural estimation of the kind we desired using a model with a rich microeconomic structure.  And, even if it had proven possible, it might not have been wise.
+
+When a novel approach to a question is proposed, it is almost always best to illustrate the technique with the simplest possible framework, rather than the richest possible framework, so that the essentials of the methodological contribution are easier to absorb.  It will always be possible for subsequent researchers to see whether the results obtained using a simple model hold up when the model is made more realistic.
+\end{comment}
+
+
+\hypertarget{Why-We-Do-Not-Endogenize-Asset-Prices}{}
+
+\subsubsection{Why We Do Not Endogenize Asset Prices}{}
+
+Arguably a deeper problem, both with our paper and with those cited above, is the choice to take as exogenous some of the variation that we would most urgently like to understand.  In particular, our model's finding that a `wealth effect' explains much of the increase in saving in the Great Recession begs the question of what caused the asset price movements that underlie the wealth effect (in stocks, housing and bonds). If, as seems likely, an important driver of asset prices is the degree of uncertainty (cf.\ \cite{bexUncertaintyAssetPrices}, \cite{drechslerUncertainty}), then our method will substantially underestimate the cyclical importance of uncertainty, attributing part of uncertainty's true effect to developments (asset prices; credit) that are themselves consequences of uncertainty.
+
+A vast literature has attempted to model asset pricing in general equilibrium.  While some progress has been made in understanding the cross-sectional heterogeneity of asset holdings (cf.\ \cite{gmAssetPricing}), for our purposes what is needed is a model that can capture the cyclical and secular time series of returns.  %If the aggregate time series asset pricing literature had found a consensus model that worked well, we would certainly have needed to incorporate some version of that consensus in our model.
+% JS0406: This sentence did not seem necessary to me.
+The extent to which no consensus exists is highlighted by the diversity of the recent literature that has sought to endogenize the precipitous decline of net worth and house prices during the Great Recession.  In this attempt, different authors have built into their models a number of alternative mechanisms, including the presence of a exogenous but rare Great-Depression-like state, exogenous shocks to expectations, or endogenous changes in illiquidity of housing.\footnote{In more detail, building on the literature on consumption disaster risk, \cite{glover:intergenRedistr} adopted a setup in which the aggregate shock includes a Great-Depression-like state. Related work attempted to capture the dynamics of house prices during the last boom and (deep) bust. For example, \cite{kmv:houseBoomBust} show that changes in beliefs about future housing demand can match the volatile dynamics of house prices and house price--rent ratios; but invoking unobservable changes in opinions about the future demand for assets is only a small step from explicitly assuming that asset prices are exogenous. \cite{garrigaHedlund} argue that an endogenous decline in housing liquidity (induced by directed search to buy houses) amplifies recessions by contracting credit and depressing consumption.  The debate on the role of beliefs about house prices, changes in credit supply or mortgage market arrangements includes important contributions of \cite{favilukis:housing}, \cite{kmv:houseBoomBust}, \cite{justPrimTamb:CredSupplyAndHouseBoom}, and \cite{garrigaHedlund}. \label{foot_housingLit}}  The existence of this literature suggests that no single model of asset pricing is adequate both for ``normal'' times and for the Great Recession; more broadly, it seems fair to say that no single asset pricing model has come to be viewed as robustly applicable to most times and places, or for both high-frequency cyclical and low-frequency secular movements in asset prices.  If we were to incorporate any non-consensus model of asset pricing (and, at this point, \textit{all} asset-pricing models are non-consensus models), the paper would inevitably (and correctly) judged to be more about the performance of that asset pricing model than anything else.\footnote{Essentially the same points could be made about our choice to take credit supply as exogenous.  Again, to the extent that movements in credit supply are caused by movements in uncertainty, our estimates may seriously underestimate the contribution of uncertainty to business cycle fluctuations.}
+
+% Our aim is to analyze at various time frequencies the drivers of the time-series dynamics of the aggregate saving rate, a variable that is key for thinking about questions, such as how fast an economy recovers from a recession. We believe for this purpose it is important to \emph{estimate} the model (as opposed to calibrating it); as a result,  we chose a much simpler setup than the literature we just described. (On the other hand, the simple model we present would do a bad job at fitting cross-sectional distributions and would not be useful for, e.g., modelling distributional implications of changes in asset prices.)
+
+The exogeneity assumptions bring us to a final reason for using our tractable model, which is that a central purpose of this paper has been to bring to light the existence of some surprisingly simple empirical relationships between the saving rate and our three explanatory variables.  The construction of an elaborate model that required many pages to set up and explain, and many more pages to estimate, might have drawn attention away from the simplicity of the empirical foundations of the paper, in which the key results are evident even in the reduced form estimates.  Our penultimate section \ref{sReducedFormRegressions} examines the empirical performance of our model in comparison with a number of alternatives (including the reduced form model) and argues that our structural model has advantages over any of them.

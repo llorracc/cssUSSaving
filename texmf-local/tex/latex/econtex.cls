@@ -187,7 +187,7 @@ amsmath,amssymb,amsfonts,amsthm
 
 % citations and bibliography
 \RequirePackage[authoryear]{natbib}
-\AtBeginDocument{\renewcommand{\refname}{\clearpage References}
+\AtBeginDocument{\renewcommand{\refname}{References}
 \renewcommand\@makefnmark
   {\mbox{\textsuperscript{\tiny\@thefnmark}}} % Restore footnote defn after titlepage redefines it
 \ifdvi
