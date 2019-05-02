@@ -1,7 +1,4 @@
 \input{./econtexRoot.tex}\input{\econtexRoot/econtexPaths.tex}\documentclass[pdflatex]{beamer}
-\begin{document}\bibliographystyle{\econtexBibStyle}
-hi
-\end{document}
 
 
 \usepackage{natbib,amsmath,amssymb,rotating,subfigure}
@@ -84,6 +81,7 @@ hi
 % \newcommand{\tblhdr}{\rule{0pt}{4mm}}
 % \newcommand{\fs}{\scriptsize}
 
+\begin{document}\bibliographystyle{econtex}
 
 \title[Dissecting Saving Dynamics]{\textbf{Dissecting Saving Dynamics\\ \large{Measuring Credit, Wealth and Precautionary Effects}}}
 \ifSFFed{\title[Unemployment Uncertainty]{\textbf{\it Labor Income} Uncertainty \\ and the Macroeconomy}}{}
@@ -141,9 +139,9 @@ hi
 %   ***********************************************************************************************
 
 \begin{frame}
-  \titlepage
+   \titlepage
 \end{frame}
-
+ 
 % \begin{frame}
 %   \frametitle{Outline}
 %   \tableofcontents
@@ -214,7 +212,7 @@ hi
     \end{itemize}
   \item \jemph{``Credit Availability''}
     \begin{itemize}
-    \item Secular Trend: \begin{itemize} \item \cite{parker_nberma_spendthrift}, \cite{dynanKohn07_indebtedness}, Muellbauer (many papers) \end{itemize}
+    \item Secular Trend: \begin{itemize} \item \cite{parker_nberma_spendthrift}, \cite{dynanKohnDebt}, Muellbauer (many papers) \end{itemize}
     \item Cyclical Dynamics: \begin{itemize}
       \item \cite{glLiq}, \cite{gkLiq}, \cite{hall:slump} \end{itemize}
     \end{itemize}

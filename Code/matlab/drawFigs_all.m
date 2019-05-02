@@ -41,7 +41,7 @@ legend([h(1:2)],'Actual PSR','Fitted PSR')
 %savefig(fPSR_StructFit,'fPSR_StructFit.fig');
 print(fPSR_StructFit,'-depsc','fPSR_StructFit.eps');
 print(fPSR_StructFit,'-dpng','fPSR_StructFit.png');
-print(fPSR_StructFit,'-dmeta','fPSR_StructFit.emf');
+%print(fPSR_StructFit,'-dmeta','fPSR_StructFit.emf');
 print(fPSR_StructFit,'-dpdf','fPSR_StructFit.pdf');
 %print(fPSR_StructFit,'-dsvg','fPSR_StructFit.svg');
 
@@ -64,7 +64,7 @@ legend([h(1:2); h(4)],'Fitted PSR','Fitted PSR excl. Uncertainty','Fitted PSR ex
 %savefig(fPSR_StructDecomp,'fPSR_StructDecomp.fig');
 print(fPSR_StructDecomp,'-depsc','fPSR_StructDecomp.eps');
 print(fPSR_StructDecomp,'-dpng','fPSR_StructDecomp.png');
-print(fPSR_StructDecomp,'-dmeta','fPSR_StructDecomp.emf');
+%print(fPSR_StructDecomp,'-dmeta','fPSR_StructDecomp.emf');
 print(fPSR_StructDecomp,'-dpdf','fPSR_StructDecomp.pdf');
 %print(fPSR_StructFit,'-dsvg','fPSR_StructDecomp.svg');
 
